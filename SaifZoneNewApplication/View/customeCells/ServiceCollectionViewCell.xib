@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ServiceCollectionViewCell" id="sZa-C6-cIk" customClass="ServiceCollectionViewCell" customModule="SaifZoneNewApplication" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="143" height="262"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZVq-fn-bbS">
+                <rect key="frame" x="0.0" y="0.0" width="143" height="262"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plane" translatesAutoresizingMaskIntoConstraints="NO" id="0rY-OD-QoV">
+                        <rect key="frame" x="51.5" y="22" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="VMK-gd-gBs"/>
+                            <constraint firstAttribute="height" constant="40" id="ZHj-7N-3PK"/>
+                        </constraints>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="thin"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airport Access Letter" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-mi-U23">
+                        <rect key="frame" x="6" y="68" width="131" height="15"/>
+                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="11"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.85098039215686272" green="0.73725490196078436" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="Ake-mi-U23" firstAttribute="leading" secondItem="ZVq-fn-bbS" secondAttribute="leading" constant="6" id="O6X-VU-dmg"/>
+                    <constraint firstAttribute="trailing" secondItem="Ake-mi-U23" secondAttribute="trailing" constant="6" id="cMf-4P-HrT"/>
+                    <constraint firstItem="0rY-OD-QoV" firstAttribute="top" secondItem="ZVq-fn-bbS" secondAttribute="top" constant="22" id="ePj-tL-4xe"/>
+                    <constraint firstItem="Ake-mi-U23" firstAttribute="top" secondItem="0rY-OD-QoV" secondAttribute="bottom" constant="6" id="jDc-YR-oNw"/>
+                    <constraint firstItem="0rY-OD-QoV" firstAttribute="centerX" secondItem="ZVq-fn-bbS" secondAttribute="centerX" id="ndb-Fz-l4u"/>
+                    <constraint firstItem="Ake-mi-U23" firstAttribute="centerX" secondItem="0rY-OD-QoV" secondAttribute="centerX" id="uA2-MQ-gpV"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="143" height="262"/>
+            <point key="canvasLocation" x="202.17391304347828" y="54.910714285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="plane" width="32" height="32"/>
+    </resources>
+</document>

@@ -3,10 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50765065040606DA6A53D883 /* Pods_SaifZoneNewApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B2FE4E4FDA8D15188C3019 /* Pods_SaifZoneNewApplication.framework */; };
+		52031E9E2429D86300FBCECA /* SuggestedServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52031E9D2429D86300FBCECA /* SuggestedServiceTableViewController.swift */; };
+		52031EA02429D88E00FBCECA /* SuggestedServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52031E9F2429D88E00FBCECA /* SuggestedServiceTableViewCell.swift */; };
+		521F2C3124232B3A0055B74F /* SAIFZONEMainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F2C3024232B3A0055B74F /* SAIFZONEMainService.swift */; };
+		521F2C3324235E100055B74F /* applyServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F2C3224235E100055B74F /* applyServiceCollectionViewCell.swift */; };
+		521F2C3524235E1E0055B74F /* applyServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */; };
+		524EC6ED240FA13700C8C0C5 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EC6EC240FA13700C8C0C5 /* extensions.swift */; };
+		524EC6F0240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524EC6EE240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib */; };
+		524EC6F1240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EC6EF240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift */; };
+		526479032421FD4F002D6AD9 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526479022421FD4F002D6AD9 /* profileViewController.swift */; };
+		52671AFF2421D52D006A6218 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671AFE2421D52D006A6218 /* LicenseViewController.swift */; };
+		52671B012421D53E006A6218 /* OTPVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671B002421D53E006A6218 /* OTPVerifyViewController.swift */; };
+		52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671B022421D54C006A6218 /* RegisterViewController.swift */; };
+		5284E9A1241E2D8C008B853E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5284E9A0241E2D8C008B853E /* File.swift */; };
+		5294C8D0240CEC55008CC363 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8C8240CEC55008CC363 /* TPKeyboardAvoidingTableView.m */; };
+		5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8CB240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		5294C8D2240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8CC240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m */; };
+		5294C8D3240CEC55008CC363 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8CD240CEC55008CC363 /* TPKeyboardAvoidingScrollView.m */; };
+		5294C8D6240E655C008CC363 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8D5240E655C008CC363 /* HomePageViewController.swift */; };
 		52A9F0D8240CCE0800034389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9F0D7240CCE0800034389 /* AppDelegate.swift */; };
 		52A9F0DA240CCE0800034389 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9F0D9240CCE0800034389 /* SceneDelegate.swift */; };
 		52A9F0DC240CCE0800034389 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9F0DB240CCE0800034389 /* ViewController.swift */; };
@@ -15,6 +34,52 @@
 		52A9F0E4240CCE0A00034389 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A9F0E2240CCE0A00034389 /* LaunchScreen.storyboard */; };
 		52A9F0EF240CCE0A00034389 /* SaifZoneNewApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9F0EE240CCE0A00034389 /* SaifZoneNewApplicationTests.swift */; };
 		52A9F0FA240CCE0A00034389 /* SaifZoneNewApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9F0F9240CCE0A00034389 /* SaifZoneNewApplicationUITests.swift */; };
+		52A9F109240CD1D200034389 /* loginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A9F108240CD1D200034389 /* loginPageViewController.swift */; };
+		52ABC82C2414FDFB00402709 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52ABC82B2414FDFB00402709 /* ServiceCollectionViewCell.xib */; };
+		52ABC82E2414FE0900402709 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ABC82D2414FE0900402709 /* ServiceCollectionViewCell.swift */; };
+		52BB2EA5242745EC0015C63B /* SuggestedTermsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EA3242745EB0015C63B /* SuggestedTermsTableViewController.swift */; };
+		52BB2EA6242745EC0015C63B /* SuggestedTermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EA4242745EB0015C63B /* SuggestedTermTableViewCell.swift */; };
+		52BB2EB0242746FD0015C63B /* Array + SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EA9242746FB0015C63B /* Array + SafeIndex.swift */; };
+		52BB2EB1242746FD0015C63B /* UIViewController + Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EAA242746FC0015C63B /* UIViewController + Child.swift */; };
+		52BB2EB2242746FD0015C63B /* UINavigationBar + Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EAB242746FC0015C63B /* UINavigationBar + Shadow.swift */; };
+		52BB2EB3242746FD0015C63B /* AutoLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EAC242746FC0015C63B /* AutoLayoutHelper.swift */; };
+		52BB2EB4242746FD0015C63B /* Bundle + JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EAD242746FC0015C63B /* Bundle + JSON.swift */; };
+		52BB2EB5242746FD0015C63B /* String + CasePrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EAE242746FC0015C63B /* String + CasePrefix.swift */; };
+		52BB2EB6242746FD0015C63B /* UITableView + MainThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EAF242746FD0015C63B /* UITableView + MainThread.swift */; };
+		52BB2EB8242747D40015C63B /* ResultsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EB7242747D40015C63B /* ResultsContainerViewController.swift */; };
+		52BB2EBC242748150015C63B /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EB9242748140015C63B /* Term.swift */; };
+		52BB2EBD242748150015C63B /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EBA242748140015C63B /* SearchType.swift */; };
+		52BB2EBE242748150015C63B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EBB242748140015C63B /* App.swift */; };
+		52BB2EC1242748670015C63B /* ReusableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EBF242748660015C63B /* ReusableCells.swift */; };
+		52BB2EC2242748670015C63B /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EC0242748670015C63B /* Designable.swift */; };
+		52BB2EC4242748910015C63B /* terms.json in Resources */ = {isa = PBXBuildFile; fileRef = 52BB2EC3242748910015C63B /* terms.json */; };
+		52BB2ECA242749080015C63B /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EC6242749070015C63B /* AppTableViewCell.swift */; };
+		52BB2ECB242749080015C63B /* AppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BB2EC7242749070015C63B /* AppTableViewCell.xib */; };
+		52BB2ECC242749080015C63B /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EC8242749070015C63B /* AppsTableViewController.swift */; };
+		52BB2ECD242749080015C63B /* ContentStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2EC9242749070015C63B /* ContentStateViewController.swift */; };
+		52BB2ECF2428BF160015C63B /* SAIFZONECompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB2ECE2428BF160015C63B /* SAIFZONECompany.swift */; };
+		52C049EA24162D7E001461C7 /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049E924162D7E001461C7 /* webViewController.swift */; };
+		52C049EC24162F8E001461C7 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049EB24162F8E001461C7 /* Configuration.swift */; };
+		52C049EF24163079001461C7 /* PayfortResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049ED24163079001461C7 /* PayfortResponse.swift */; };
+		52C049F024163079001461C7 /* PayfortSdkToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049EE24163079001461C7 /* PayfortSdkToken.swift */; };
+		52C049F4241630C6001461C7 /* PayFortSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52C049F2241630C6001461C7 /* PayFortSDK.bundle */; };
+		52C049F5241630C6001461C7 /* PayFortSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C049F3241630C6001461C7 /* PayFortSDK.framework */; };
+		52C049F7241632E1001461C7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049F6241632E1001461C7 /* Utilities.swift */; };
+		52C049F924163380001461C7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049F824163380001461C7 /* SwiftyJSON.swift */; };
+		52C049FB24163BBA001461C7 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049FA24163BBA001461C7 /* ServicesViewController.swift */; };
+		52C049FD2416400B001461C7 /* serviceMainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049FC2416400B001461C7 /* serviceMainCollectionViewCell.swift */; };
+		52C049FF24164026001461C7 /* serviceMainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C049FE24164026001461C7 /* serviceMainCollectionViewCell.xib */; };
+		52C04A0224164A78001461C7 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C04A0124164A78001461C7 /* TabbarController.swift */; };
+		52C04A0424164AD8001461C7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C04A0324164AD8001461C7 /* AppConstants.swift */; };
+		52C04A0624164C30001461C7 /* SFTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C04A0524164C30001461C7 /* SFTabbarController.swift */; };
+		52D1DAB324178FC10079E20E /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1DAB224178FC10079E20E /* NotificationsViewController.swift */; };
+		52D1DAB72417913F0079E20E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1DAB62417913F0079E20E /* SettingsViewController.swift */; };
+		52DF5E8B241DFB850063C792 /* RequestResponseWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF5E89241DFB850063C792 /* RequestResponseWebServices.swift */; };
+		52DF5E8C241DFB850063C792 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF5E8A241DFB850063C792 /* WebService.swift */; };
+		52DF5E90241DFF2E0063C792 /* SAIFZONEUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF5E8F241DFF2E0063C792 /* SAIFZONEUser.swift */; };
+		52DF5E92241E069B0063C792 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF5E91241E069B0063C792 /* Utils.swift */; };
+		8036730F3F48A608EC7D0F30 /* Pods_SaifZoneNewApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD318A74071C483E8256AF57 /* Pods_SaifZoneNewApplicationTests.framework */; };
+		FD66345D0468906A053D71A3 /* Pods_SaifZoneNewApplicationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40443BE090224A02752E7771 /* Pods_SaifZoneNewApplicationUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +100,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40443BE090224A02752E7771 /* Pods_SaifZoneNewApplicationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaifZoneNewApplicationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B2FE4E4FDA8D15188C3019 /* Pods_SaifZoneNewApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaifZoneNewApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52031E9D2429D86300FBCECA /* SuggestedServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedServiceTableViewController.swift; sourceTree = "<group>"; };
+		52031E9F2429D88E00FBCECA /* SuggestedServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedServiceTableViewCell.swift; sourceTree = "<group>"; };
+		521F2C3024232B3A0055B74F /* SAIFZONEMainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONEMainService.swift; sourceTree = "<group>"; };
+		521F2C3224235E100055B74F /* applyServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = applyServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = applyServiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		524EC6EC240FA13700C8C0C5 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		524EC6EE240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = childNotificationCollectionViewCell.xib; sourceTree = "<group>"; };
+		524EC6EF240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = childNotificationCollectionViewCell.swift; sourceTree = "<group>"; };
+		526479022421FD4F002D6AD9 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		52671AFE2421D52D006A6218 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		52671B002421D53E006A6218 /* OTPVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyViewController.swift; sourceTree = "<group>"; };
+		52671B022421D54C006A6218 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5284E9A0241E2D8C008B853E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		5294C8C7240CEC54008CC363 /* SaifZoneNewApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaifZoneNewApplication-Bridging-Header.h"; sourceTree = "<group>"; };
+		5294C8C8240CEC55008CC363 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		5294C8C9240CEC55008CC363 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		5294C8CA240CEC55008CC363 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		5294C8CB240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		5294C8CC240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		5294C8CD240CEC55008CC363 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		5294C8CE240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		5294C8CF240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		5294C8D5240E655C008CC363 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		52A9F0D4240CCE0800034389 /* SaifZoneNewApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaifZoneNewApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A9F0D7240CCE0800034389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52A9F0D9240CCE0800034389 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +139,57 @@
 		52A9F0F5240CCE0A00034389 /* SaifZoneNewApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaifZoneNewApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A9F0F9240CCE0A00034389 /* SaifZoneNewApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaifZoneNewApplicationUITests.swift; sourceTree = "<group>"; };
 		52A9F0FB240CCE0A00034389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52A9F108240CD1D200034389 /* loginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPageViewController.swift; sourceTree = "<group>"; };
+		52ABC82B2414FDFB00402709 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		52ABC82D2414FE0900402709 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		52BB2EA3242745EB0015C63B /* SuggestedTermsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedTermsTableViewController.swift; sourceTree = "<group>"; };
+		52BB2EA4242745EB0015C63B /* SuggestedTermTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedTermTableViewCell.swift; sourceTree = "<group>"; };
+		52BB2EA9242746FB0015C63B /* Array + SafeIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array + SafeIndex.swift"; path = "SaifZoneNewApplication/Model/support/Array + SafeIndex.swift"; sourceTree = SOURCE_ROOT; };
+		52BB2EAA242746FC0015C63B /* UIViewController + Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController + Child.swift"; path = "SaifZoneNewApplication/Model/support/UIViewController + Child.swift"; sourceTree = SOURCE_ROOT; };
+		52BB2EAB242746FC0015C63B /* UINavigationBar + Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar + Shadow.swift"; path = "SaifZoneNewApplication/Model/support/UINavigationBar + Shadow.swift"; sourceTree = SOURCE_ROOT; };
+		52BB2EAC242746FC0015C63B /* AutoLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoLayoutHelper.swift; path = SaifZoneNewApplication/Model/support/AutoLayoutHelper.swift; sourceTree = SOURCE_ROOT; };
+		52BB2EAD242746FC0015C63B /* Bundle + JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle + JSON.swift"; path = "SaifZoneNewApplication/Model/support/Bundle + JSON.swift"; sourceTree = SOURCE_ROOT; };
+		52BB2EAE242746FC0015C63B /* String + CasePrefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String + CasePrefix.swift"; path = "SaifZoneNewApplication/Model/support/String + CasePrefix.swift"; sourceTree = SOURCE_ROOT; };
+		52BB2EAF242746FD0015C63B /* UITableView + MainThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView + MainThread.swift"; path = "SaifZoneNewApplication/Model/support/UITableView + MainThread.swift"; sourceTree = SOURCE_ROOT; };
+		52BB2EB7242747D40015C63B /* ResultsContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsContainerViewController.swift; sourceTree = "<group>"; };
+		52BB2EB9242748140015C63B /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		52BB2EBA242748140015C63B /* SearchType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
+		52BB2EBB242748140015C63B /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		52BB2EBF242748660015C63B /* ReusableCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCells.swift; sourceTree = "<group>"; };
+		52BB2EC0242748670015C63B /* Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
+		52BB2EC3242748910015C63B /* terms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = terms.json; sourceTree = "<group>"; };
+		52BB2EC6242749070015C63B /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppTableViewCell.swift; path = SaifZoneNewApplication/Controller/tabbar/Services/AppTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		52BB2EC7242749070015C63B /* AppTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppTableViewCell.xib; path = SaifZoneNewApplication/Controller/tabbar/Services/AppTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		52BB2EC8242749070015C63B /* AppsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppsTableViewController.swift; path = SaifZoneNewApplication/Controller/tabbar/Services/AppsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		52BB2EC9242749070015C63B /* ContentStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentStateViewController.swift; path = SaifZoneNewApplication/Controller/tabbar/Services/ContentStateViewController.swift; sourceTree = SOURCE_ROOT; };
+		52BB2ECE2428BF160015C63B /* SAIFZONECompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONECompany.swift; sourceTree = "<group>"; };
+		52C049E924162D7E001461C7 /* webViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
+		52C049EB24162F8E001461C7 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		52C049ED24163079001461C7 /* PayfortResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayfortResponse.swift; sourceTree = "<group>"; };
+		52C049EE24163079001461C7 /* PayfortSdkToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayfortSdkToken.swift; sourceTree = "<group>"; };
+		52C049F2241630C6001461C7 /* PayFortSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PayFortSDK.bundle; sourceTree = "<group>"; };
+		52C049F3241630C6001461C7 /* PayFortSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PayFortSDK.framework; sourceTree = "<group>"; };
+		52C049F6241632E1001461C7 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		52C049F824163380001461C7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		52C049FA24163BBA001461C7 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
+		52C049FC2416400B001461C7 /* serviceMainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serviceMainCollectionViewCell.swift; sourceTree = "<group>"; };
+		52C049FE24164026001461C7 /* serviceMainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = serviceMainCollectionViewCell.xib; sourceTree = "<group>"; };
+		52C04A0124164A78001461C7 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		52C04A0324164AD8001461C7 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		52C04A0524164C30001461C7 /* SFTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTabbarController.swift; sourceTree = "<group>"; };
+		52D1DAB224178FC10079E20E /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		52D1DAB62417913F0079E20E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		52DF5E89241DFB850063C792 /* RequestResponseWebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseWebServices.swift; sourceTree = "<group>"; };
+		52DF5E8A241DFB850063C792 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		52DF5E8F241DFF2E0063C792 /* SAIFZONEUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONEUser.swift; sourceTree = "<group>"; };
+		52DF5E91241E069B0063C792 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		68CB4E951F347C07F456825C /* Pods-SaifZoneNewApplicationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaifZoneNewApplicationUITests.release.xcconfig"; path = "Target Support Files/Pods-SaifZoneNewApplicationUITests/Pods-SaifZoneNewApplicationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		856604CBB96DBD5B5C395FE7 /* Pods-SaifZoneNewApplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaifZoneNewApplicationTests.debug.xcconfig"; path = "Target Support Files/Pods-SaifZoneNewApplicationTests/Pods-SaifZoneNewApplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		881D845E1A0890460B2B8898 /* Pods-SaifZoneNewApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaifZoneNewApplication.release.xcconfig"; path = "Target Support Files/Pods-SaifZoneNewApplication/Pods-SaifZoneNewApplication.release.xcconfig"; sourceTree = "<group>"; };
+		9A3B2524C45509A1C01F4BA1 /* Pods-SaifZoneNewApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaifZoneNewApplicationTests.release.xcconfig"; path = "Target Support Files/Pods-SaifZoneNewApplicationTests/Pods-SaifZoneNewApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD318A74071C483E8256AF57 /* Pods_SaifZoneNewApplicationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaifZoneNewApplicationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1CEED2499690242C8813903 /* Pods-SaifZoneNewApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaifZoneNewApplicationUITests.debug.xcconfig"; path = "Target Support Files/Pods-SaifZoneNewApplicationUITests/Pods-SaifZoneNewApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E084D202DD6D5428BD9BC976 /* Pods-SaifZoneNewApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaifZoneNewApplication.debug.xcconfig"; path = "Target Support Files/Pods-SaifZoneNewApplication/Pods-SaifZoneNewApplication.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +197,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50765065040606DA6A53D883 /* Pods_SaifZoneNewApplication.framework in Frameworks */,
+				52C049F5241630C6001461C7 /* PayFortSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8036730F3F48A608EC7D0F30 /* Pods_SaifZoneNewApplicationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +214,92 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD66345D0468906A053D71A3 /* Pods_SaifZoneNewApplicationUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52031E9C2429D83C00FBCECA /* suggestionsService */ = {
+			isa = PBXGroup;
+			children = (
+				52031E9D2429D86300FBCECA /* SuggestedServiceTableViewController.swift */,
+				52031E9F2429D88E00FBCECA /* SuggestedServiceTableViewCell.swift */,
+			);
+			path = suggestionsService;
+			sourceTree = "<group>";
+		};
+		526479012421FD3E002D6AD9 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				526479022421FD4F002D6AD9 /* profileViewController.swift */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		52671B042421D58A006A6218 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		5294C8C4240CEC06008CC363 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52C04A0024164A6D001461C7 /* tabbar */,
+				5294C8D4240E6548008CC363 /* Home */,
+				52A9F107240CD0D000034389 /* Auth */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5294C8C5240CEC11008CC363 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52BB2EC0242748670015C63B /* Designable.swift */,
+				52BB2EBF242748660015C63B /* ReusableCells.swift */,
+				52BB2EBB242748140015C63B /* App.swift */,
+				52BB2EBA242748140015C63B /* SearchType.swift */,
+				52BB2EB9242748140015C63B /* Term.swift */,
+				52BB2EA8242746C70015C63B /* Extensions */,
+				52DF5E8E241DFF0E0063C792 /* SAIFZONE_user */,
+				52DF5E8D241DFEDB0063C792 /* support */,
+				52DF5E88241DFB4E0063C792 /* webServices */,
+				52C049F1241630A1001461C7 /* PayFort */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5294C8C6240CEC19008CC363 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52ABC82A2414FDD400402709 /* customeCells */,
+				5294C8CE240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.h */,
+				5294C8CC240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m */,
+				5294C8C9240CEC55008CC363 /* TPKeyboardAvoidingScrollView.h */,
+				5294C8CD240CEC55008CC363 /* TPKeyboardAvoidingScrollView.m */,
+				5294C8CA240CEC55008CC363 /* TPKeyboardAvoidingTableView.h */,
+				5294C8C8240CEC55008CC363 /* TPKeyboardAvoidingTableView.m */,
+				5294C8CF240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				5294C8CB240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				5294C8C7240CEC54008CC363 /* SaifZoneNewApplication-Bridging-Header.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5294C8D4240E6548008CC363 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				52C049ED24163079001461C7 /* PayfortResponse.swift */,
+				52C049EE24163079001461C7 /* PayfortSdkToken.swift */,
+				5294C8D5240E655C008CC363 /* HomePageViewController.swift */,
+				52C049E924162D7E001461C7 /* webViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		52A9F0CB240CCE0700034389 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +307,8 @@
 				52A9F0ED240CCE0A00034389 /* SaifZoneNewApplicationTests */,
 				52A9F0F8240CCE0A00034389 /* SaifZoneNewApplicationUITests */,
 				52A9F0D5240CCE0800034389 /* Products */,
+				71C6C34F18B2775B9FEFE01D /* Pods */,
+				CE04973A266E73B8D8683276 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +325,9 @@
 		52A9F0D6240CCE0800034389 /* SaifZoneNewApplication */ = {
 			isa = PBXGroup;
 			children = (
+				5294C8C5240CEC11008CC363 /* Model */,
+				5294C8C6240CEC19008CC363 /* View */,
+				5294C8C4240CEC06008CC363 /* Controller */,
 				52A9F0D7240CCE0800034389 /* AppDelegate.swift */,
 				52A9F0D9240CCE0800034389 /* SceneDelegate.swift */,
 				52A9F0DB240CCE0800034389 /* ViewController.swift */,
@@ -128,6 +357,174 @@
 			path = SaifZoneNewApplicationUITests;
 			sourceTree = "<group>";
 		};
+		52A9F107240CD0D000034389 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				52671B042421D58A006A6218 /* Register */,
+				52671AFE2421D52D006A6218 /* LicenseViewController.swift */,
+				52671B002421D53E006A6218 /* OTPVerifyViewController.swift */,
+				52671B022421D54C006A6218 /* RegisterViewController.swift */,
+				52A9F108240CD1D200034389 /* loginPageViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		52ABC82A2414FDD400402709 /* customeCells */ = {
+			isa = PBXGroup;
+			children = (
+				524EC6EF240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift */,
+				524EC6EE240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib */,
+				52ABC82B2414FDFB00402709 /* ServiceCollectionViewCell.xib */,
+				52ABC82D2414FE0900402709 /* ServiceCollectionViewCell.swift */,
+				52C049FC2416400B001461C7 /* serviceMainCollectionViewCell.swift */,
+				52C049FE24164026001461C7 /* serviceMainCollectionViewCell.xib */,
+				521F2C3224235E100055B74F /* applyServiceCollectionViewCell.swift */,
+				521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */,
+			);
+			path = customeCells;
+			sourceTree = "<group>";
+		};
+		52BB2EA72427465E0015C63B /* suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				52BB2EA3242745EB0015C63B /* SuggestedTermsTableViewController.swift */,
+				52BB2EA4242745EB0015C63B /* SuggestedTermTableViewCell.swift */,
+			);
+			path = suggestions;
+			sourceTree = "<group>";
+		};
+		52BB2EA8242746C70015C63B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				52BB2EA9242746FB0015C63B /* Array + SafeIndex.swift */,
+				52BB2EAC242746FC0015C63B /* AutoLayoutHelper.swift */,
+				52BB2EAD242746FC0015C63B /* Bundle + JSON.swift */,
+				52BB2EAE242746FC0015C63B /* String + CasePrefix.swift */,
+				52BB2EAB242746FC0015C63B /* UINavigationBar + Shadow.swift */,
+				52BB2EAF242746FD0015C63B /* UITableView + MainThread.swift */,
+				52BB2EAA242746FC0015C63B /* UIViewController + Child.swift */,
+				524EC6EC240FA13700C8C0C5 /* extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		52BB2EC5242748ED0015C63B /* search */ = {
+			isa = PBXGroup;
+			children = (
+				52031E9C2429D83C00FBCECA /* suggestionsService */,
+				52BB2EC8242749070015C63B /* AppsTableViewController.swift */,
+				52BB2EC6242749070015C63B /* AppTableViewCell.swift */,
+				52BB2EC7242749070015C63B /* AppTableViewCell.xib */,
+				52BB2EC9242749070015C63B /* ContentStateViewController.swift */,
+				52BB2EB7242747D40015C63B /* ResultsContainerViewController.swift */,
+				52BB2EA72427465E0015C63B /* suggestions */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
+		52C049F1241630A1001461C7 /* PayFort */ = {
+			isa = PBXGroup;
+			children = (
+				52C049F2241630C6001461C7 /* PayFortSDK.bundle */,
+				52C049F3241630C6001461C7 /* PayFortSDK.framework */,
+			);
+			path = PayFort;
+			sourceTree = "<group>";
+		};
+		52C04A0024164A6D001461C7 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				526479012421FD3E002D6AD9 /* profile */,
+				52D1DAB5241791260079E20E /* Settings */,
+				52D1DAB42417911C0079E20E /* Services */,
+				52D1DAB124178F9F0079E20E /* NotificationViewController */,
+				52C04A0124164A78001461C7 /* TabbarController.swift */,
+				52C04A0524164C30001461C7 /* SFTabbarController.swift */,
+			);
+			path = tabbar;
+			sourceTree = "<group>";
+		};
+		52D1DAB124178F9F0079E20E /* NotificationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				52D1DAB224178FC10079E20E /* NotificationsViewController.swift */,
+			);
+			path = NotificationViewController;
+			sourceTree = "<group>";
+		};
+		52D1DAB42417911C0079E20E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				52BB2EC5242748ED0015C63B /* search */,
+				52C049FA24163BBA001461C7 /* ServicesViewController.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		52D1DAB5241791260079E20E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				52D1DAB62417913F0079E20E /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		52DF5E88241DFB4E0063C792 /* webServices */ = {
+			isa = PBXGroup;
+			children = (
+				52DF5E89241DFB850063C792 /* RequestResponseWebServices.swift */,
+				52DF5E8A241DFB850063C792 /* WebService.swift */,
+				5284E9A0241E2D8C008B853E /* File.swift */,
+			);
+			path = webServices;
+			sourceTree = "<group>";
+		};
+		52DF5E8D241DFEDB0063C792 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				52BB2EC3242748910015C63B /* terms.json */,
+				52C049EB24162F8E001461C7 /* Configuration.swift */,
+				52C049F6241632E1001461C7 /* Utilities.swift */,
+				52C049F824163380001461C7 /* SwiftyJSON.swift */,
+				52C04A0324164AD8001461C7 /* AppConstants.swift */,
+				52DF5E91241E069B0063C792 /* Utils.swift */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
+		52DF5E8E241DFF0E0063C792 /* SAIFZONE_user */ = {
+			isa = PBXGroup;
+			children = (
+				52DF5E8F241DFF2E0063C792 /* SAIFZONEUser.swift */,
+				521F2C3024232B3A0055B74F /* SAIFZONEMainService.swift */,
+				52BB2ECE2428BF160015C63B /* SAIFZONECompany.swift */,
+			);
+			path = SAIFZONE_user;
+			sourceTree = "<group>";
+		};
+		71C6C34F18B2775B9FEFE01D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E084D202DD6D5428BD9BC976 /* Pods-SaifZoneNewApplication.debug.xcconfig */,
+				881D845E1A0890460B2B8898 /* Pods-SaifZoneNewApplication.release.xcconfig */,
+				856604CBB96DBD5B5C395FE7 /* Pods-SaifZoneNewApplicationTests.debug.xcconfig */,
+				9A3B2524C45509A1C01F4BA1 /* Pods-SaifZoneNewApplicationTests.release.xcconfig */,
+				C1CEED2499690242C8813903 /* Pods-SaifZoneNewApplicationUITests.debug.xcconfig */,
+				68CB4E951F347C07F456825C /* Pods-SaifZoneNewApplicationUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE04973A266E73B8D8683276 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42B2FE4E4FDA8D15188C3019 /* Pods_SaifZoneNewApplication.framework */,
+				BD318A74071C483E8256AF57 /* Pods_SaifZoneNewApplicationTests.framework */,
+				40443BE090224A02752E7771 /* Pods_SaifZoneNewApplicationUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +532,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52A9F0FE240CCE0A00034389 /* Build configuration list for PBXNativeTarget "SaifZoneNewApplication" */;
 			buildPhases = (
+				E9C04D947FF6A6E19B85D0E9 /* [CP] Check Pods Manifest.lock */,
 				52A9F0D0240CCE0700034389 /* Sources */,
 				52A9F0D1240CCE0700034389 /* Frameworks */,
 				52A9F0D2240CCE0700034389 /* Resources */,
+				ABB69956301E0C2CE3DB9C27 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +551,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52A9F101240CCE0A00034389 /* Build configuration list for PBXNativeTarget "SaifZoneNewApplicationTests" */;
 			buildPhases = (
+				B20BF13897206E921B45C946 /* [CP] Check Pods Manifest.lock */,
 				52A9F0E6240CCE0A00034389 /* Sources */,
 				52A9F0E7240CCE0A00034389 /* Frameworks */,
 				52A9F0E8240CCE0A00034389 /* Resources */,
@@ -170,6 +570,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52A9F104240CCE0A00034389 /* Build configuration list for PBXNativeTarget "SaifZoneNewApplicationUITests" */;
 			buildPhases = (
+				65017C7E2BB765E93BDE3A15 /* [CP] Check Pods Manifest.lock */,
 				52A9F0F1240CCE0A00034389 /* Sources */,
 				52A9F0F2240CCE0A00034389 /* Frameworks */,
 				52A9F0F3240CCE0A00034389 /* Resources */,
@@ -196,6 +597,7 @@
 				TargetAttributes = {
 					52A9F0D3240CCE0700034389 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					52A9F0E9240CCE0A00034389 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -232,9 +634,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C049FF24164026001461C7 /* serviceMainCollectionViewCell.xib in Resources */,
 				52A9F0E4240CCE0A00034389 /* LaunchScreen.storyboard in Resources */,
+				52BB2EC4242748910015C63B /* terms.json in Resources */,
 				52A9F0E1240CCE0A00034389 /* Assets.xcassets in Resources */,
+				52C049F4241630C6001461C7 /* PayFortSDK.bundle in Resources */,
+				524EC6F0240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib in Resources */,
+				521F2C3524235E1E0055B74F /* applyServiceCollectionViewCell.xib in Resources */,
+				52BB2ECB242749080015C63B /* AppTableViewCell.xib in Resources */,
 				52A9F0DF240CCE0800034389 /* Main.storyboard in Resources */,
+				52ABC82C2414FDFB00402709 /* ServiceCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +663,154 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		65017C7E2BB765E93BDE3A15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SaifZoneNewApplicationUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABB69956301E0C2CE3DB9C27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SaifZoneNewApplication/Pods-SaifZoneNewApplication-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SaifZoneNewApplication/Pods-SaifZoneNewApplication-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SaifZoneNewApplication/Pods-SaifZoneNewApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B20BF13897206E921B45C946 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SaifZoneNewApplicationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9C04D947FF6A6E19B85D0E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SaifZoneNewApplication-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52A9F0D0240CCE0700034389 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BB2EC1242748670015C63B /* ReusableCells.swift in Sources */,
 				52A9F0DC240CCE0800034389 /* ViewController.swift in Sources */,
+				52BB2EB6242746FD0015C63B /* UITableView + MainThread.swift in Sources */,
+				5294C8D3240CEC55008CC363 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				52C049FB24163BBA001461C7 /* ServicesViewController.swift in Sources */,
+				52C04A0424164AD8001461C7 /* AppConstants.swift in Sources */,
+				52C049FD2416400B001461C7 /* serviceMainCollectionViewCell.swift in Sources */,
+				52BB2EB4242746FD0015C63B /* Bundle + JSON.swift in Sources */,
+				52BB2EB1242746FD0015C63B /* UIViewController + Child.swift in Sources */,
+				52C04A0624164C30001461C7 /* SFTabbarController.swift in Sources */,
+				52BB2EB2242746FD0015C63B /* UINavigationBar + Shadow.swift in Sources */,
+				52BB2ECC242749080015C63B /* AppsTableViewController.swift in Sources */,
+				52C049EC24162F8E001461C7 /* Configuration.swift in Sources */,
+				5294C8D6240E655C008CC363 /* HomePageViewController.swift in Sources */,
+				52DF5E92241E069B0063C792 /* Utils.swift in Sources */,
+				52D1DAB72417913F0079E20E /* SettingsViewController.swift in Sources */,
+				52BB2EA6242745EC0015C63B /* SuggestedTermTableViewCell.swift in Sources */,
+				5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				52BB2EBC242748150015C63B /* Term.swift in Sources */,
+				52DF5E8B241DFB850063C792 /* RequestResponseWebServices.swift in Sources */,
+				52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */,
+				52DF5E90241DFF2E0063C792 /* SAIFZONEUser.swift in Sources */,
+				52671AFF2421D52D006A6218 /* LicenseViewController.swift in Sources */,
+				52031EA02429D88E00FBCECA /* SuggestedServiceTableViewCell.swift in Sources */,
+				5294C8D0240CEC55008CC363 /* TPKeyboardAvoidingTableView.m in Sources */,
+				52BB2ECD242749080015C63B /* ContentStateViewController.swift in Sources */,
+				526479032421FD4F002D6AD9 /* profileViewController.swift in Sources */,
+				524EC6ED240FA13700C8C0C5 /* extensions.swift in Sources */,
+				524EC6F1240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift in Sources */,
+				52C049F024163079001461C7 /* PayfortSdkToken.swift in Sources */,
+				52BB2EBE242748150015C63B /* App.swift in Sources */,
+				52C049EF24163079001461C7 /* PayfortResponse.swift in Sources */,
+				52C049F7241632E1001461C7 /* Utilities.swift in Sources */,
+				521F2C3124232B3A0055B74F /* SAIFZONEMainService.swift in Sources */,
+				52D1DAB324178FC10079E20E /* NotificationsViewController.swift in Sources */,
+				52DF5E8C241DFB850063C792 /* WebService.swift in Sources */,
+				52BB2ECA242749080015C63B /* AppTableViewCell.swift in Sources */,
+				52C04A0224164A78001461C7 /* TabbarController.swift in Sources */,
+				52A9F109240CD1D200034389 /* loginPageViewController.swift in Sources */,
+				52BB2EB3242746FD0015C63B /* AutoLayoutHelper.swift in Sources */,
 				52A9F0D8240CCE0800034389 /* AppDelegate.swift in Sources */,
+				52BB2EBD242748150015C63B /* SearchType.swift in Sources */,
 				52A9F0DA240CCE0800034389 /* SceneDelegate.swift in Sources */,
+				5284E9A1241E2D8C008B853E /* File.swift in Sources */,
+				52C049EA24162D7E001461C7 /* webViewController.swift in Sources */,
+				52BB2EC2242748670015C63B /* Designable.swift in Sources */,
+				52BB2EB5242746FD0015C63B /* String + CasePrefix.swift in Sources */,
+				52C049F924163380001461C7 /* SwiftyJSON.swift in Sources */,
+				52031E9E2429D86300FBCECA /* SuggestedServiceTableViewController.swift in Sources */,
+				52BB2EB8242747D40015C63B /* ResultsContainerViewController.swift in Sources */,
+				52ABC82E2414FE0900402709 /* ServiceCollectionViewCell.swift in Sources */,
+				52BB2EA5242745EC0015C63B /* SuggestedTermsTableViewController.swift in Sources */,
+				521F2C3324235E100055B74F /* applyServiceCollectionViewCell.swift in Sources */,
+				52BB2EB0242746FD0015C63B /* Array + SafeIndex.swift in Sources */,
+				52BB2ECF2428BF160015C63B /* SAIFZONECompany.swift in Sources */,
+				5294C8D2240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				52671B012421D53E006A6218 /* OTPVerifyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,17 +981,27 @@
 		};
 		52A9F0FF240CCE0A00034389 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E084D202DD6D5428BD9BC976 /* Pods-SaifZoneNewApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3QK67B2CUE;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = BZSB59QTTY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SaifZoneNewApplication/Model/PayFort",
+				);
 				INFOPLIST_FILE = SaifZoneNewApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.datacellme.SaifZoneNewApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = com.datacellme.SaifZoneNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SaifZoneNewApplication/View/SaifZoneNewApplication-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,17 +1009,26 @@
 		};
 		52A9F100240CCE0A00034389 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 881D845E1A0890460B2B8898 /* Pods-SaifZoneNewApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3QK67B2CUE;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = BZSB59QTTY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SaifZoneNewApplication/Model/PayFort",
+				);
 				INFOPLIST_FILE = SaifZoneNewApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.datacellme.SaifZoneNewApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = com.datacellme.SaifZoneNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SaifZoneNewApplication/View/SaifZoneNewApplication-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -468,6 +1036,7 @@
 		};
 		52A9F102240CCE0A00034389 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 856604CBB96DBD5B5C395FE7 /* Pods-SaifZoneNewApplicationTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +1059,7 @@
 		};
 		52A9F103240CCE0A00034389 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A3B2524C45509A1C01F4BA1 /* Pods-SaifZoneNewApplicationTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +1082,7 @@
 		};
 		52A9F105240CCE0A00034389 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1CEED2499690242C8813903 /* Pods-SaifZoneNewApplicationUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +1103,7 @@
 		};
 		52A9F106240CCE0A00034389 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68CB4E951F347C07F456825C /* Pods-SaifZoneNewApplicationUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
