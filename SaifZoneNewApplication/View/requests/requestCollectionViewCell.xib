@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="requestCollectionViewCell" id="rUp-o3-nfP" customClass="requestCollectionViewCell" customModule="SaifZoneNewApplication" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="264" height="303"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SS5-HN-GDh">
+                <rect key="frame" x="0.0" y="0.0" width="264" height="303"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olm-9A-eO3">
+                        <rect key="frame" x="0.0" y="0.0" width="264" height="40"/>
+                        <color key="backgroundColor" red="0.2156862745" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="he4-hu-Ep2"/>
+                        </constraints>
+                        <string key="text">ImmigrationCard-Renew	</string>
+                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                        <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVV-aK-XdW">
+                        <rect key="frame" x="8" y="72" width="248" height="22.5"/>
+                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kC-9c-DsQ">
+                        <rect key="frame" x="8" y="110.5" width="248" height="22.5"/>
+                        <string key="text">7/10/2019	</string>
+                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="olm-9A-eO3" firstAttribute="top" secondItem="SS5-HN-GDh" secondAttribute="top" id="5F9-Ov-b7B"/>
+                    <constraint firstAttribute="trailing" secondItem="dVV-aK-XdW" secondAttribute="trailing" constant="8" id="656-ac-I36"/>
+                    <constraint firstItem="0kC-9c-DsQ" firstAttribute="leading" secondItem="SS5-HN-GDh" secondAttribute="leading" constant="8" id="HEP-gU-6kN"/>
+                    <constraint firstItem="0kC-9c-DsQ" firstAttribute="top" secondItem="dVV-aK-XdW" secondAttribute="bottom" constant="16" id="Olp-0D-MqU"/>
+                    <constraint firstItem="0kC-9c-DsQ" firstAttribute="centerX" secondItem="dVV-aK-XdW" secondAttribute="centerX" id="Udc-Tw-UGk"/>
+                    <constraint firstAttribute="trailing" secondItem="olm-9A-eO3" secondAttribute="trailing" id="VGS-zV-t25"/>
+                    <constraint firstItem="olm-9A-eO3" firstAttribute="leading" secondItem="SS5-HN-GDh" secondAttribute="leading" id="WSO-Mf-VeM"/>
+                    <constraint firstAttribute="trailing" secondItem="0kC-9c-DsQ" secondAttribute="trailing" constant="8" id="YUU-RT-Ysa"/>
+                    <constraint firstItem="dVV-aK-XdW" firstAttribute="top" secondItem="olm-9A-eO3" secondAttribute="bottom" constant="32" id="Z19-kZ-eY4"/>
+                    <constraint firstItem="dVV-aK-XdW" firstAttribute="centerX" secondItem="SS5-HN-GDh" secondAttribute="centerX" id="afH-B6-qWk"/>
+                    <constraint firstItem="dVV-aK-XdW" firstAttribute="leading" secondItem="SS5-HN-GDh" secondAttribute="leading" constant="8" id="ySK-qg-QhD"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="264" height="303"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="serviceDate" destination="0kC-9c-DsQ" id="7Xk-zD-Ryr"/>
+                <outlet property="serviceName" destination="olm-9A-eO3" id="4r0-xe-urY"/>
+                <outlet property="serviceStatus" destination="dVV-aK-XdW" id="HMB-pm-4Ab"/>
+            </connections>
+            <point key="canvasLocation" x="52" y="97"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -10,9 +10,15 @@
 		50765065040606DA6A53D883 /* Pods_SaifZoneNewApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B2FE4E4FDA8D15188C3019 /* Pods_SaifZoneNewApplication.framework */; };
 		52031E9E2429D86300FBCECA /* SuggestedServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52031E9D2429D86300FBCECA /* SuggestedServiceTableViewController.swift */; };
 		52031EA02429D88E00FBCECA /* SuggestedServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52031E9F2429D88E00FBCECA /* SuggestedServiceTableViewCell.swift */; };
+		521CEA262446D88300A86175 /* informativeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521CEA252446D88300A86175 /* informativeCollectionViewCell.xib */; };
+		521CEA282446D88D00A86175 /* informativeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521CEA272446D88D00A86175 /* informativeCollectionViewCell.swift */; };
 		521F2C3124232B3A0055B74F /* SAIFZONEMainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F2C3024232B3A0055B74F /* SAIFZONEMainService.swift */; };
 		521F2C3324235E100055B74F /* applyServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F2C3224235E100055B74F /* applyServiceCollectionViewCell.swift */; };
 		521F2C3524235E1E0055B74F /* applyServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */; };
+		52323FCD2431ED080017697E /* aboutUsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52323FCC2431ED080017697E /* aboutUsDetailsViewController.swift */; };
+		52323FCF2431F0620017697E /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52323FCE2431F0620017697E /* UIView+Blur.swift */; };
+		523D0998243C7D530015A039 /* SAIFZONELicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D0997243C7D530015A039 /* SAIFZONELicense.swift */; };
+		523D099A243C8A780015A039 /* SAIFZONERequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D0999243C8A780015A039 /* SAIFZONERequest.swift */; };
 		524EC6ED240FA13700C8C0C5 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EC6EC240FA13700C8C0C5 /* extensions.swift */; };
 		524EC6F0240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524EC6EE240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib */; };
 		524EC6F1240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EC6EF240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift */; };
@@ -20,6 +26,12 @@
 		52671AFF2421D52D006A6218 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671AFE2421D52D006A6218 /* LicenseViewController.swift */; };
 		52671B012421D53E006A6218 /* OTPVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671B002421D53E006A6218 /* OTPVerifyViewController.swift */; };
 		52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671B022421D54C006A6218 /* RegisterViewController.swift */; };
+		528455142435B14A003339DB /* requestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528455132435B14A003339DB /* requestsViewController.swift */; };
+		528455172435B60C003339DB /* requestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528455162435B60C003339DB /* requestCollectionViewCell.xib */; };
+		528455192435B621003339DB /* requestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528455182435B621003339DB /* requestCollectionViewCell.swift */; };
+		5284551C2435BE0E003339DB /* licenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5284551B2435BE0E003339DB /* licenseViewController.swift */; };
+		5284551F2435BEA8003339DB /* licenseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5284551E2435BEA8003339DB /* licenseCollectionViewCell.swift */; };
+		528455212435BED6003339DB /* licenseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528455202435BED6003339DB /* licenseCollectionViewCell.xib */; };
 		5284E9A1241E2D8C008B853E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5284E9A0241E2D8C008B853E /* File.swift */; };
 		5294C8D0240CEC55008CC363 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8C8240CEC55008CC363 /* TPKeyboardAvoidingTableView.m */; };
 		5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8CB240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -104,9 +116,15 @@
 		42B2FE4E4FDA8D15188C3019 /* Pods_SaifZoneNewApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaifZoneNewApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52031E9D2429D86300FBCECA /* SuggestedServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedServiceTableViewController.swift; sourceTree = "<group>"; };
 		52031E9F2429D88E00FBCECA /* SuggestedServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedServiceTableViewCell.swift; sourceTree = "<group>"; };
+		521CEA252446D88300A86175 /* informativeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = informativeCollectionViewCell.xib; sourceTree = "<group>"; };
+		521CEA272446D88D00A86175 /* informativeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = informativeCollectionViewCell.swift; sourceTree = "<group>"; };
 		521F2C3024232B3A0055B74F /* SAIFZONEMainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONEMainService.swift; sourceTree = "<group>"; };
 		521F2C3224235E100055B74F /* applyServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = applyServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = applyServiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		52323FCC2431ED080017697E /* aboutUsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutUsDetailsViewController.swift; sourceTree = "<group>"; };
+		52323FCE2431F0620017697E /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
+		523D0997243C7D530015A039 /* SAIFZONELicense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONELicense.swift; sourceTree = "<group>"; };
+		523D0999243C8A780015A039 /* SAIFZONERequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONERequest.swift; sourceTree = "<group>"; };
 		524EC6EC240FA13700C8C0C5 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		524EC6EE240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = childNotificationCollectionViewCell.xib; sourceTree = "<group>"; };
 		524EC6EF240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = childNotificationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -114,6 +132,12 @@
 		52671AFE2421D52D006A6218 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		52671B002421D53E006A6218 /* OTPVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyViewController.swift; sourceTree = "<group>"; };
 		52671B022421D54C006A6218 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		528455132435B14A003339DB /* requestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestsViewController.swift; sourceTree = "<group>"; };
+		528455162435B60C003339DB /* requestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = requestCollectionViewCell.xib; sourceTree = "<group>"; };
+		528455182435B621003339DB /* requestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestCollectionViewCell.swift; sourceTree = "<group>"; };
+		5284551B2435BE0E003339DB /* licenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = licenseViewController.swift; sourceTree = "<group>"; };
+		5284551E2435BEA8003339DB /* licenseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = licenseCollectionViewCell.swift; sourceTree = "<group>"; };
+		528455202435BED6003339DB /* licenseCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = licenseCollectionViewCell.xib; sourceTree = "<group>"; };
 		5284E9A0241E2D8C008B853E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5294C8C7240CEC54008CC363 /* SaifZoneNewApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaifZoneNewApplication-Bridging-Header.h"; sourceTree = "<group>"; };
 		5294C8C8240CEC55008CC363 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
@@ -245,6 +269,40 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		528455122435B0EF003339DB /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				528455132435B14A003339DB /* requestsViewController.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		528455152435B5F8003339DB /* requests */ = {
+			isa = PBXGroup;
+			children = (
+				528455162435B60C003339DB /* requestCollectionViewCell.xib */,
+				528455182435B621003339DB /* requestCollectionViewCell.swift */,
+			);
+			path = requests;
+			sourceTree = "<group>";
+		};
+		5284551A2435BDB6003339DB /* license */ = {
+			isa = PBXGroup;
+			children = (
+				5284551B2435BE0E003339DB /* licenseViewController.swift */,
+			);
+			path = license;
+			sourceTree = "<group>";
+		};
+		5284551D2435BE6A003339DB /* license */ = {
+			isa = PBXGroup;
+			children = (
+				5284551E2435BEA8003339DB /* licenseCollectionViewCell.swift */,
+				528455202435BED6003339DB /* licenseCollectionViewCell.xib */,
+			);
+			path = license;
+			sourceTree = "<group>";
+		};
 		5294C8C4240CEC06008CC363 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +333,8 @@
 		5294C8C6240CEC19008CC363 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5284551D2435BE6A003339DB /* license */,
+				528455152435B5F8003339DB /* requests */,
 				52ABC82A2414FDD400402709 /* customeCells */,
 				5294C8CE240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.h */,
 				5294C8CC240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m */,
@@ -296,6 +356,7 @@
 				52C049EE24163079001461C7 /* PayfortSdkToken.swift */,
 				5294C8D5240E655C008CC363 /* HomePageViewController.swift */,
 				52C049E924162D7E001461C7 /* webViewController.swift */,
+				52323FCC2431ED080017697E /* aboutUsDetailsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -380,6 +441,8 @@
 				52C049FE24164026001461C7 /* serviceMainCollectionViewCell.xib */,
 				521F2C3224235E100055B74F /* applyServiceCollectionViewCell.swift */,
 				521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */,
+				521CEA252446D88300A86175 /* informativeCollectionViewCell.xib */,
+				521CEA272446D88D00A86175 /* informativeCollectionViewCell.swift */,
 			);
 			path = customeCells;
 			sourceTree = "<group>";
@@ -404,6 +467,7 @@
 				52BB2EAF242746FD0015C63B /* UITableView + MainThread.swift */,
 				52BB2EAA242746FC0015C63B /* UIViewController + Child.swift */,
 				524EC6EC240FA13700C8C0C5 /* extensions.swift */,
+				52323FCE2431F0620017697E /* UIView+Blur.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -434,6 +498,8 @@
 		52C04A0024164A6D001461C7 /* tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				5284551A2435BDB6003339DB /* license */,
+				528455122435B0EF003339DB /* Requests */,
 				526479012421FD3E002D6AD9 /* profile */,
 				52D1DAB5241791260079E20E /* Settings */,
 				52D1DAB42417911C0079E20E /* Services */,
@@ -498,6 +564,8 @@
 				52DF5E8F241DFF2E0063C792 /* SAIFZONEUser.swift */,
 				521F2C3024232B3A0055B74F /* SAIFZONEMainService.swift */,
 				52BB2ECE2428BF160015C63B /* SAIFZONECompany.swift */,
+				523D0997243C7D530015A039 /* SAIFZONELicense.swift */,
+				523D0999243C8A780015A039 /* SAIFZONERequest.swift */,
 			);
 			path = SAIFZONE_user;
 			sourceTree = "<group>";
@@ -634,9 +702,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528455212435BED6003339DB /* licenseCollectionViewCell.xib in Resources */,
 				52C049FF24164026001461C7 /* serviceMainCollectionViewCell.xib in Resources */,
+				521CEA262446D88300A86175 /* informativeCollectionViewCell.xib in Resources */,
 				52A9F0E4240CCE0A00034389 /* LaunchScreen.storyboard in Resources */,
 				52BB2EC4242748910015C63B /* terms.json in Resources */,
+				528455172435B60C003339DB /* requestCollectionViewCell.xib in Resources */,
 				52A9F0E1240CCE0A00034389 /* Assets.xcassets in Resources */,
 				52C049F4241630C6001461C7 /* PayFortSDK.bundle in Resources */,
 				524EC6F0240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib in Resources */,
@@ -767,24 +838,32 @@
 				52BB2EB2242746FD0015C63B /* UINavigationBar + Shadow.swift in Sources */,
 				52BB2ECC242749080015C63B /* AppsTableViewController.swift in Sources */,
 				52C049EC24162F8E001461C7 /* Configuration.swift in Sources */,
+				528455192435B621003339DB /* requestCollectionViewCell.swift in Sources */,
 				5294C8D6240E655C008CC363 /* HomePageViewController.swift in Sources */,
 				52DF5E92241E069B0063C792 /* Utils.swift in Sources */,
 				52D1DAB72417913F0079E20E /* SettingsViewController.swift in Sources */,
 				52BB2EA6242745EC0015C63B /* SuggestedTermTableViewCell.swift in Sources */,
+				523D0998243C7D530015A039 /* SAIFZONELicense.swift in Sources */,
 				5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				52BB2EBC242748150015C63B /* Term.swift in Sources */,
 				52DF5E8B241DFB850063C792 /* RequestResponseWebServices.swift in Sources */,
 				52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */,
+				52323FCF2431F0620017697E /* UIView+Blur.swift in Sources */,
+				528455142435B14A003339DB /* requestsViewController.swift in Sources */,
 				52DF5E90241DFF2E0063C792 /* SAIFZONEUser.swift in Sources */,
 				52671AFF2421D52D006A6218 /* LicenseViewController.swift in Sources */,
+				521CEA282446D88D00A86175 /* informativeCollectionViewCell.swift in Sources */,
+				5284551C2435BE0E003339DB /* licenseViewController.swift in Sources */,
 				52031EA02429D88E00FBCECA /* SuggestedServiceTableViewCell.swift in Sources */,
 				5294C8D0240CEC55008CC363 /* TPKeyboardAvoidingTableView.m in Sources */,
 				52BB2ECD242749080015C63B /* ContentStateViewController.swift in Sources */,
+				5284551F2435BEA8003339DB /* licenseCollectionViewCell.swift in Sources */,
 				526479032421FD4F002D6AD9 /* profileViewController.swift in Sources */,
 				524EC6ED240FA13700C8C0C5 /* extensions.swift in Sources */,
 				524EC6F1240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift in Sources */,
 				52C049F024163079001461C7 /* PayfortSdkToken.swift in Sources */,
 				52BB2EBE242748150015C63B /* App.swift in Sources */,
+				52323FCD2431ED080017697E /* aboutUsDetailsViewController.swift in Sources */,
 				52C049EF24163079001461C7 /* PayfortResponse.swift in Sources */,
 				52C049F7241632E1001461C7 /* Utilities.swift in Sources */,
 				521F2C3124232B3A0055B74F /* SAIFZONEMainService.swift in Sources */,
@@ -797,6 +876,7 @@
 				52A9F0D8240CCE0800034389 /* AppDelegate.swift in Sources */,
 				52BB2EBD242748150015C63B /* SearchType.swift in Sources */,
 				52A9F0DA240CCE0800034389 /* SceneDelegate.swift in Sources */,
+				523D099A243C8A780015A039 /* SAIFZONERequest.swift in Sources */,
 				5284E9A1241E2D8C008B853E /* File.swift in Sources */,
 				52C049EA24162D7E001461C7 /* webViewController.swift in Sources */,
 				52BB2EC2242748670015C63B /* Designable.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import EmptyDataSet_Swift
 
 class NotificationsViewController: UIViewController {
     
@@ -22,21 +22,27 @@ class NotificationsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         tableView.tableFooterView = UIView()
         
     }
 }
 
-extension NotificationsViewController: UITableViewDataSource,UITableViewDelegate {
+extension NotificationsViewController: UITableViewDataSource,UITableViewDelegate , EmptyDataSetDelegate , EmptyDataSetSource {
     
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "No Notifications")
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 0
         
         
     }

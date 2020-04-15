@@ -278,7 +278,7 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 0
         
         
     }

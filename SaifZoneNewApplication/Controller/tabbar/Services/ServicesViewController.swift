@@ -49,7 +49,7 @@ class ServicesViewController: UIViewController ,endSearch {
                 }).first!
             
             self.tableView.reloadData()
-            
+        
             
             //check count of this array
             /*
@@ -158,8 +158,13 @@ class ServicesViewController: UIViewController ,endSearch {
         getAllServices()
         
         
-        servicesCollectionView.emptyDataSetSource = self
-        servicesCollectionView.emptyDataSetDelegate = self
+        
+        
+        //tableView.emptyDataSetSource = self
+        //tableView.emptyDataSetDelegate = self
+        
+        
+        
     }
     
     
@@ -393,6 +398,8 @@ class ServicesViewController: UIViewController ,endSearch {
         if let layout = servicesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical  // .horizontal
         }
+        servicesCollectionView.emptyDataSetSource = self
+        servicesCollectionView.emptyDataSetDelegate = self
         servicesCollectionView.isPagingEnabled = true
         servicesCollectionView.reloadData()
         servicesCollectionView.setNeedsLayout()
@@ -580,31 +587,31 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
             
             switch indexPath.row {
             case 0:
-                imageView.image = UIImage(named: "logoSolo")
+                imageView.image = UIImage(named: "investor")
                 descLabel.text = "About Us"
             case 1:
-                imageView.image = UIImage(named: "user_profile")
+                imageView.image = UIImage(named: "finance")
                 descLabel.text = "Profile"
             case 2:
                 imageView.image = UIImage(named: "license")
                 descLabel.text = "License Details"
             case 3:
-                imageView.image = UIImage(named: "pen")
+                imageView.image = UIImage(named: "visitor")
                 descLabel.text = "Statment of Account"
             case 4:
-                imageView.image = UIImage(named: "screen")
+                imageView.image = UIImage(named: "health")
                 descLabel.text = "E-Services"
             case 5:
-                imageView.image = UIImage(named: "visa")
+                imageView.image = UIImage(named: "security")
                 descLabel.text = "Visa Status"
             case 6:
-                imageView.image = UIImage(named: "request")
+                imageView.image = UIImage(named: "maintainance")
                 descLabel.text = "Request"
             case 7:
-                imageView.image = UIImage(named: "settings")
+                imageView.image = UIImage(named: "purchase")
                 descLabel.text = "Settings"
             case 8:
-                imageView.image = UIImage(named: "cancel")
+                imageView.image = UIImage(named: "sales")
                 descLabel.text = ""
             default:
                 print("")
@@ -633,22 +640,20 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
        
-        if collectionView == servicesCollectionView {
+        
+        if isMainServiceSelected {
+            return selectedMainService.relatedServicesArray.count
+        }else{
             
-            if isMainServiceSelected {
-                return selectedMainService.relatedServicesArray.count
+            if selectedService.relatedServicesArray.count == 0 {
+                return 1
             }else{
-                
-                if selectedService.relatedServicesArray.count == 0 {
-                    return 1
-                }else{
-                    return selectedService.relatedServicesArray.count
-                }
-                
+                return selectedService.relatedServicesArray.count
             }
             
         }
-        return 0
+        
+   
 
     }
     
@@ -691,7 +696,7 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
             }else{
                 item = selectedService.relatedServicesArray[indexPath.row]
             }
-            
+            cell.serviceImageView.image = UIImage(named: "support")
             cell.serviceCaptionLabel.text = item.Caption
             cell.layoutIfNeeded()
             
@@ -846,6 +851,39 @@ extension ServicesViewController: UISearchResultsUpdating {
 
 extension ServicesViewController: EmptyDataSetSource , EmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return NSAttributedString(string: "No Services")
+        
+        
+        let user = SAIFZONEUser.getSAIFZONEUser()
+        
+        var font = UIFont.systemFont(ofSize: (15))
+        if user?.DToken != nil {
+           return NSAttributedString(string: "No Services")
+        }else{
+            return NSAttributedString(string: "Please signin to show our services ." , attributes: [.font:font ,NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        }
+        
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView, for state: UIControl.State) -> NSAttributedString? {
+        let user = SAIFZONEUser.getSAIFZONEUser()
+        
+        
+        if user?.DToken != nil {
+            
+            return NSAttributedString(string: "")
+        }else{
+            return NSAttributedString(string: "signin")
+        }
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView, didTapButton button: UIButton) {
+        let user = SAIFZONEUser.getSAIFZONEUser()
+        
+        
+        if user?.DToken != nil {
+            
+        }else{
+            
+        }
     }
 }

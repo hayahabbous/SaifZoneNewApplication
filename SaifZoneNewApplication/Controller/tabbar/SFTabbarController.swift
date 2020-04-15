@@ -36,6 +36,8 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
     var SettingsPageVC: UINavigationController = UINavigationController()
     var InfoPageVC: UINavigationController = UINavigationController()
     var profileVC: UINavigationController = UINavigationController()
+    var requestsVC: UINavigationController = UINavigationController()
+    
     
     
     var webVC: webViewController = webViewController()
@@ -236,9 +238,9 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
     }
     @objc private func SettingsButtonAction(sender: UIButton) {
           
-        //webVC =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "webViewController") as! webViewController
-        //SettingsPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! UINavigationController
-        viewControllers = [webVC]
+       
+        SettingsPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "requestsViewController") as! UINavigationController
+        viewControllers = [SettingsPageVC]
         selectedIndex = 3
            
         setButtonImage()

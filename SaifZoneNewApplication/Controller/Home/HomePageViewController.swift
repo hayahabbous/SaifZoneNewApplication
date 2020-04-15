@@ -14,12 +14,16 @@ class HomePageViewController: UIViewController {
     
     
     @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var infoCollectionView: UICollectionView!
+    var infoCollectionView: UICollectionView!
     @IBOutlet var circularImageView: UIImageView!
     @IBOutlet var backImageView: UIImageView!
-    @IBOutlet var servicesCollectionView: UICollectionView!
+
     
+    @IBOutlet var mainCollectionView: UICollectionView!
     @IBOutlet var parentProfileImageView: UIImageView!
+    
+    
+    var selectedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         circularImageView.layer.cornerRadius = self.circularImageView.frame.height / 2
@@ -47,8 +51,8 @@ class HomePageViewController: UIViewController {
         
         
         setupCollectionView()
-        infoCollectionView.reloadData()
-        infoCollectionView.setNeedsLayout()
+        //infoCollectionView.reloadData()
+        //infoCollectionView.setNeedsLayout()
         
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
@@ -59,12 +63,26 @@ class HomePageViewController: UIViewController {
     
     
     func setupCollectionView() {
+        
+        mainCollectionView.delegate = self
+        mainCollectionView.dataSource = self
+        
+        mainCollectionView.showsVerticalScrollIndicator = false
+        
+        
+        mainCollectionView.register(UINib(nibName: "informativeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "informativeCollectionViewCell")
+        mainCollectionView.setNeedsLayout()
+        mainCollectionView.reloadData()
+        
+        /*
         infoCollectionView.delegate = self
         infoCollectionView.dataSource = self
         
         infoCollectionView.showsVerticalScrollIndicator = false
         
         infoCollectionView.register(UINib(nibName: "childNotificationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "notiCell")
+        
+        
         
         //notificationsCollectionView.register(UINib(nibName: "cn1", bundle: nil), forCellWithReuseIdentifier: "notiCell11")
         
@@ -77,8 +95,8 @@ class HomePageViewController: UIViewController {
         infoCollectionView.reloadData()
         infoCollectionView.setNeedsLayout()
         
-        
-        
+        */
+        /*
         
         servicesCollectionView.delegate = self
         servicesCollectionView.dataSource = self
@@ -86,38 +104,58 @@ class HomePageViewController: UIViewController {
         servicesCollectionView.showsVerticalScrollIndicator = false
         
         servicesCollectionView.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
-        
+        servicesCollectionView.register(UINib(nibName: "informativeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "informativeCollectionViewCell")
         //notificationsCollectionView.register(UINib(nibName: "cn1", bundle: nil), forCellWithReuseIdentifier: "notiCell11")
         
         
         
         if let layout = servicesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal  // .horizontal
+            layout.scrollDirection = .vertical  // .horizontal
         }
-        servicesCollectionView.isPagingEnabled = true
+        //servicesCollectionView.isPagingEnabled = true
         servicesCollectionView.reloadData()
-        servicesCollectionView.setNeedsLayout()
+        servicesCollectionView.setNeedsLayout()*/
     }
     
     func getServices() {
         
     }
     @IBAction func allButtonAction(_ sender: Any) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAboutUs"
+        {
+            let dest = segue.destination as! aboutUsDetailsViewController
+            dest.index = selectedIndex
+        }
     }
 }
 extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
     //MARK: - CollectionView
-    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
+        
+        if collectionView == mainCollectionView {
+            // about us collection view + 4 info cells
+            
+            
+            if section == 0{
+                return 1
+            }else {
+                return 4
+            }
+        }
         if collectionView == infoCollectionView {
-            return 4
+            return 3
         }
-        if collectionView == servicesCollectionView {
-            return 15
-        }
+        
         return 0
 
     }
@@ -126,25 +164,77 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
         
         var cellIdentifier = "Cell"
         
-        
-        
-        if collectionView == self.servicesCollectionView  {
-                   
-            cellIdentifier = "ServiceCollectionViewCell"
-                   
-                   
-            let cell = servicesCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ServiceCollectionViewCell
+        if collectionView == mainCollectionView {
             
-            cell.layoutIfNeeded()
             
-            return cell
+            if indexPath.section == 0 {
+                cellIdentifier = "infoCell"
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+                
+                
+                self.infoCollectionView = cell.viewWithTag(1) as? UICollectionView
+                
+                infoCollectionView.delegate = self
+                infoCollectionView.dataSource = self
+                
+                infoCollectionView.showsVerticalScrollIndicator = false
+                
+                infoCollectionView.register(UINib(nibName: "childNotificationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "notiCell")
+                infoCollectionView.frame = CGRect(x: 0, y: 0, width: mainCollectionView.frame.width - 20, height: 170)
+          
+                
+                
+                //notificationsCollectionView.register(UINib(nibName: "cn1", bundle: nil), forCellWithReuseIdentifier: "notiCell11")
+                
+                
+                
+                if let layout = infoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                    layout.scrollDirection = .horizontal  // .horizontal
+                }
+                infoCollectionView.isPagingEnabled = true
+                infoCollectionView.reloadData()
+                infoCollectionView.setNeedsLayout()
+                
+          
+                
+                return cell
+                
+            }else {
+                cellIdentifier = "informativeCollectionViewCell"
+                       
+                       
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! informativeCollectionViewCell
+                
+                cell.layoutIfNeeded()
+                
+                return cell
+            }
         }
+        
+        
         if collectionView == self.infoCollectionView  {
             
             cellIdentifier = "notiCell"
             
             
             let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! childNotificationCollectionViewCell
+            
+            
+            
+            switch indexPath.row {
+            case 0:
+                cell.titleLabel.text = "NEW WAY OF DOING BUSINESS"
+                cell.detailsLabel.text = "At SAIF ZONE, we offer you the attractive tax-friendly benefits combined with complete ownership in a designated free zone at an unmatched strategic location. With every detail thoughtfully structured and robust service support, we provide plenty of opportunities to connect and collaborate so you can focus solely on growing your business."
+            case 1:
+                cell.titleLabel.text = "Chairman’s Message"
+                cell.detailsLabel.text = "As the Middle East and Africa becomes an ever more lucrative destination for global businesses, the competition to secure that business becomes equally as fierce. Minimal costs and maximum efficiency play a large role but ultimately it is the delivery of the entire package which will See the strongest businesses thrive. At SAIF ZONE we believe that we not only provide that package for this region, we deliver a product which connects our partners to the rest of the world"
+            case 2:
+                cell.titleLabel.text = "Director’s Message"
+                cell.detailsLabel.text = "As we enter the second quarter of 2019, I am proud to inform you that more than 8,000 companies from around 165 countries have currently established their presence at the Sharjah Airport International Free Zone (SAIF ZONE). This is a grand testimony to SAIF ZONE’s growing appeal as a business destination where SMEs and multi-nationals alike can utilise the benefits of our strategic location, modern infrastructure and customer focus-based service to expand and conduct their businesses with confidence"
+            default:
+                cell.titleLabel.text = ""
+            }
+       
             
            /*
            
@@ -207,6 +297,35 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
+        if cell.reuseIdentifier == "informativeCollectionViewCell" {
+            let cell = cell as! informativeCollectionViewCell
+            
+            switch indexPath.row {
+            case 0:
+                cell.imageView.image = UIImage(named: "info1")
+                cell.titleLabel.text = "SAIF offices"
+                cell.descLabel.text = "SAIF ZONE offers a wide range of offices to cater to the nature of your business and its varying demands."
+                
+            case 1:
+                cell.imageView.image = UIImage(named: "info2")
+                cell.titleLabel.text = "Warehouses"
+                cell.descLabel.text = "All our warehouses are purposefully built to fuel your business."
+                
+            case 2:
+                cell.imageView.image = UIImage(named: "info3")
+                cell.titleLabel.text = "Plot of land"
+                cell.descLabel.text = "Choose from variety of available plots varying from 2,500 sqm and above for custom-build warehouses/ factories."
+                
+                
+            case 3:
+                cell.imageView.image = UIImage(named: "info4")
+                cell.titleLabel.text = "Jewelry park"
+                cell.descLabel.text = "A full-fledged and highly specialized jewelry manufacturing unit."
+                
+            default:
+                print("default")
+            }
+        }
         
         
     }
@@ -215,45 +334,60 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
-        
+        if collectionView == infoCollectionView {
+            selectedIndex = indexPath.item
+            self.performSegue(withIdentifier: "toAboutUs", sender: self)
+        }
         
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
+        if collectionView == self.mainCollectionView  {
+            
+            
+            if indexPath.section == 0 {
+                return CGSize(width: mainCollectionView.frame.width - 10  , height: 170)
+            }
+            return CGSize(width: (mainCollectionView.frame.width - 40) / 2, height: 300)
+            
+        }
         if collectionView == self.infoCollectionView  {
             
              return CGSize(width: infoCollectionView.frame.width - 15  , height: 135)
             
         }
         
-        if collectionView == self.servicesCollectionView  {
-            
-            return CGSize(width: collectionView.frame.height / 2 + 20 , height: collectionView.frame.height  - 20)
-            
-        }
+        
         
         return CGSize(width: 150, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        if collectionView == servicesCollectionView {
-            return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        if collectionView == mainCollectionView {
+          
+            if section == 0 {
+                return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            }
+            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         }
-        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        if collectionView == servicesCollectionView {
+        if collectionView == mainCollectionView {
+            if section == 0{
+                return 0
+            }
             return 10
             
         }
         return 10.0
     }
+    
     
     
 }

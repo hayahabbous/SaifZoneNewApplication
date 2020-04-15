@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="informativeCollectionViewCell" id="dtc-3n-uMN" customClass="informativeCollectionViewCell" customModule="SaifZoneNewApplication" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="166" height="357"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6Wf-D8-RgP">
+                <rect key="frame" x="0.0" y="0.0" width="166" height="357"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info1" translatesAutoresizingMaskIntoConstraints="NO" id="jfy-t9-fKY">
+                        <rect key="frame" x="0.0" y="0.0" width="166" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="9VT-sN-2C8"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkJ-iW-Ce1">
+                        <rect key="frame" x="8" y="116" width="150" height="40"/>
+                        <string key="text">Plot of land
+</string>
+                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose from variety of available plots varying from 2,500 sqm and above for custom-build warehouses/ factories." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZB-Uv-gPk">
+                        <rect key="frame" x="8" y="164" width="150" height="139"/>
+                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="kkJ-iW-Ce1" secondAttribute="trailing" constant="8" id="0Qx-o4-Oz3"/>
+                    <constraint firstItem="jfy-t9-fKY" firstAttribute="top" secondItem="6Wf-D8-RgP" secondAttribute="top" id="30c-m7-JBv"/>
+                    <constraint firstItem="EZB-Uv-gPk" firstAttribute="top" secondItem="kkJ-iW-Ce1" secondAttribute="bottom" constant="8" id="6hp-Vz-H1S"/>
+                    <constraint firstAttribute="trailing" secondItem="jfy-t9-fKY" secondAttribute="trailing" id="GGK-Do-KHu"/>
+                    <constraint firstItem="EZB-Uv-gPk" firstAttribute="trailing" secondItem="kkJ-iW-Ce1" secondAttribute="trailing" id="IIY-vX-Mda"/>
+                    <constraint firstItem="kkJ-iW-Ce1" firstAttribute="top" secondItem="jfy-t9-fKY" secondAttribute="bottom" constant="16" id="UzB-s6-IBp"/>
+                    <constraint firstItem="EZB-Uv-gPk" firstAttribute="leading" secondItem="kkJ-iW-Ce1" secondAttribute="leading" id="ZkJ-gB-4UB"/>
+                    <constraint firstItem="kkJ-iW-Ce1" firstAttribute="leading" secondItem="6Wf-D8-RgP" secondAttribute="leading" constant="8" id="bqU-jy-LDX"/>
+                    <constraint firstItem="jfy-t9-fKY" firstAttribute="leading" secondItem="6Wf-D8-RgP" secondAttribute="leading" id="fAJ-jv-mID"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="166" height="357"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="descLabel" destination="EZB-Uv-gPk" id="1jW-RH-qL7"/>
+                <outlet property="imageView" destination="jfy-t9-fKY" id="50H-9P-LkN"/>
+                <outlet property="titleLabel" destination="kkJ-iW-Ce1" id="7ly-f2-Ghp"/>
+            </connections>
+            <point key="canvasLocation" x="-519" y="32"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="info1" width="452" height="307"/>
+    </resources>
+</document>
