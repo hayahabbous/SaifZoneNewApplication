@@ -10,6 +10,8 @@
 		50765065040606DA6A53D883 /* Pods_SaifZoneNewApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B2FE4E4FDA8D15188C3019 /* Pods_SaifZoneNewApplication.framework */; };
 		52031E9E2429D86300FBCECA /* SuggestedServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52031E9D2429D86300FBCECA /* SuggestedServiceTableViewController.swift */; };
 		52031EA02429D88E00FBCECA /* SuggestedServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52031E9F2429D88E00FBCECA /* SuggestedServiceTableViewCell.swift */; };
+		520981E124502857004303E3 /* licenseDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520981E024502857004303E3 /* licenseDetailsView.xib */; };
+		520981E3245028C0004303E3 /* licenseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520981E2245028C0004303E3 /* licenseDetailsView.swift */; };
 		521CEA262446D88300A86175 /* informativeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521CEA252446D88300A86175 /* informativeCollectionViewCell.xib */; };
 		521CEA282446D88D00A86175 /* informativeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521CEA272446D88D00A86175 /* informativeCollectionViewCell.swift */; };
 		521F2C3124232B3A0055B74F /* SAIFZONEMainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521F2C3024232B3A0055B74F /* SAIFZONEMainService.swift */; };
@@ -17,6 +19,12 @@
 		521F2C3524235E1E0055B74F /* applyServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */; };
 		52323FCD2431ED080017697E /* aboutUsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52323FCC2431ED080017697E /* aboutUsDetailsViewController.swift */; };
 		52323FCF2431F0620017697E /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52323FCE2431F0620017697E /* UIView+Blur.swift */; };
+		523C3EE524516F0D0061E026 /* newTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C3EE424516F0D0061E026 /* newTabbarController.swift */; };
+		523C3EE82451A6E10061E026 /* loginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523C3EE72451A6E10061E026 /* loginView.xib */; };
+		523C3EEA2451A6EB0061E026 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C3EE92451A6EB0061E026 /* loginView.swift */; };
+		523C3EEC2451A91E0061E026 /* newLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C3EEB2451A91E0061E026 /* newLoginPage.swift */; };
+		523C3EEF245208850061E026 /* profileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C3EEE245208850061E026 /* profileView.swift */; };
+		523C3EF1245208920061E026 /* profileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523C3EF0245208920061E026 /* profileView.xib */; };
 		523D0998243C7D530015A039 /* SAIFZONELicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D0997243C7D530015A039 /* SAIFZONELicense.swift */; };
 		523D099A243C8A780015A039 /* SAIFZONERequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D0999243C8A780015A039 /* SAIFZONERequest.swift */; };
 		524EC6ED240FA13700C8C0C5 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EC6EC240FA13700C8C0C5 /* extensions.swift */; };
@@ -116,6 +124,8 @@
 		42B2FE4E4FDA8D15188C3019 /* Pods_SaifZoneNewApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaifZoneNewApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52031E9D2429D86300FBCECA /* SuggestedServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedServiceTableViewController.swift; sourceTree = "<group>"; };
 		52031E9F2429D88E00FBCECA /* SuggestedServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedServiceTableViewCell.swift; sourceTree = "<group>"; };
+		520981E024502857004303E3 /* licenseDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = licenseDetailsView.xib; sourceTree = "<group>"; };
+		520981E2245028C0004303E3 /* licenseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = licenseDetailsView.swift; sourceTree = "<group>"; };
 		521CEA252446D88300A86175 /* informativeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = informativeCollectionViewCell.xib; sourceTree = "<group>"; };
 		521CEA272446D88D00A86175 /* informativeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = informativeCollectionViewCell.swift; sourceTree = "<group>"; };
 		521F2C3024232B3A0055B74F /* SAIFZONEMainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONEMainService.swift; sourceTree = "<group>"; };
@@ -123,6 +133,12 @@
 		521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = applyServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		52323FCC2431ED080017697E /* aboutUsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutUsDetailsViewController.swift; sourceTree = "<group>"; };
 		52323FCE2431F0620017697E /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
+		523C3EE424516F0D0061E026 /* newTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTabbarController.swift; sourceTree = "<group>"; };
+		523C3EE72451A6E10061E026 /* loginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = loginView.xib; sourceTree = "<group>"; };
+		523C3EE92451A6EB0061E026 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
+		523C3EEB2451A91E0061E026 /* newLoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newLoginPage.swift; sourceTree = "<group>"; };
+		523C3EEE245208850061E026 /* profileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileView.swift; sourceTree = "<group>"; };
+		523C3EF0245208920061E026 /* profileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = profileView.xib; sourceTree = "<group>"; };
 		523D0997243C7D530015A039 /* SAIFZONELicense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONELicense.swift; sourceTree = "<group>"; };
 		523D0999243C8A780015A039 /* SAIFZONERequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONERequest.swift; sourceTree = "<group>"; };
 		524EC6EC240FA13700C8C0C5 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
@@ -254,6 +270,33 @@
 			path = suggestionsService;
 			sourceTree = "<group>";
 		};
+		520981DF2450283C004303E3 /* licenseDetails */ = {
+			isa = PBXGroup;
+			children = (
+				520981E024502857004303E3 /* licenseDetailsView.xib */,
+				520981E2245028C0004303E3 /* licenseDetailsView.swift */,
+			);
+			path = licenseDetails;
+			sourceTree = "<group>";
+		};
+		523C3EE62451A6AF0061E026 /* loginView */ = {
+			isa = PBXGroup;
+			children = (
+				523C3EE72451A6E10061E026 /* loginView.xib */,
+				523C3EE92451A6EB0061E026 /* loginView.swift */,
+			);
+			path = loginView;
+			sourceTree = "<group>";
+		};
+		523C3EED245208660061E026 /* profileView */ = {
+			isa = PBXGroup;
+			children = (
+				523C3EEE245208850061E026 /* profileView.swift */,
+				523C3EF0245208920061E026 /* profileView.xib */,
+			);
+			path = profileView;
+			sourceTree = "<group>";
+		};
 		526479012421FD3E002D6AD9 /* profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +376,9 @@
 		5294C8C6240CEC19008CC363 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				523C3EED245208660061E026 /* profileView */,
+				523C3EE62451A6AF0061E026 /* loginView */,
+				520981DF2450283C004303E3 /* licenseDetails */,
 				5284551D2435BE6A003339DB /* license */,
 				528455152435B5F8003339DB /* requests */,
 				52ABC82A2414FDD400402709 /* customeCells */,
@@ -426,6 +472,7 @@
 				52671B002421D53E006A6218 /* OTPVerifyViewController.swift */,
 				52671B022421D54C006A6218 /* RegisterViewController.swift */,
 				52A9F108240CD1D200034389 /* loginPageViewController.swift */,
+				523C3EEB2451A91E0061E026 /* newLoginPage.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -506,6 +553,7 @@
 				52D1DAB124178F9F0079E20E /* NotificationViewController */,
 				52C04A0124164A78001461C7 /* TabbarController.swift */,
 				52C04A0524164C30001461C7 /* SFTabbarController.swift */,
+				523C3EE424516F0D0061E026 /* newTabbarController.swift */,
 			);
 			path = tabbar;
 			sourceTree = "<group>";
@@ -708,10 +756,13 @@
 				52A9F0E4240CCE0A00034389 /* LaunchScreen.storyboard in Resources */,
 				52BB2EC4242748910015C63B /* terms.json in Resources */,
 				528455172435B60C003339DB /* requestCollectionViewCell.xib in Resources */,
+				520981E124502857004303E3 /* licenseDetailsView.xib in Resources */,
 				52A9F0E1240CCE0A00034389 /* Assets.xcassets in Resources */,
 				52C049F4241630C6001461C7 /* PayFortSDK.bundle in Resources */,
+				523C3EE82451A6E10061E026 /* loginView.xib in Resources */,
 				524EC6F0240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib in Resources */,
 				521F2C3524235E1E0055B74F /* applyServiceCollectionViewCell.xib in Resources */,
+				523C3EF1245208920061E026 /* profileView.xib in Resources */,
 				52BB2ECB242749080015C63B /* AppTableViewCell.xib in Resources */,
 				52A9F0DF240CCE0800034389 /* Main.storyboard in Resources */,
 				52ABC82C2414FDFB00402709 /* ServiceCollectionViewCell.xib in Resources */,
@@ -844,14 +895,17 @@
 				52D1DAB72417913F0079E20E /* SettingsViewController.swift in Sources */,
 				52BB2EA6242745EC0015C63B /* SuggestedTermTableViewCell.swift in Sources */,
 				523D0998243C7D530015A039 /* SAIFZONELicense.swift in Sources */,
+				520981E3245028C0004303E3 /* licenseDetailsView.swift in Sources */,
 				5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				52BB2EBC242748150015C63B /* Term.swift in Sources */,
 				52DF5E8B241DFB850063C792 /* RequestResponseWebServices.swift in Sources */,
 				52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */,
 				52323FCF2431F0620017697E /* UIView+Blur.swift in Sources */,
+				523C3EEC2451A91E0061E026 /* newLoginPage.swift in Sources */,
 				528455142435B14A003339DB /* requestsViewController.swift in Sources */,
 				52DF5E90241DFF2E0063C792 /* SAIFZONEUser.swift in Sources */,
 				52671AFF2421D52D006A6218 /* LicenseViewController.swift in Sources */,
+				523C3EEF245208850061E026 /* profileView.swift in Sources */,
 				521CEA282446D88D00A86175 /* informativeCollectionViewCell.swift in Sources */,
 				5284551C2435BE0E003339DB /* licenseViewController.swift in Sources */,
 				52031EA02429D88E00FBCECA /* SuggestedServiceTableViewCell.swift in Sources */,
@@ -879,6 +933,7 @@
 				523D099A243C8A780015A039 /* SAIFZONERequest.swift in Sources */,
 				5284E9A1241E2D8C008B853E /* File.swift in Sources */,
 				52C049EA24162D7E001461C7 /* webViewController.swift in Sources */,
+				523C3EEA2451A6EB0061E026 /* loginView.swift in Sources */,
 				52BB2EC2242748670015C63B /* Designable.swift in Sources */,
 				52BB2EB5242746FD0015C63B /* String + CasePrefix.swift in Sources */,
 				52C049F924163380001461C7 /* SwiftyJSON.swift in Sources */,
@@ -890,6 +945,7 @@
 				52BB2EB0242746FD0015C63B /* Array + SafeIndex.swift in Sources */,
 				52BB2ECF2428BF160015C63B /* SAIFZONECompany.swift in Sources */,
 				5294C8D2240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				523C3EE524516F0D0061E026 /* newTabbarController.swift in Sources */,
 				52671B012421D53E006A6218 /* OTPVerifyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1066,7 +1122,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = BZSB59QTTY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1094,7 +1150,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = BZSB59QTTY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

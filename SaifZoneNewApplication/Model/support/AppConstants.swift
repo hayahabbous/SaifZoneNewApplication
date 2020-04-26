@@ -17,7 +17,7 @@ class AppConstants: NSObject {
     static var DToken = "6RGT36D10Q637059759964359851B1I1"
     static var DOMAINURL = "http://mocdservices.dcxportal.com/api/"
     static var ImageURL = "http://mocdservices.dcxportal.com"
-    
+    static var purpleColor = UIColor(red: 55/256, green: 30/256, blue: 52/256, alpha: 1.0)
     
     
     static let SAIFZONEUserData = "SAIFZONEUserData"
@@ -26,7 +26,7 @@ class AppConstants: NSObject {
     
     static var mainServicesArray: [SAIFZONEMainService] = []
     static var allServicesArray: [SAIFZONEService] = []
-    
+    static var isPushedFromLeft: Bool = false
     static var verificationCode: String = ""
     static func isIphoneXModel() -> Bool {
         

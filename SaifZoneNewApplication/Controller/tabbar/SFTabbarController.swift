@@ -147,11 +147,11 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
         info_button.backgroundColor = UIColor.clear
         
         
-        view.addSubview(services_button)
-        view.addSubview(notification_button)
-        view.addSubview(home_button)
-        view.addSubview(setting_button)
-        view.addSubview(info_button)
+        view.insertSubview(services_button, aboveSubview: self.tabBar)
+        view.insertSubview(notification_button, aboveSubview: self.tabBar)
+        view.insertSubview(home_button, aboveSubview: self.tabBar)
+        view.insertSubview(setting_button, aboveSubview: self.tabBar)
+        view.insertSubview(info_button, aboveSubview: self.tabBar)
         
         
         setButtonImage()
@@ -163,17 +163,17 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
         services_button.addTarget(self, action: #selector(ServicseButtonAction(sender:)), for: .touchUpInside)
         notification_button.addTarget(self, action: #selector(NotificationsButtonAction(sender:)), for: .touchUpInside)
         setting_button.addTarget(self, action: #selector(SettingsButtonAction(sender:)), for: .touchUpInside)
-        info_button.addTarget(self, action: #selector(InfoButtonAction), for: .touchUpInside)
+        info_button.addTarget(self, action: #selector(pushServices), for: .touchUpInside)
         
     }
     
     func setButtonImage() {
-        services_button.setImage(UIImage(named: "support_tabbar"), for: .selected)
-        services_button.setImage(UIImage(named: "support_tabbar"), for: .normal)
+        services_button.setImage(UIImage(named: "menu"), for: .selected)
+        services_button.setImage(UIImage(named: "menu"), for: .normal)
         
         
-        notification_button.setImage(UIImage(named: "notification_tabbar"), for: .selected)
-        notification_button.setImage(UIImage(named: "notification_tabbar"), for: .normal)
+        notification_button.setImage(UIImage(named: "request-2"), for: .selected)
+        notification_button.setImage(UIImage(named: "request-2"), for: .normal)
         
         
         home_button.setImage(UIImage(named: "logoSolo"), for: .selected)
@@ -186,11 +186,11 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
         home_button.layer.borderWidth = 10
         home_button.layer.shadowColor = UIColor.white.cgColor
         
-        setting_button.setImage(UIImage(named: "settings_tabbar"), for: .selected)
-        setting_button.setImage(UIImage(named: "settings_tabbar"), for: .normal)
+        setting_button.setImage(UIImage(named: "financial-statement-2"), for: .selected)
+        setting_button.setImage(UIImage(named: "financial-statement-2"), for: .normal)
         
-        info_button.setImage(UIImage(named: "info_tabbar"), for: .selected)
-        info_button.setImage(UIImage(named: "info_tabbar"), for: .normal)
+        info_button.setImage(UIImage(named: "menu-7"), for: .selected)
+        info_button.setImage(UIImage(named: "menu-7"), for: .normal)
         
         
         
@@ -199,6 +199,9 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
     
     
     @objc private func homeButtonAction(sender: UIButton) {
+        
+        
+        
         
         HomePageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePageViewController") as! UINavigationController
         viewControllers = [HomePageVC]
@@ -211,6 +214,7 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
         setButtonImage()
         home_button.setImage(UIImage(named: "logoSolo"), for: .normal)
       
+        
     }
     
     @objc private func NotificationsButtonAction(sender: UIButton) {
@@ -221,19 +225,34 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
            
         setButtonImage()
      
-        notification_button.setImage(UIImage(named: "notification_tabbar"), for: .normal)
+        notification_button.setImage(UIImage(named: "request-2"), for: .normal)
       
     }
     
     @objc private func ServicseButtonAction(sender: UIButton) {
            
-        ServicesPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ServicesViewController") as! UINavigationController
-        viewControllers = [ServicesPageVC]
-        selectedIndex = 0
-           
-        setButtonImage()
-     
-        services_button.setImage(UIImage(named: "support_tabbar"), for: .normal)
+        if user?.DToken != nil {
+               profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileViewController") as! UINavigationController
+               let profilePage = profileVC.viewControllers[0] as! profileViewController
+               
+               profilePage.loadDelegate = self
+               viewControllers = [profileVC]
+               selectedIndex = 4
+           }else{
+               InfoPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginPageViewController") as! UINavigationController
+               
+               let loginpage = InfoPageVC.viewControllers[0] as! loginPageViewController
+               
+               loginpage.loadDelegate = self
+               viewControllers = [InfoPageVC]
+               selectedIndex = 4
+           }
+
+              
+           setButtonImage()
+        
+           info_button.setImage(UIImage(named: "menu-7"), for: .normal)
+       
       
     }
     @objc private func SettingsButtonAction(sender: UIButton) {
@@ -245,36 +264,42 @@ class SFTabbarController: UITabBarController , UIScrollViewDelegate , loadTabbar
            
         setButtonImage()
      
-        setting_button.setImage(UIImage(named: "settings_tabbar"), for: .normal)
+        setting_button.setImage(UIImage(named: "financial-statement-2"), for: .normal)
       
     }
     
     @objc private func InfoButtonAction(sender: UIButton) {
            
-        if user?.DToken != nil {
-            profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileViewController") as! UINavigationController
-            let profilePage = profileVC.viewControllers[0] as! profileViewController
-            
-            profilePage.loadDelegate = self
-            viewControllers = [profileVC]
-            selectedIndex = 4
-        }else{
-            InfoPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginPageViewController") as! UINavigationController
-            
-            let loginpage = InfoPageVC.viewControllers[0] as! loginPageViewController
-            
-            loginpage.loadDelegate = self
-            viewControllers = [InfoPageVC]
-            selectedIndex = 4
-        }
-
-           
-        setButtonImage()
-     
-        info_button.setImage(UIImage(named: "info_tabbar"), for: .normal)
-      
+        
+      ServicesPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ServicesViewController") as! UINavigationController
+             viewControllers = [ServicesPageVC]
+             selectedIndex = 0
+                
+             setButtonImage()
+          
+             services_button.setImage(UIImage(named: "menu"), for: .normal)
     }
     
+    
+    
+    @objc private func pushServices() {
+         let ServicesPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ServicesViewController2") as! ServicesViewController
+        
+        
+        let viewController = UIApplication.shared.windows.first!.rootViewController as! SFTabbarController
+        
+        
+        
+        let tb1 = viewController.tabBar
+        if let tb = viewController.viewControllers?[0] as? UINavigationController {
+            tb.pushViewController(ServicesPageVC, animated: true)
+        }
+        
+        
+        
+        
+
+    }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0{
             changeTabBar(hidden: true, animated: true)

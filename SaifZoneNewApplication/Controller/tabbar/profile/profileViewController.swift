@@ -24,8 +24,9 @@ class profileViewController: UIViewController {
     
     let activityData = ActivityData()
     
+    @IBOutlet var changableView: UIView!
     var loadDelegate: loadTabbar!
-    
+    let myCustomView: licenseDetailsView = .fromNib()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -41,6 +42,9 @@ class profileViewController: UIViewController {
         setupView()
         
         
+        
+        self.myCustomView.frame = self.changableView.frame
+        self.changableView.addSubview(self.myCustomView)
         
         
     }

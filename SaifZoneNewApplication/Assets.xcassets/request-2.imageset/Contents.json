@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "notification.png",
+      "filename" : "request-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "notification-2.png",
+      "filename" : "request-3.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "rsz_notification-3.png",
+      "filename" : "rsz_request-4.png",
       "scale" : "3x"
     }
   ],

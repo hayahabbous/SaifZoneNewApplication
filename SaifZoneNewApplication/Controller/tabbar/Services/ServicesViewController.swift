@@ -153,6 +153,8 @@ class ServicesViewController: UIViewController ,endSearch {
         super.viewDidLoad()
         
         
+        
+        
         setupView()
         getMainServices()
         getAllServices()
@@ -175,6 +177,8 @@ class ServicesViewController: UIViewController ,endSearch {
         
         tableView.tableFooterView = UIView()
         setupCollectionView()
+        
+        
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
         self.navigationController?.navigationBar.shadowImage = UIImage()

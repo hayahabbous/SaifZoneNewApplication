@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import SkyFloatingLabelTextField
 import NVActivityIndicatorView
-class loginPageViewController: UIViewController {
+class newloginPageViewController: UIViewController {
     
     
     @IBOutlet var changableView: UIView!
-    var user: SAIFZONEUser? = SAIFZONEUser.getSAIFZONEUser()
+    var user: SAIFZONEUser?
     let dataSource : [String] = ["Investor","Employee"]
     let tokenSource : [String] = ["mportal","hr"]
     let urlSource : [String] = ["GetValue","GetStaffValue"]
@@ -27,9 +27,7 @@ class loginPageViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     
-     let loginViewCustom: loginView = .fromNib()
-    let licenseViewCustom: licenseDetailsView = .fromNib()
-    let profileViewCustom: profileView = .fromNib()
+     let myCustomView: loginView = .fromNib()
     var loadDelegate: loadTabbar!
     
     let activityData = ActivityData()
@@ -48,7 +46,6 @@ class loginPageViewController: UIViewController {
         
         tableView.tableFooterView = UIView()
         
-        /*
         userProfileView.layer.cornerRadius = userProfileView.frame.height / 2
         
         userProfileView.layer.masksToBounds = true
@@ -56,37 +53,15 @@ class loginPageViewController: UIViewController {
         userProfileView.layer.borderColor = UIColor(red: 187/255, green: 156/255, blue: 98/255, alpha: 1.0).cgColor
         
         
-        userProfileView.layer.borderWidth = 5*/
+        userProfileView.layer.borderWidth = 5
         setupView()
         
         
         
-        loginViewCustom.tag = 1
-        profileViewCustom.tag = 2
-        licenseViewCustom.tag = 3
         
-        
-        
-        if user?.DToken != nil {
-            
-            self.profileViewCustom.frame = self.changableView.frame
-            
-            self.profileViewCustom.viewController = self
-            profileViewCustom.backgroundColor = .red
-            
-            self.changableView.addSubview(self.profileViewCustom)
-            
-            
-        }else{
-            
-            
-            self.loginViewCustom.frame = self.changableView.frame
-            
-            self.loginViewCustom.viewController = self
-            self.changableView.addSubview(self.loginViewCustom)
-        }
-        
-        
+        self.changableView.backgroundColor = .red
+        self.myCustomView.frame = self.changableView.frame
+        self.changableView.addSubview(self.myCustomView)
         
         
     }
@@ -98,8 +73,6 @@ class loginPageViewController: UIViewController {
         _ = navigationController?.popViewControllerToLeft()
     }
     func setupView(){
-        
-        /*
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
         loginButton.layer.masksToBounds = true
         
@@ -113,7 +86,7 @@ class loginPageViewController: UIViewController {
         loginWithUAEPassButton.layer.borderColor = UIColor.lightGray.cgColor
         loginWithUAEPassButton.layer.cornerRadius = loginWithUAEPassButton.frame.height / 2
         loginWithUAEPassButton.layer.masksToBounds = true
-        */
+        
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -312,36 +285,10 @@ class loginPageViewController: UIViewController {
         
     }
     
-    func logout() {
-        
-        
-        
-        let logOutAlertActionController = UIAlertController(title:"", message: NSLocalizedString("Are you sure you want to signout ?", comment:""), preferredStyle: .alert )
-               
-               
-        let yesAlerActionOption = UIAlertAction(title:NSLocalizedString("Sure",comment:""), style: UIAlertAction.Style.default, handler: { (UIAlertAction) -> Void in
-              
-            
-            UserDefaults.standard.set(nil, forKey: AppConstants.SAIFZONEUserData)
-            self.loadDelegate.loadTabbar()
-           
-            
-        })
-        
-        let noAlertActionOption = UIAlertAction(title:NSLocalizedString("No",comment:""), style: .default, handler: nil)
-        
-        logOutAlertActionController.addAction(yesAlerActionOption)
-        logOutAlertActionController.addAction(noAlertActionOption)
-        
-        self.present(logOutAlertActionController, animated: true, completion: nil)
-        
-        
-    }
-    
     
 }
 
-extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
+extension newloginPageViewController: UITableViewDataSource,UITableViewDelegate {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -349,10 +296,6 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if user?.DToken != nil {
-            return 3
-        }
         return 0
         
         
@@ -372,38 +315,6 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
             let imageView = cell.viewWithTag(1) as! UIImageView
             let descLabel = cell.viewWithTag(2) as! UILabel
             
-            
-            imageView.image = UIImage(named: "license")
-            descLabel.text = "License Details"
-            switch indexPath.row {
-                
-            case 0:
-            
-                imageView.image = UIImage(named: "user_profile")
-                
-                descLabel.text = "Profile"
-                
-            case 1:
-                       
-            
-                imageView.image = UIImage(named: "license")
-                
-                descLabel.text = "License Details"
-                
-            case 2:
-                          
-            
-                imageView.image = UIImage(named: "cancel")
-                
-                descLabel.text = "Logout"
-                
-            default:
-            
-                print("")
-                
-            }
-        }
-            /*
             switch indexPath.row {
             case 0:
                 imageView.image = UIImage(named: "logoSolo")
@@ -436,59 +347,10 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 print("")
             }
             
-        }*/
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        
-        if user?.DToken != nil {
-            
-            switch indexPath.row {
-            case 0:
-                
-                
-                self.changableView.removeView(view: licenseViewCustom)
-                self.changableView.removeView(view: loginViewCustom)
-                
-                
-                self.profileViewCustom.frame = self.changableView.frame
-                
-                self.profileViewCustom.viewController = self
-                
-                
-                self.changableView.addSubview(self.profileViewCustom)
-            case 1:
-                
-                self.changableView.removeView(view: profileViewCustom)
-                self.changableView.removeView(view: loginViewCustom)
-                
-                
-                
-                self.licenseViewCustom.frame = self.changableView.frame
-                
-                self.licenseViewCustom.viewController = self
-                self.changableView.addSubview(self.licenseViewCustom)
-            case 2:
-                logout()
-            default:
-                print("defualt")
-            }
-            
         }
-        
-       
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.width
-    }
-}
-extension UIView {
-    func removeView(view: UIView) {
-        if let viewWithTag = self.viewWithTag(view.tag){
-            viewWithTag.removeFromSuperview()
-        }
-        
-        
     }
 }
