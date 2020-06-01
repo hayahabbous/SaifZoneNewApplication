@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statmentHeaderView" rowHeight="98" id="jPx-Zl-Qlh" customClass="statmentHeaderView" customModule="SaifZoneNewApplication" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="454" height="98"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jPx-Zl-Qlh" id="gS6-MK-766">
+                <rect key="frame" x="0.0" y="0.0" width="454" height="98"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="84B-mj-yrx">
+                        <rect key="frame" x="8" y="8" width="438" height="44"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5vI-Iz-A8O">
+                                <rect key="frame" x="0.0" y="0.0" width="194" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s4-Iu-oEe">
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="25"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8S-Xu-npL">
+                                        <rect key="frame" x="59" y="0.0" width="103" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="11-10-2019">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="fromButtonAction:" destination="jPx-Zl-Qlh" eventType="touchUpInside" id="EkD-vo-oiG"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calander-1" translatesAutoresizingMaskIntoConstraints="NO" id="cS2-uq-7SE">
+                                        <rect key="frame" x="169" y="0.0" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="6fi-Lr-cL9"/>
+                                            <constraint firstAttribute="height" constant="25" id="TXX-jC-NZW"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="n6c-bU-QIh">
+                                <rect key="frame" x="244" y="0.0" width="194" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiY-4R-5iK">
+                                        <rect key="frame" x="0.0" y="0.0" width="34.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgm-Hv-6c7">
+                                        <rect key="frame" x="41.5" y="0.0" width="120.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="11-10-2019">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toButtonAction:" destination="jPx-Zl-Qlh" eventType="touchUpInside" id="bXd-Ah-erl"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calander-1" translatesAutoresizingMaskIntoConstraints="NO" id="uh2-Yr-wry">
+                                        <rect key="frame" x="169" y="0.0" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="8RC-Lr-jkg"/>
+                                            <constraint firstAttribute="height" constant="25" id="ldW-LJ-btd"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="OdT-kM-Onk"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" red="0.96863657240000001" green="0.96861571069999997" blue="0.96861976390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="84B-mj-yrx" firstAttribute="leading" secondItem="gS6-MK-766" secondAttribute="leading" constant="8" id="Gks-4f-dX5"/>
+                    <constraint firstAttribute="trailing" secondItem="84B-mj-yrx" secondAttribute="trailing" constant="8" id="cDQ-Kn-zk9"/>
+                    <constraint firstAttribute="bottom" secondItem="84B-mj-yrx" secondAttribute="bottom" constant="8" id="eOd-21-Lwl"/>
+                    <constraint firstItem="84B-mj-yrx" firstAttribute="top" secondItem="gS6-MK-766" secondAttribute="top" constant="8" id="vYh-Hk-9rc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="fromButton" destination="N8S-Xu-npL" id="GUd-Bg-rre"/>
+                <outlet property="toButton" destination="Vgm-Hv-6c7" id="PJ2-Rb-rg0"/>
+            </connections>
+            <point key="canvasLocation" x="820.28985507246387" y="42.857142857142854"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Calander-1" width="30" height="31"/>
+    </resources>
+</document>

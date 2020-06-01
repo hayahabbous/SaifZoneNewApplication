@@ -13,7 +13,7 @@ import SystemConfiguration
 import LocalAuthentication
 import PassKit
 import JGProgressHUD
-
+import NVActivityIndicatorView
 
 
 protocol  signinWebProtocol {
@@ -38,8 +38,10 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet var navViewHeight: NSLayoutConstraint!
     var hePay: Bool = false
-    
+    var delegate: loadTableDelegate!
+    @IBOutlet var tableView: UITableView!
     var transactionID: String = ""
     let hud = JGProgressHUD(style: .dark)
     @IBOutlet weak var uiView: UIView!
@@ -47,9 +49,15 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
     var isLoading : Bool = true
     var completedUrl : String = ""
     var startUrl : String = ""
+    var mainServicesArray: [SAIFZONEMainService] = []
     var globalChargeAmount = "0"
+     let activityData = ActivityData()
+    var selectedMainService: SAIFZONEMainService = SAIFZONEMainService()
     //var popvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "progressPopUp") as! ProgressPopUp
     let payFort = PayFortController.init(enviroment: KPayFortEnviromentProduction)
+    
+    
+    
     // var Url : String = "http://mportal.saif-zone.com/"
     @IBAction func onBackClick(_ sender: Any) {
         //gotoLoginPage()
@@ -59,6 +67,21 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
+        
+        tableView.delegate = self
+            
+        tableView.dataSource = self
+         
+        tableView.tableFooterView = UIView()
+        
+        navViewHeight.constant = self.navigationController?.navigationBar.frame.size.height ?? 60
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(webViewController.touchStatusBar), name:NSNotification.Name(rawValue: "statusBarTappedNotification"), object: nil)
         landingWebView.navigationDelegate = self
         //uiView.isHidden = true
@@ -66,15 +89,46 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
         
         
         
+        
+        let preferences = WKPreferences()
+               
+        preferences.javaScriptEnabled = true
+        
+        let configuration = WKWebViewConfiguration()
+        
+        configuration.preferences = preferences
+        
+        
+        
+        landingWebView.translatesAutoresizingMaskIntoConstraints = false
+        landingWebView.configuration.preferences.javaScriptEnabled = true
+        landingWebView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+        //landingWebView.configuration.preferences.javaEnabled = true
+        
+        let user = SAIFZONEUser.getSAIFZONEUser()
+        if user != nil {
+            
+            
+            if UserDefaults.standard.value(forKey: "loginToken") != nil {
+            }else{
+                
+            }
+            
+            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)/Default.aspx?TokenID=\(user?.DToken ?? "")" ,forKey: "URL")
+        }else {
+            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)/default.aspx?pageid=75", forKey: "URL")
+        }
+        /*
         if UserDefaults.standard.value(forKey: "loginToken") != nil {
             
-            UserDefaults.standard.set("http://mportal.saif-zone.com/ConsumeToken.aspx?TokenID=" + (UserDefaults.standard.value(forKey: "loginToken")  as! String),forKey: "URL")
+            
+            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)/ConsumeToken.aspx?TokenID=" + (UserDefaults.standard.value(forKey: "loginToken")  as! String),forKey: "URL")
         }else{
-            UserDefaults.standard.set("https://mportal.saif-zone.com/default.aspx?pageid=75", forKey: "URL")
+            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)/default.aspx?pageid=75", forKey: "URL")
             // createStatusBar()
             
         }
-        
+        */
         /*
         if selectedServiceURL != nil {
             UserDefaults.standard.set(selectedServiceURL, forKey: "URL")
@@ -123,16 +177,21 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
     }
     
     func getData() {
-        guard Utilities().isInternetAvailable() == true else{
-            Utilities().showAlert(message: "Please check internet connetion", isRefresh : true,actionMessage : "Refresh", controller: self)
-            return
+        
+        
+        DispatchQueue.main.async {
+            guard Utilities().isInternetAvailable() == true else{
+                Utilities().showAlert(message: "Please check internet connetion", isRefresh : true,actionMessage : "Refresh", controller: self)
+                return
+            }
+            let urlOther :String = UserDefaults.standard.object(forKey: "URL") as! String
+            let url : URL = URL(string : urlOther)!
+            let request1 = URLRequest(url: url)
+            if self.landingWebView != nil {
+                self.landingWebView.load(request1)
+            }
         }
-        let urlOther :String = UserDefaults.standard.object(forKey: "URL") as! String
-        let url : URL = URL(string : urlOther)!
-        let request1 = URLRequest(url: url)
-        if landingWebView != nil {
-            landingWebView.load(request1)
-        }
+        
         
         
         
@@ -158,7 +217,7 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
             return
         }
         
-        if clickedUrl.contains("Login.aspx") || clickedUrl == "https://mportal.saif-zone.com/login.aspx"
+        if clickedUrl.contains("Login.aspx") || clickedUrl == "\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)/login.aspx"
           
         {
             tryForLogin()
@@ -253,8 +312,8 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
         
         if clickedUrl.contains("Default.aspx?TokenID=")
         {
-            UserDefaults.standard.set(selectedServiceURL, forKey: "URL")
-            self.getData()
+            //UserDefaults.standard.set(selectedServiceURL, forKey: "URL")
+            //self.getData()
         }
         /*
         
@@ -352,8 +411,107 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
         }
         
     }
+    
+    
+    
 }
 
+
+extension webViewController: UITableViewDataSource,UITableViewDelegate {
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+        
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mainServicesArray.count
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMainService = self.mainServicesArray[indexPath.row]
+        
+        
+        delegate.loadTable(selectedService: selectedMainService)
+       
+        
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.contentView.backgroundColor = UIColor(red: 187/256, green: 156/256, blue: 98/256, alpha: 1.0)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.contentView.backgroundColor = UIColor(red: 55/256, green: 30/256, blue: 52/256, alpha: 1.0)
+        }
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if cell.reuseIdentifier == "Cell" {
+            let imageView = cell.viewWithTag(1) as! UIImageView
+            let descLabel = cell.viewWithTag(2) as! UILabel
+            
+            switch indexPath.row {
+            case 0:
+                imageView.image = UIImage(named: "investor")
+                descLabel.text = "About Us"
+            case 1:
+                imageView.image = UIImage(named: "finance")
+                descLabel.text = "Profile"
+            case 2:
+                imageView.image = UIImage(named: "license")
+                descLabel.text = "License Details"
+            case 3:
+                imageView.image = UIImage(named: "visitor")
+                descLabel.text = "Statment of Account"
+            case 4:
+                imageView.image = UIImage(named: "health")
+                descLabel.text = "E-Services"
+            case 5:
+                imageView.image = UIImage(named: "security")
+                descLabel.text = "Visa Status"
+            case 6:
+                imageView.image = UIImage(named: "maintainance")
+                descLabel.text = "Request"
+            case 7:
+                imageView.image = UIImage(named: "purchase")
+                descLabel.text = "Settings"
+            case 8:
+                imageView.image = UIImage(named: "sales")
+                descLabel.text = ""
+            default:
+                print("")
+            }
+            let item = mainServicesArray[indexPath.row]
+            if selectedMainService.SCID == item.SCID {
+                cell.contentView.backgroundColor = UIColor(red: 187/256, green: 156/256, blue: 98/256, alpha: 1.0)
+            }else{
+                cell.contentView.backgroundColor = UIColor(red: 55/256, green: 30/256, blue: 52/256, alpha: 1.0)
+            }
+            
+            
+            descLabel.text = mainServicesArray[indexPath.row].Caption
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.width
+    }
+}
 extension webViewController {
     
     func authenticationWithTouchID() {
@@ -413,6 +571,95 @@ extension webViewController {
         
     }
     func tryForLogin() {
+        
+        var user = SAIFZONEUser.getSAIFZONEUser()
+        if user != nil {
+            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")" ,forKey: "URL")
+            
+            self.getData()
+        }
+        
+        
+        
+        
+        DispatchQueue.main.async {
+            guard Utilities().isInternetAvailable() == true else{
+                Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+                return
+            }
+             NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.activityData)
+            //self.view.isUserInteractionEnabled = false
+        }
+        WebService.getDToken(username: UserDefaults.standard.object(forKey: "userName")  as? String ?? "", password: UserDefaults.standard.object(forKey: "password")  as? String ?? "") { (json) in
+            
+            print(json)
+            DispatchQueue.main.async {
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                //self.view.isUserInteractionEnabled = false
+                
+                guard let errorCode = json["ErrorCode"] as? Int else {return}
+                 
+                
+                if errorCode == 0 {
+                    guard let data = json["Data"] as? String else {
+                        
+                        DispatchQueue.main.async {
+                            Utils.showAlertWith(title: "Error", message: "Login faild", viewController: self)
+                        }
+                        return
+                        
+                        
+                    }
+                    if data == "" {
+                        
+                        DispatchQueue.main.async {
+                            Utils.showAlertWith(title: "Error", message: "Login faild", viewController: self)
+                        }
+                        return
+                    }
+                    var _: SAIFZONEUser = SAIFZONEUser(dict: json)
+                    
+                    var user = SAIFZONEUser.getSAIFZONEUser()
+                    
+                    
+                    DispatchQueue.main.async {
+                    
+                        UserDefaults.standard.set(UserDefaults.standard.object(forKey: "userName")  as? String ?? "", forKey: "userName")
+                        
+                        UserDefaults.standard.set(UserDefaults.standard.object(forKey: "password")  as? String ?? "", forKey: "password")
+                        
+                        UserDefaults.standard.set("true", forKey: "autoLogin")
+                         
+                   
+                        
+                        UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=\(String(describing: self.selectedServiceURL ?? ""))" ,forKey: "URL")
+                        
+                        print("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=\(self.selectedServiceURL ?? "")")
+                        self.getData()
+                        
+                        /*
+                        if self.selectedServiceURL != nil {
+                            UserDefaults.standard.set(self.selectedServiceURL,forKey: "URL")
+                            self.getData()
+                        }
+                        */
+                        //self.loadDelegate.loadTabbar()
+                    }
+                    print(data)
+                }else {
+                    guard let message = json["Message"] as? String else {return}
+                    
+                    DispatchQueue.main.async {
+                        Utils.showAlertWith(title: "Error", message: message, viewController: self)
+                    }
+                }
+                
+            }
+            
+            
+            
+        }
+        /*
         let defaults = UserDefaults.standard
         var name : String = "123/1"
         if let str : String = defaults.string(forKey: "deviceID")
@@ -429,7 +676,7 @@ extension webViewController {
         
         // let url : String = "http://dev.saif-zone.com/_vti_bin/SharePoint.WCFService.Sample/Services/SampleService.svc/Auth(" + txtUserName.text! + "," + txtPassword.text! + "," + name + ")"
         
-        let url :String = "http://ws.saif-zone.com:7777/authenticate/GetValue/\(UserDefaults.standard.object(forKey: "userName")  as! String)/\(escapedString!)/\(name)"
+        let url :String = "\(AppConstants.WEB_BASIC_URL_TEST_GENERATE_TOKEN)authenticate/GetValue/\(UserDefaults.standard.object(forKey: "userName")  as! String)/\(escapedString!)/\(name)"
         // let url :String =  "http://ws.saif-zone.com:7777/authenticate/GetValue/" + txtUserName.text! + "/" + txtPassword.text! + "/" + name
         
         let loginUrl = URL(string: url)
@@ -460,7 +707,7 @@ extension webViewController {
                             
                             //                            self.Url = "http://devdpm.saif-zone.com/ConsumeToken.aspx?TokenID=" + (jsonResult!.value(forKey: "AuthResult")  as! String)
                             // self.MainFunc()
-                            UserDefaults.standard.set("http://mportal.saif-zone.com/ConsumeToken.aspx?TokenID=" + (jsonResult!.value(forKey: "AuthResult")  as! String),forKey: "URL")
+                            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=" + (jsonResult!.value(forKey: "AuthResult")  as! String),forKey: "URL")
                             self.getData()
                             /*
                             
@@ -494,7 +741,7 @@ extension webViewController {
             }
         }).resume()
         
-        
+        */
     }
     
     func evaluatePolicyFailErrorMessageForLA(errorCode: Int) -> String {
@@ -811,7 +1058,7 @@ extension webViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                     //self.present(alert, animated: true, completion: nil)
                     
-                    let urlOther :String = "https://mportal.saif-zone.com/default.aspx?pageid=60&response_message=Success&merchant_reference=\(self.transactionID)"
+                    let urlOther :String = "\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)/default.aspx?pageid=60&response_message=Success&merchant_reference=\(self.transactionID)"
                     
                     //let urlOther :String = "https://devdpm.saif-zone.com/default.aspx?pageid=61"
                     let url : URL = URL(string : urlOther)!
@@ -951,7 +1198,7 @@ PKPaymentAuthorizationViewControllerDelegate{
         controller.dismiss(animated: true, completion: nil)
         if !hePay {
             
-            let urlOther :String = "https://mportal.saif-zone.com/default.aspx?PageId=30&tID=\(self.transactionID)"
+            let urlOther :String = "\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)/default.aspx?PageId=30&tID=\(self.transactionID)"
             let url : URL = URL(string : urlOther)!
             let request1 = URLRequest(url: url)
             

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="newLicenseView" customModule="SaifZoneNewApplication" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select License" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXg-qJ-B39">
+                    <rect key="frame" x="16" y="76" width="118.5" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jyd-83-7Sv" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="16" y="113.5" width="382" height="39"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOF-gJ-mXy">
+                    <rect key="frame" x="16" y="184.5" width="105.5" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharjah Islamic Bank (Sharjah)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-lT-dOs">
+                    <rect key="frame" x="16" y="222" width="382" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manager Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSW-km-gbr">
+                    <rect key="frame" x="16" y="275.5" width="123" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEz-LS-xHs">
+                    <rect key="frame" x="16" y="313" width="382" height="42.5"/>
+                    <string key="text">Yaqoub Amir Mohamed Baqurain Alhadhrami
+</string>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJz-FD-dXy">
+                    <rect key="frame" x="16" y="387.5" width="60.5" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marketing Banking Services" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Had-6b-o4j">
+                    <rect key="frame" x="16" y="425" width="382" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7Y-2d-uUZ">
+                    <rect key="frame" x="16" y="478.5" width="65" height="22"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkq-Ek-axO">
+                    <rect key="frame" x="16" y="516.5" width="382" height="42.5"/>
+                    <string key="text">Plot of Land (Joint Lease) A1 - 01B
+</string>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVt-LG-JWi">
+                    <rect key="frame" x="132" y="770" width="150" height="40"/>
+                    <color key="backgroundColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="IX2-Sw-1fD"/>
+                        <constraint firstAttribute="width" constant="150" id="nAD-Ca-NuX"/>
+                    </constraints>
+                    <state key="normal" title="PRINT LICENSE">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="printLicenseAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="VEf-7q-he8"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="q6T-kh-uFg">
+                    <rect key="frame" x="359" y="126.5" width="25" height="13.5"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Td7-D4-TB2"/>
+                        <constraint firstAttribute="width" constant="25" id="vCQ-30-QdU"/>
+                    </constraints>
+                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="light"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jVt-LG-JWi" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="25o-hq-LGP"/>
+                <constraint firstItem="Had-6b-o4j" firstAttribute="top" secondItem="TJz-FD-dXy" secondAttribute="bottom" constant="16" id="48W-cH-Hts"/>
+                <constraint firstItem="VXg-qJ-B39" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="32" id="6I6-Rl-X7K"/>
+                <constraint firstItem="lSW-km-gbr" firstAttribute="leading" secondItem="Bgp-lT-dOs" secondAttribute="leading" id="9ht-LQ-Fhg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="q6T-kh-uFg" secondAttribute="trailing" constant="30" id="FoV-UW-EGV"/>
+                <constraint firstItem="lSW-km-gbr" firstAttribute="top" secondItem="Bgp-lT-dOs" secondAttribute="bottom" constant="32" id="G5V-9Q-EVc"/>
+                <constraint firstItem="K7Y-2d-uUZ" firstAttribute="top" secondItem="Had-6b-o4j" secondAttribute="bottom" constant="32" id="Gig-hL-K2A"/>
+                <constraint firstItem="rOF-gJ-mXy" firstAttribute="leading" secondItem="Jyd-83-7Sv" secondAttribute="leading" id="Ixv-pV-NIr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jVt-LG-JWi" secondAttribute="bottom" constant="52" id="Lqo-9d-QAK"/>
+                <constraint firstItem="q6T-kh-uFg" firstAttribute="centerY" secondItem="Jyd-83-7Sv" secondAttribute="centerY" id="Obh-Fo-HG0"/>
+                <constraint firstItem="K7Y-2d-uUZ" firstAttribute="leading" secondItem="Had-6b-o4j" secondAttribute="leading" id="POo-8f-aiI"/>
+                <constraint firstItem="Had-6b-o4j" firstAttribute="trailing" secondItem="Jyd-83-7Sv" secondAttribute="trailing" id="RF3-ph-TjM"/>
+                <constraint firstItem="Bgp-lT-dOs" firstAttribute="top" secondItem="rOF-gJ-mXy" secondAttribute="bottom" constant="16" id="TZ1-Sb-3Oy"/>
+                <constraint firstItem="Jyd-83-7Sv" firstAttribute="top" secondItem="VXg-qJ-B39" secondAttribute="bottom" constant="16" id="X28-Ll-1B4"/>
+                <constraint firstItem="rOF-gJ-mXy" firstAttribute="top" secondItem="Jyd-83-7Sv" secondAttribute="bottom" constant="32" id="bJY-Hy-ScK"/>
+                <constraint firstItem="Bgp-lT-dOs" firstAttribute="trailing" secondItem="Jyd-83-7Sv" secondAttribute="trailing" id="bav-pq-pT2"/>
+                <constraint firstItem="rkq-Ek-axO" firstAttribute="leading" secondItem="K7Y-2d-uUZ" secondAttribute="leading" id="eMt-QV-cyE"/>
+                <constraint firstItem="Jyd-83-7Sv" firstAttribute="leading" secondItem="VXg-qJ-B39" secondAttribute="leading" id="elx-6w-P2d"/>
+                <constraint firstItem="Had-6b-o4j" firstAttribute="leading" secondItem="TJz-FD-dXy" secondAttribute="leading" id="fcc-Fd-QHF"/>
+                <constraint firstItem="Bgp-lT-dOs" firstAttribute="leading" secondItem="rOF-gJ-mXy" secondAttribute="leading" id="fh3-XS-RXF"/>
+                <constraint firstItem="TJz-FD-dXy" firstAttribute="leading" secondItem="zEz-LS-xHs" secondAttribute="leading" id="iQM-f0-JvW"/>
+                <constraint firstItem="rkq-Ek-axO" firstAttribute="top" secondItem="K7Y-2d-uUZ" secondAttribute="bottom" constant="16" id="j7M-pY-4ZR"/>
+                <constraint firstItem="rkq-Ek-axO" firstAttribute="trailing" secondItem="Jyd-83-7Sv" secondAttribute="trailing" id="k85-dA-N0a"/>
+                <constraint firstItem="zEz-LS-xHs" firstAttribute="leading" secondItem="lSW-km-gbr" secondAttribute="leading" id="oi1-YC-Gjs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jyd-83-7Sv" secondAttribute="trailing" constant="16" id="rIH-4f-Nwg"/>
+                <constraint firstItem="zEz-LS-xHs" firstAttribute="trailing" secondItem="Jyd-83-7Sv" secondAttribute="trailing" id="v7y-Ga-zy4"/>
+                <constraint firstItem="TJz-FD-dXy" firstAttribute="top" secondItem="zEz-LS-xHs" secondAttribute="bottom" constant="32" id="wLs-Ba-zVv"/>
+                <constraint firstItem="VXg-qJ-B39" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="wQA-ko-ec5"/>
+                <constraint firstItem="zEz-LS-xHs" firstAttribute="top" secondItem="lSW-km-gbr" secondAttribute="bottom" constant="16" id="zM2-Lm-1W7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="activityLabel" destination="Had-6b-o4j" id="qrs-RI-kAl"/>
+                <outlet property="addressLabel" destination="rkq-Ek-axO" id="Xqr-gx-OVm"/>
+                <outlet property="licensePickeView" destination="Mhq-FS-G6c" id="yD0-rS-oU6"/>
+                <outlet property="managerNameLabel" destination="zEz-LS-xHs" id="mGe-Sd-cpm"/>
+                <outlet property="ownerNameLabel" destination="Bgp-lT-dOs" id="tnP-7Y-Y5J"/>
+                <outlet property="printLicenseButton" destination="jVt-LG-JWi" id="xq8-lS-Fhv"/>
+                <outlet property="selectLicenseTextField" destination="Jyd-83-7Sv" id="K5J-Ht-s4I"/>
+            </connections>
+            <point key="canvasLocation" x="-310" y="123"/>
+        </view>
+        <pickerView contentMode="scaleToFill" id="Mhq-FS-G6c">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <point key="canvasLocation" x="-949" y="55"/>
+        </pickerView>
+    </objects>
+    <resources>
+        <image name="chevron.down" catalog="system" width="64" height="36"/>
+    </resources>
+</document>

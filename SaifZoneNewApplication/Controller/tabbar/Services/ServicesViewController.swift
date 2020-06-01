@@ -11,12 +11,85 @@ import UIKit
 import NVActivityIndicatorView
 import EmptyDataSet_Swift
 
-class ServicesViewController: UIViewController ,endSearch {
+
+protocol loadTableDelegate {
+    func loadTable(selectedService: SAIFZONEMainService)
+}
+class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , ModernSearchBarDelegate {
     
     
-    func userDidClickSearch() {
+    ///Called if you use String suggestion list
+    func onClickItemSuggestionsView(item: String) {
+        print("User touched this item: "+item)
         
-        let text = self.searchController.searchBar.text ?? ""
+        
+        userDidClickSearch(s: item)
+    }
+    
+    ///Called if you use Custom Item suggestion list
+    func onClickItemWithUrlSuggestionsView(item: ModernSearchBarModel) {
+        print("User touched this item: "+item.title+" with this url: "+item.url.description)
+    }
+    
+    ///Called when user touched shadowView
+    func onClickShadowView(shadowView: UIView) {
+        print("User touched shadowView")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Text did change, what i'm suppose to do ?")
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("Text did end")
+    }
+    func loadTable(selectedService: SAIFZONEMainService) {
+        
+        selectedMainService = selectedService
+        self.isMainServiceSelected = true
+        
+        self.firstButton.setTitle(self.selectedMainService.Caption, for: .normal)
+        firstButtonAction(self)
+        self.servicesCollectionView.reloadData()
+        self.tableView.reloadData()
+        
+    }
+    
+    
+    var suggestionList = Array<SAIFZONEService>()
+    private func configureSearchBar(){
+        
+        ///Create array of string
+        
+        /*
+        suggestionList.append("Onions")
+        suggestionList.append("Celery")
+        suggestionList.append("Very long vegetable to show you that cell is updated and fit all the row")
+        suggestionList.append("Potatoes")
+        suggestionList.append("Carrots")
+        suggestionList.append("Broccoli")
+        suggestionList.append("Asparagus")
+        suggestionList.append("Apples")
+        suggestionList.append("Berries")
+        suggestionList.append("Kiwis")
+        suggestionList.append("Raymond")*/
+        
+        ///Adding delegate
+        self.modernSearchBar.delegateModernSearchBar = self
+        
+        ///Set datas to search bar
+        self.modernSearchBar.setDatas(datas: suggestionList)
+        
+        ///Custom design with all paramaters if you want to
+        //self.customDesign()
+        
+    }
+    
+    func userDidClickSearch(s: String ) {
+        
+        let text1 = self.searchController.searchBar.text ?? ""
+        let text = s
+        
+        self.modernSearchBar.text = ""
         if var service = allServicesArray.filter({ (s) -> Bool in
             s.Caption.lowercased() == text.lowercased()
         }).first {
@@ -75,9 +148,9 @@ class ServicesViewController: UIViewController ,endSearch {
                 
             }else if seqArray.count == 2 {
                 isMainServiceSelected = false
-                selectedService = seqArray[1]
-                firstSelectedItem = seqArray[0]
-                secondSelectedItem = seqArray[1]
+                selectedService = seqArray[0]
+                firstSelectedItem = seqArray[1]
+                secondSelectedItem = seqArray[0]
                 
                 
                 self.firstButton.setTitle(self.selectedMainService.Caption, for: .normal)
@@ -103,14 +176,18 @@ class ServicesViewController: UIViewController ,endSearch {
             
             self.servicesCollectionView.reloadData()
         }
+        
+        
+        
+        /*
         self.searchController.searchBar.text = ""
         self.updateSearchResults(for: self.searchController)
         self.searchBarCancelButtonClicked(self.searchController.searchBar)
         self.definesPresentationContext = true
-        self.searchController.isActive = false
+        self.searchController.isActive = false*/
     }
     
-    
+    @IBOutlet weak var modernSearchBar: ModernSearchBar!
     var endSerachDelegate: endSearch!
     var selectedServiceURL: String!
     @IBOutlet var firstButton: UIButton!
@@ -140,6 +217,7 @@ class ServicesViewController: UIViewController ,endSearch {
     @IBOutlet var tableView: UITableView!
     
     
+    @IBOutlet var searchView: UIView!
     var isMainServiceSelected = true
     
     
@@ -164,12 +242,20 @@ class ServicesViewController: UIViewController ,endSearch {
         
         //tableView.emptyDataSetSource = self
         //tableView.emptyDataSetDelegate = self
-        
-        
+        //self.configureSearchBarWithUrl()
+        self.configureSearchBar()
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+    }
     func setupView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -180,10 +266,6 @@ class ServicesViewController: UIViewController ,endSearch {
         
         
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
         
         
         
@@ -218,11 +300,42 @@ class ServicesViewController: UIViewController ,endSearch {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search"
         searchController.searchResultsUpdater = self
-        navigationItem.searchController = searchController
+        //navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
+        
+        //searchController.hidesNavigationBarDuringPresentation = false
+      
+        
+        let frame = CGRect(x: 0, y: 0, width: 200, height:  44)
+        let titleView = UIView(frame: frame)
+        //searchController.searchBar.backgroundImage = UIImage()
+        //searchController.searchBar.frame = frame
+        //navigationItem.searchController = searchController
+        //searchView.addSubview(searchController.searchBar)
+        
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        
+        self.extendedLayoutIncludesOpaqueBars = true
+        
+        
+        
+        //navigationItem.titleView = searchController.searchBar
+        
+        //searchView = searchController.searchBar
+        //searchController.searchBar.sizeToFit()
+        
     }
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    /*
+        let frame = CGRect(x: 0, y: 0, width: 200, height:  44)
+        let titleView = UIView(frame: frame)
+        searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.frame = frame
+        */
+        //self.searchController.searchBar.widthAnchor.constraint(equalToConstant: 50).isActive = true
+    }
     /// A final search has been triggered either by tapping search, tapping
     /// a trending term or tapping a suggestion.
     ///
@@ -375,7 +488,9 @@ class ServicesViewController: UIViewController ,endSearch {
                     result.relatedServicesArray = itemArray
                 }
                 
+                self.suggestionList = self.allServicesArray
                 AppConstants.allServicesArray = self.allServicesArray
+                self.modernSearchBar.setDatas(datas: self.suggestionList)
                 self.servicesCollectionView.reloadData()
             }
             
@@ -462,6 +577,33 @@ class ServicesViewController: UIViewController ,endSearch {
         
         self.servicesCollectionView.reloadData()
     }
+    
+    private func configureSearchBarWithUrl(){
+        
+        ///Create array of ModernSearchBarModel containing a title and a url
+        var suggestionListWithUrl = Array<ModernSearchBarModel>()
+        suggestionListWithUrl.append(ModernSearchBarModel(title: "Alpha", url: "https://github.com/PhilippeBoisney/ModernSearchBar/raw/master/Examples%20Url/exampleA.png"))
+        suggestionListWithUrl.append(ModernSearchBarModel(title: "Bravo", url: "https://github.com/PhilippeBoisney/ModernSearchBar/raw/master/Examples%20Url/exampleB.png"))
+        suggestionListWithUrl.append(ModernSearchBarModel(title: "Charlie ? Well, just a long sentence to show you how powerful is this lib...", url: "https://github.com/PhilippeBoisney/ModernSearchBar/raw/master/Examples%20Url/exampleC.png"))
+        suggestionListWithUrl.append(ModernSearchBarModel(title: "Delta", url: "https://github.com/PhilippeBoisney/ModernSearchBar/raw/master/Examples%20Url/exampleD.png"))
+        suggestionListWithUrl.append(ModernSearchBarModel(title: "Echo", url: "https://github.com/PhilippeBoisney/ModernSearchBar/raw/master/Examples%20Url/exampleE.png"))
+        suggestionListWithUrl.append(ModernSearchBarModel(title: "Golf", url: "https://github.com/PhilippeBoisney/ModernSearchBar/raw/master/Examples%20Url/exampleG.png"))
+        
+        
+        ///Adding delegate
+        self.modernSearchBar.delegateModernSearchBar = self
+        
+        ///Set datas to search bar
+        self.modernSearchBar.setDatasWithUrl(datas: suggestionListWithUrl)
+        
+        ///Increase size of suggestionsView icon
+        self.modernSearchBar.suggestionsView_searchIcon_height = 40
+        self.modernSearchBar.suggestionsView_searchIcon_width = 40
+        
+        ///Custom design with all paramaters
+        //self.customDesign()
+        
+    }
     @IBAction func thirdButtonAction(_ sender: Any) {
         
         firstButton.isHidden = false
@@ -517,11 +659,11 @@ class ServicesViewController: UIViewController ,endSearch {
         
         if selectedService.URL1.count > 0 && selectedService.URL2 != ""{
             
-            selectedServiceURL = "https://mportal.saif-zone.com" + selectedService.URL1
+            selectedServiceURL = AppConstants.WEB_BASIC_URL_TEST_BASE_URL + selectedService.URL1
         }else if selectedService.URL2.count > 0 && selectedService.URL2 != ""  {
-            selectedServiceURL = "https://mportal.saif-zone.com" + selectedService.URL2
+            selectedServiceURL = AppConstants.WEB_BASIC_URL_TEST_BASE_URL + selectedService.URL2
         }else {
-            selectedServiceURL = "https://mportal.saif-zone.com/AppRecordMP.aspx?bo=\(selectedService.ApplicationID)&EditMode=New&hidelist=1&hidenavigation=1&HideDelete=1"
+            selectedServiceURL = "\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)/AppRecordMP.aspx?bo=\(selectedService.ApplicationID)&EditMode=New&hidelist=1&hidenavigation=1&HideDelete=1"
         }
         
         
@@ -532,11 +674,17 @@ class ServicesViewController: UIViewController ,endSearch {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toWebView"  {
             
-            let dest = segue.destination as! UINavigationController
-            let wv = dest.viewControllers[0] as! webViewController
-            wv.selectedServiceURL = self.selectedServiceURL
+            let dest = segue.destination as! webViewController
+            
+            dest.selectedServiceURL = self.selectedServiceURL
+            dest.mainServicesArray = self.mainServicesArray
+            dest.delegate = self
             
             
+            let backItem = UIBarButtonItem()
+            backItem.title = selectedService.Caption
+            navigationItem.backBarButtonItem = backItem
+            navigationItem.backBarButtonItem?.tintColor = AppConstants.purpleColor
         }
     }
 }
@@ -824,12 +972,14 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
 
 
 extension ServicesViewController: UISearchBarDelegate {
+    
+    /*
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchType = searchText.isEmpty ? .final : .partial
         navigationController?.navigationBar
             .setShadow(hidden: searchText.isEmpty)
     }
-    
+    */
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         navigationController?.navigationBar.setShadow(hidden: true)
     }

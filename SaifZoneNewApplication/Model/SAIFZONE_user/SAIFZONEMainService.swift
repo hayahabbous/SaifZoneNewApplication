@@ -17,7 +17,7 @@ class SAIFZONEMainService: NSObject {
 }
 
 
-class SAIFZONEService: NSObject {
+public class SAIFZONEService: NSObject {
     var SID: String  = ""
     var Caption: String  = ""
     var ApplicationID: String  = ""

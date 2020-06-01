@@ -202,7 +202,7 @@ class requestsViewController: UIViewController {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical  // .horizontal
         }
-        collectionView.isPagingEnabled = true
+        //collectionView.isPagingEnabled = true
         collectionView.reloadData()
         collectionView.setNeedsLayout()
     }
@@ -261,8 +261,6 @@ extension requestsViewController: UICollectionViewDelegate,UICollectionViewDataS
                 
             }else{
                 let rItem = draftRequests[indexPath.row]
-                
-                
                 cell.serviceName.text = rItem.application_caption
                 cell.serviceStatus.text = rItem.caption
                 cell.serviceDate.text = rItem.next_action_time

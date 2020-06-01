@@ -31,7 +31,7 @@ class loginView: UIView {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var userProfileView: UIView!
     
-    
+    var loginDelegate: changeViewProtocol!
     let activityData = ActivityData()
     var username: String!
     var password: String!
@@ -43,7 +43,7 @@ class loginView: UIView {
         
         setupImage()
         setupLoginButton()
-        
+        setNeedsLayout()
     }
     
     
@@ -143,6 +143,7 @@ class loginView: UIView {
                         DispatchQueue.main.async {
                             self.SaveLoginInfo()
                          
+                            self.loginDelegate.changeLoginView()
                             //self.loadDelegate.loadTabbar()
                         }
                         print(data)
@@ -185,6 +186,8 @@ class loginView: UIView {
     
     
     func tryForLogin() {
+        
+        /*
         let defaults = UserDefaults.standard
         var name : String = "123/1"
         if let str : String = defaults.string(forKey: "deviceID")
@@ -271,8 +274,11 @@ class loginView: UIView {
             }
         }).resume()
         
-        
+        */
     }
     
     
+    @IBAction func dismissAction(_ sender: Any) {
+        self.endEditing(true)
+    }
 }

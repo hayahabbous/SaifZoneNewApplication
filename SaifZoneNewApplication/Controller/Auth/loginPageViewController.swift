@@ -10,9 +10,46 @@ import Foundation
 import UIKit
 import SkyFloatingLabelTextField
 import NVActivityIndicatorView
-class loginPageViewController: UIViewController {
+
+
+protocol changeViewProtocol {
+    func changeLoginView()
+    func openWebView(fielURL: String)
+}
+class loginPageViewController: UIViewController , changeViewProtocol {
+    func openWebView(fielURL: String ) {
+        
+        self.selectedFileUrl = fielURL
+        
+        self.performSegue(withIdentifier: "toWebView", sender: self)
+    }
+    
+    func changeLoginView() {
+        
+        
+        self.user = SAIFZONEUser.getSAIFZONEUser()
+        self.changableView.removeView(view: loginViewCustom)
+        
+     
+        
+        self.profileViewCustom.resizeView(baseView: self.changableView)
+                   
+                   
+        self.profileViewCustom.viewController = self
+        
+     
+                   
+        self.profileViewCustom.loadUserInfo()
+        
+        self.changableView.addSubview(self.profileViewCustom)
+                   
+        
+        self.tableView.reloadData()
+    }
     
     
+    var selectedFileUrl = ""
+    var isLoadFirstTime = false
     @IBOutlet var changableView: UIView!
     var user: SAIFZONEUser? = SAIFZONEUser.getSAIFZONEUser()
     let dataSource : [String] = ["Investor","Employee"]
@@ -27,18 +64,28 @@ class loginPageViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     
-     let loginViewCustom: loginView = .fromNib()
-    let licenseViewCustom: licenseDetailsView = .fromNib()
-    let profileViewCustom: profileView = .fromNib()
+     var loginViewCustom: loginView!
+    var licenseViewCustom: licenseDetailsView!
+    var profileViewCustom: profileView!
+    var reqDocViewCustom: reqDocumentsView!
+    var invoiceViewCustome: payInvoiceView!
     var loadDelegate: loadTabbar!
-    
+    var requestsViewCustome: requestsView!
+    var newLicenseCustomeView: newLicenseView!
+    var superView: UIView!
     let activityData = ActivityData()
     var username: String!
     var password: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        loginViewCustom = .fromNib()
+        licenseViewCustom = .fromNib()
+        profileViewCustom = .fromNib()
+        reqDocViewCustom = .fromNib()
+        invoiceViewCustome = .fromNib()
+        requestsViewCustome = .fromNib()
+        newLicenseCustomeView = .fromNib()
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back(sender:)))
         newBackButton.tintColor = AppConstants.purpleColor
@@ -65,30 +112,64 @@ class loginPageViewController: UIViewController {
         profileViewCustom.tag = 2
         licenseViewCustom.tag = 3
         
+      
+      
         
         
-        if user?.DToken != nil {
+        
+         print("did appear")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+ print("will appear")
+       
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        print("will layout")
+        
+
+        
+        if isLoadFirstTime == false {
             
-            self.profileViewCustom.frame = self.changableView.frame
             
-            self.profileViewCustom.viewController = self
-            profileViewCustom.backgroundColor = .red
+            if user?.DToken != nil {
+                      
+                
+                self.profileViewCustom.resizeView(baseView: self.changableView)
+                      
+                
+                self.profileViewCustom.viewController = self
+                      
+                    
+                self.profileViewCustom.loadUserInfo()
+                
+                self.changableView.addSubview(self.profileViewCustom)
+                      
+                      
+                
+            }else{
+                      
+                
+                      
+                self.loginViewCustom.loginDelegate = self
+                
+                self.loginViewCustom.resizeView(baseView: self.changableView)
+                
+                self.loginViewCustom.viewController = self
+                
+                self.changableView.addSubview(self.loginViewCustom)
+                
+            }
+                  
             
-            self.changableView.addSubview(self.profileViewCustom)
-            
-            
-        }else{
-            
-            
-            self.loginViewCustom.frame = self.changableView.frame
-            
-            self.loginViewCustom.viewController = self
-            self.changableView.addSubview(self.loginViewCustom)
         }
         
-        
-        
-        
+       
     }
     
     @objc func back(sender: UIBarButtonItem) {
@@ -323,8 +404,24 @@ class loginPageViewController: UIViewController {
               
             
             UserDefaults.standard.set(nil, forKey: AppConstants.SAIFZONEUserData)
-            self.loadDelegate.loadTabbar()
+            //self.loadDelegate.loadTabbar()
            
+            AppConstants.CompanyCode = ""
+        
+            UserDefaults.standard.set("", forKey: "companyCode")
+            UserDefaults.standard.set("", forKey: "password")
+            UserDefaults.standard.set("", forKey: "userName")
+            self.user = SAIFZONEUser.getSAIFZONEUser()
+           
+            self.loginViewCustom.loginDelegate = self
+            self.loginViewCustom.resizeView(baseView: self.changableView)
+            
+            self.loginViewCustom.viewController = self
+            
+            
+            self.changableView.addSubview(self.loginViewCustom)
+            
+            self.tableView.reloadData()
             
         })
         
@@ -336,6 +433,17 @@ class loginPageViewController: UIViewController {
         self.present(logOutAlertActionController, animated: true, completion: nil)
         
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toWebView"  {
+            
+            let dest = segue.destination as! UINavigationController
+            let wv = dest.viewControllers[0] as! webViewController
+            wv.selectedServiceURL = self.selectedFileUrl
+            
+            
+        }
     }
     
     
@@ -351,7 +459,7 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if user?.DToken != nil {
-            return 3
+            return 7
         }
         return 0
         
@@ -377,20 +485,48 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
             descLabel.text = "License Details"
             switch indexPath.row {
                 
+                
             case 0:
+                
+            
+                imageView.image = UIImage(named: "dashboard")
+                    
+                
+                descLabel.text = "Dashboard"
+                    
+            case 1:
             
                 imageView.image = UIImage(named: "user_profile")
                 
-                descLabel.text = "Profile"
+                descLabel.text = "Account Details"
                 
-            case 1:
+            case 2:
                        
             
                 imageView.image = UIImage(named: "license")
                 
                 descLabel.text = "License Details"
+            case 3:
+                           
                 
-            case 2:
+                    imageView.image = UIImage(named: "documents")
+                    
+                    descLabel.text = "Requiered Documents"
+            case 4:
+                           
+                
+                    imageView.image = UIImage(named: "invoice")
+                    
+                    descLabel.text = "Pay Invoices"
+               
+            case 5:
+                           
+                
+                    imageView.image = UIImage(named: "ask")
+                    
+                    descLabel.text = "Requests"
+                
+            case 6:
                           
             
                 imageView.image = UIImage(named: "cancel")
@@ -440,36 +576,96 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        isLoadFirstTime = true
         
         if user?.DToken != nil {
             
             switch indexPath.row {
             case 0:
                 
-                
+                /*
                 self.changableView.removeView(view: licenseViewCustom)
                 self.changableView.removeView(view: loginViewCustom)
+                */
                 
-                
-                self.profileViewCustom.frame = self.changableView.frame
+                self.profileViewCustom.resizeView(baseView: self.changableView)
                 
                 self.profileViewCustom.viewController = self
                 
-                
+                self.profileViewCustom.loadUserInfo()
                 self.changableView.addSubview(self.profileViewCustom)
+                
             case 1:
                 
+                /*
+                self.changableView.removeView(view: licenseViewCustom)
+                self.changableView.removeView(view: loginViewCustom)
+                */
+                
+                self.profileViewCustom.resizeView(baseView: self.changableView)
+                
+                self.profileViewCustom.viewController = self
+                
+                self.profileViewCustom.loadUserInfo()
+                self.changableView.addSubview(self.profileViewCustom)
+            case 2:
+                /*
                 self.changableView.removeView(view: profileViewCustom)
                 self.changableView.removeView(view: loginViewCustom)
+                */
                 
                 
+                self.newLicenseCustomeView.resizeView(baseView: self.changableView)
                 
-                self.licenseViewCustom.frame = self.changableView.frame
+                self.newLicenseCustomeView.viewController = self
+                self.newLicenseCustomeView.loadLicense()
+                self.changableView.addSubview(self.newLicenseCustomeView)
+            case 3:
+                print("case 2")
+                /*
+                self.changableView.removeView(view: profileViewCustom)
+                self.changableView.removeView(view: loginViewCustom)
+                self.changableView.removeView(view: licenseViewCustom)
                 
-                self.licenseViewCustom.viewController = self
-                self.changableView.addSubview(self.licenseViewCustom)
-            case 2:
+                */
+                
+                self.reqDocViewCustom.resizeView(baseView: self.changableView)
+                
+                self.reqDocViewCustom.viewController = self
+  
+                
+                self.reqDocViewCustom.loadReqDocuments()
+                self.reqDocViewCustom.delegate = self
+                self.changableView.addSubview(self.reqDocViewCustom)
+            case 4:
+                print("case 3")
+                
+               
+                self.invoiceViewCustome.resizeView(baseView: self.changableView)
+                              
+                
+                self.invoiceViewCustome.viewController = self
+                
+                
+                self.invoiceViewCustome.loadInvoice()
+                
+                self.changableView.addSubview(self.invoiceViewCustome)
+                
+               
+            case 5:
+                 print("case 3")
+                 
+                
+                 self.requestsViewCustome.resizeView(baseView: self.changableView)
+                               
+                 
+                 self.requestsViewCustome.viewController = self
+                 
+                 
+                 self.requestsViewCustome.loadRequests()
+                 
+                 self.changableView.addSubview(self.requestsViewCustome)
+            case 6:
                 logout()
             default:
                 print("defualt")
@@ -489,6 +685,27 @@ extension UIView {
             viewWithTag.removeFromSuperview()
         }
         
+        
+    }
+    
+    func resizeView(baseView: UIView ) {
+        
+        baseView.backgroundColor = .red
+        let xPosition = baseView.frame.origin.x  - 90
+                 
+        let yPosition = baseView.frame.origin.y // Slide Up - 20px
+
+        
+        let width = baseView.frame.size.width
+        
+        let height = baseView.frame.size.height
+        
+        
+        self.frame = CGRect(x: xPosition, y: yPosition, width: width, height: height)
+        
+        
+        self.sizeToFit()
+        self.systemLayoutSizeFitting(baseView.frame.size)
         
     }
 }

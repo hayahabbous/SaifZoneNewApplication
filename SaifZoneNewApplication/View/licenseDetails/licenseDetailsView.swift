@@ -13,7 +13,7 @@ import NVActivityIndicatorView
 class licenseDetailsView: UIView {
     
     
-    var licenseItem: SAIFZONELicense = SAIFZONELicense()
+    var licenseItems: [SAIFZONELicense] = []
     let activityData = ActivityData()
      var viewController: loginPageViewController!
     @IBOutlet var collectionView: UICollectionView!
@@ -21,6 +21,9 @@ class licenseDetailsView: UIView {
         super.awakeFromNib()
         
         setupCollectionView()
+    }
+    
+    func loadLicense() {
         getLicenseDetails()
     }
     
@@ -39,7 +42,7 @@ class licenseDetailsView: UIView {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical  // .horizontal
         }
-        collectionView.isPagingEnabled = true
+        //collectionView.isPagingEnabled = true
         collectionView.reloadData()
         collectionView.setNeedsLayout()
     }
@@ -77,7 +80,7 @@ class licenseDetailsView: UIView {
             guard let message = json["Message"] as? String else {return}
             
             guard let data = json["Data"] as? [[String:Any]] else {return}
-            
+            self.licenseItems = []
             for d in data {
                 var lItem = SAIFZONELicense()
                 lItem.license_no = d["License No"] as? String ?? ""
@@ -98,10 +101,11 @@ class licenseDetailsView: UIView {
              
                 
                 
+                AppConstants.CompanyCode = lItem.acc_code
                 
                 DispatchQueue.main.async {
                     
-                    self.licenseItem = lItem
+                    self.licenseItems.append(lItem)
                     self.collectionView.reloadData()
                 }
        
@@ -116,6 +120,7 @@ class licenseDetailsView: UIView {
             
         }
     }
+    
 }
 extension licenseDetailsView: UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
@@ -125,7 +130,7 @@ extension licenseDetailsView: UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
        
-        return 1
+        return licenseItems.count
         
 
     }
@@ -148,6 +153,7 @@ extension licenseDetailsView: UICollectionViewDelegate,UICollectionViewDataSourc
         if cell.reuseIdentifier == "licenseCollectionViewCell" {
             let cell = cell as! licenseCollectionViewCell
             
+            let licenseItem = licenseItems[indexPath.row]
             
             
             cell.managerNameLabel.text = licenseItem.manager_name
@@ -157,6 +163,9 @@ extension licenseDetailsView: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.activityLabel.text = licenseItem.activity
             cell.addressLabel.text = licenseItem.address
             cell.acc_codeLabel.text = licenseItem.acc_code
+            
+            cell.viewController = self.viewController
+            cell.licenseItem = licenseItem
         }
         
     }
@@ -171,7 +180,7 @@ extension licenseDetailsView: UICollectionViewDelegate,UICollectionViewDataSourc
         
         
         
-        return CGSize(width: self.collectionView.frame.width - 40, height: self.collectionView.frame.height)
+        return CGSize(width: self.collectionView.frame.width - 40, height: 1500)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         

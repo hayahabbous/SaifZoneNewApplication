@@ -10,42 +10,95 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUN-ZU-ZbQ" customClass="profileView" customModule="SaifZoneNewApplication" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="Qq0-nv-zbZ" customClass="profileView" customModule="SaifZoneNewApplication" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QK1-7f-xO0">
-                    <rect key="frame" x="147" y="50" width="120" height="120"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSS-O3-DOX">
+                    <rect key="frame" x="147" y="104" width="120" height="120"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile_black" translatesAutoresizingMaskIntoConstraints="NO" id="oCt-xr-QV6">
+                            <rect key="frame" x="25" y="25" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="Akv-yb-aZr"/>
+                                <constraint firstAttribute="width" constant="70" id="WGT-pM-ZcV"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="1ZM-15-CzV"/>
-                        <constraint firstAttribute="width" constant="120" id="khp-dH-wsX"/>
+                        <constraint firstAttribute="height" constant="120" id="2Lx-1q-Aq7"/>
+                        <constraint firstAttribute="width" constant="120" id="XiY-iR-604"/>
+                        <constraint firstItem="oCt-xr-QV6" firstAttribute="centerX" secondItem="QSS-O3-DOX" secondAttribute="centerX" id="Z0n-XC-AiO"/>
+                        <constraint firstItem="oCt-xr-QV6" firstAttribute="centerY" secondItem="QSS-O3-DOX" secondAttribute="centerY" id="caK-eh-Sn8"/>
                     </constraints>
+                    <viewLayoutGuide key="safeArea" id="bp4-v4-eRL"/>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile_black" translatesAutoresizingMaskIntoConstraints="NO" id="qId-r3-b6S">
-                    <rect key="frame" x="172" y="75" width="70" height="70"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="70" id="3lq-lq-6Oe"/>
-                        <constraint firstAttribute="width" constant="70" id="AZG-XO-ScA"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to SaifZone " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zeq-j6-NGT">
-                    <rect key="frame" x="116.5" y="178" width="181" height="22.5"/>
-                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
-                    <color key="textColor" red="0.21566504240000001" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Saif Zone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1M-na-6Pg">
+                    <rect key="frame" x="112.5" y="271" width="189" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username in arabic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiv-y1-dRb">
+                    <rect key="frame" x="133.5" y="324.5" width="147" height="22"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email is " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-Ct-SFT">
+                    <rect key="frame" x="173.5" y="378.5" width="67" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-Y4-6zZ">
+                    <rect key="frame" x="179" y="432" width="56" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fax " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USX-15-9yS">
+                    <rect key="frame" x="190.5" y="485.5" width="33" height="21.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXo-dM-FTH">
+                    <rect key="frame" x="178" y="539" width="58" height="22"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
+                    <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Zeq-j6-NGT" firstAttribute="centerX" secondItem="QK1-7f-xO0" secondAttribute="centerX" id="3A4-EF-AAC"/>
-                <constraint firstItem="Zeq-j6-NGT" firstAttribute="top" secondItem="QK1-7f-xO0" secondAttribute="bottom" constant="8" id="WkM-1f-z5R"/>
-                <constraint firstItem="qId-r3-b6S" firstAttribute="centerX" secondItem="QK1-7f-xO0" secondAttribute="centerX" id="Yl1-ct-dwo"/>
-                <constraint firstItem="qId-r3-b6S" firstAttribute="centerY" secondItem="QK1-7f-xO0" secondAttribute="centerY" id="bwE-OQ-TbQ"/>
-                <constraint firstItem="qId-r3-b6S" firstAttribute="centerX" secondItem="sUN-ZU-ZbQ" secondAttribute="centerX" id="sq8-5y-uFs"/>
-                <constraint firstItem="qId-r3-b6S" firstAttribute="top" secondItem="sUN-ZU-ZbQ" secondAttribute="top" constant="75" id="xIP-Cr-EHD"/>
+                <constraint firstItem="USX-15-9yS" firstAttribute="centerX" secondItem="aUv-Y4-6zZ" secondAttribute="centerX" id="6UO-8W-sSF"/>
+                <constraint firstItem="QSS-O3-DOX" firstAttribute="centerX" secondItem="dGO-q9-LDc" secondAttribute="centerX" id="7cD-32-0cT"/>
+                <constraint firstItem="QSS-O3-DOX" firstAttribute="top" secondItem="dGO-q9-LDc" secondAttribute="top" constant="60" id="KQi-m3-5qv"/>
+                <constraint firstItem="aUv-Y4-6zZ" firstAttribute="centerX" secondItem="BvG-Ct-SFT" secondAttribute="centerX" id="L69-a1-3h5"/>
+                <constraint firstItem="PXo-dM-FTH" firstAttribute="centerX" secondItem="USX-15-9yS" secondAttribute="centerX" id="LpR-qO-ALz"/>
+                <constraint firstItem="aUv-Y4-6zZ" firstAttribute="top" secondItem="BvG-Ct-SFT" secondAttribute="bottom" constant="32" id="QYz-XQ-cEV"/>
+                <constraint firstItem="USX-15-9yS" firstAttribute="top" secondItem="aUv-Y4-6zZ" secondAttribute="bottom" constant="32" id="SFg-F7-rCX"/>
+                <constraint firstItem="BvG-Ct-SFT" firstAttribute="top" secondItem="kiv-y1-dRb" secondAttribute="bottom" constant="32" id="SVL-Cs-eBF"/>
+                <constraint firstItem="kiv-y1-dRb" firstAttribute="centerX" secondItem="i1M-na-6Pg" secondAttribute="centerX" id="Sa7-eC-l9z"/>
+                <constraint firstItem="i1M-na-6Pg" firstAttribute="centerX" secondItem="QSS-O3-DOX" secondAttribute="centerX" id="XB2-uj-zAP"/>
+                <constraint firstItem="i1M-na-6Pg" firstAttribute="top" secondItem="QSS-O3-DOX" secondAttribute="bottom" constant="47" id="lhR-sp-yE3"/>
+                <constraint firstItem="kiv-y1-dRb" firstAttribute="top" secondItem="i1M-na-6Pg" secondAttribute="bottom" constant="32" id="tJS-cm-cJm"/>
+                <constraint firstItem="BvG-Ct-SFT" firstAttribute="centerX" secondItem="kiv-y1-dRb" secondAttribute="centerX" id="xuC-b4-6I5"/>
+                <constraint firstItem="PXo-dM-FTH" firstAttribute="top" secondItem="USX-15-9yS" secondAttribute="bottom" constant="32" id="zcc-3H-hMn"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="jE3-qZ-xPL"/>
-            <point key="canvasLocation" x="139" y="135"/>
+            <viewLayoutGuide key="safeArea" id="dGO-q9-LDc"/>
+            <connections>
+                <outlet property="emailLabel" destination="BvG-Ct-SFT" id="GD7-fW-t4n"/>
+                <outlet property="faxLabel" destination="USX-15-9yS" id="DXb-pE-ZhR"/>
+                <outlet property="mobileLabel" destination="aUv-Y4-6zZ" id="OtF-t5-t0A"/>
+                <outlet property="userProfileView" destination="QSS-O3-DOX" id="g4d-aA-wFI"/>
+                <outlet property="usernameArabicLabel" destination="kiv-y1-dRb" id="Yt5-VY-KKf"/>
+                <outlet property="usernameLabel" destination="i1M-na-6Pg" id="FCB-Eh-pXA"/>
+                <outlet property="websiteLabel" destination="PXo-dM-FTH" id="KXl-ut-a4W"/>
+            </connections>
+            <point key="canvasLocation" x="-868.11594202898561" y="76.339285714285708"/>
         </view>
     </objects>
     <resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="payInvoiceView" customModule="SaifZoneNewApplication" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="F0t-u9-qwl">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7MY-H5-mRE">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invoice Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ces-eZ-Uxt">
+                    <rect key="frame" x="135.5" y="55" width="143" height="22.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="17"/>
+                    <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ces-eZ-Uxt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="11" id="6fO-bS-Qu8"/>
+                <constraint firstItem="ces-eZ-Uxt" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Eag-GY-tCL"/>
+                <constraint firstItem="F0t-u9-qwl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="PZT-vu-ATS"/>
+                <constraint firstItem="F0t-u9-qwl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="44" id="QMP-om-uUb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="F0t-u9-qwl" secondAttribute="trailing" id="Z1X-Jj-99O"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="F0t-u9-qwl" secondAttribute="bottom" id="kac-15-2NP"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="collectionView" destination="F0t-u9-qwl" id="Ugj-R4-fR3"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="126"/>
+        </view>
+    </objects>
+</document>

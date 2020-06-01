@@ -16,9 +16,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="etV-LT-Oky">
-                    <rect key="frame" x="0.0" y="44" width="414" height="774"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="730"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="adV-eR-b3p">
+                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="adV-eR-b3p">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -35,13 +35,21 @@
                         </collectionViewCell>
                     </cells>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2v-cj-Ae0">
+                    <rect key="frame" x="141.5" y="59" width="131" height="22.5"/>
+                    <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="17"/>
+                    <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="etV-LT-Oky" firstAttribute="top" secondItem="lLY-fR-cEa" secondAttribute="top" id="0mM-fZ-fjF"/>
+                <constraint firstItem="etV-LT-Oky" firstAttribute="top" secondItem="lLY-fR-cEa" secondAttribute="top" constant="44" id="0mM-fZ-fjF"/>
                 <constraint firstItem="lLY-fR-cEa" firstAttribute="trailing" secondItem="etV-LT-Oky" secondAttribute="trailing" id="6Ba-0W-ZWf"/>
-                <constraint firstItem="lLY-fR-cEa" firstAttribute="bottom" secondItem="etV-LT-Oky" secondAttribute="bottom" constant="44" id="hEU-kw-CKJ"/>
+                <constraint firstItem="q2v-cj-Ae0" firstAttribute="centerX" secondItem="lLY-fR-cEa" secondAttribute="centerX" id="ESb-bm-hmH"/>
+                <constraint firstItem="lLY-fR-cEa" firstAttribute="bottom" secondItem="etV-LT-Oky" secondAttribute="bottom" constant="44" id="mWd-cb-wRN"/>
                 <constraint firstItem="etV-LT-Oky" firstAttribute="leading" secondItem="lLY-fR-cEa" secondAttribute="leading" id="uVq-ut-iTT"/>
+                <constraint firstItem="q2v-cj-Ae0" firstAttribute="top" secondItem="lLY-fR-cEa" secondAttribute="top" constant="15" id="vzy-re-upn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="lLY-fR-cEa"/>
             <connections>

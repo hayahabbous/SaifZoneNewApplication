@@ -10,8 +10,36 @@ import Foundation
 
 class AppConstants: NSObject {
     
+    static let WEB_BASIC_URL_TEST_GENERATE_TOKEN = "https://devdpa.saif-zone.com/"
+    static let WEB_BASIC_URL_TEST_CONSUME_TOKEN = "https://devdpm.saif-zone.com/"
+    
+    
+    static let WEB_BASIC_URL_TEST_BASE_URL = "https://devdpm.saif-zone.com"
+    static let WEB_BASIC_URL_LIVE_BASE_URL = "https://mportal.saif-zone.com"
+    
+    
+    static let WEB_BASIC_URL_LIVE_GENERATE_TOKEN = "http://ws.saif-zone.com:7777/"
+    static let WEB_BASIC_URL_LIVE_CONSUME_TOKEN = "https://mportal.saif-zone.com/"
+    
     
     static let WEB_SERVER_SAIFZONE_TEST = "https://devdpa.saif-zone.com/api/"
+    
+    
+    static let WEB_SERVER_SAIFZONE_TEST_DOWNLOADLINK = "https://devdpm.saif-zone.com/"
+    static let WEB_SERVER_SAIFZONE_LIVE_DOWNLOADLINK = "https://mportal.saif-zone.com/"
+    
+    
+    
+    static let WEB_SERVER_DOWNLOAD_LINK_FILE_TEST = "https://devdpm.saif-zone.com/download.aspx"
+    static let WEB_SERVER_DOWNLOAD_LINK_FILE_LIVE = "https://mportal.saif-zone.com/download.aspx"
+    
+    
+    
+    static let WEB_SERVER_DOWNLOAD_LICENSE_FILE = "https://devdp.saif-zone.com/tradelicense.aspx?LicenseNo="
+    static let WEB_SERVER_DOWNLOAD_LICENSE_FILE_LIVE = "https://mportal.saif-zone.com/tradelicense.aspx?LicenseNo="
+    
+    
+    
     static let WEB_SERVER_SAIFZONE_LIVE = ""
     static let APPLE_LANGUAGE_KEY = "AppleLanguages"
     static var DToken = "6RGT36D10Q637059759964359851B1I1"
@@ -19,6 +47,8 @@ class AppConstants: NSObject {
     static var ImageURL = "http://mocdservices.dcxportal.com"
     static var purpleColor = UIColor(red: 55/256, green: 30/256, blue: 52/256, alpha: 1.0)
     
+    
+    static var CompanyCode = ""
     
     static let SAIFZONEUserData = "SAIFZONEUserData"
     static let SAIFZONECompanyData = "SAIFZONECompanyData"

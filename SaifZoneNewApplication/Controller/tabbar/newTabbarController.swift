@@ -45,13 +45,27 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
     func setupFirstButton() {
         
         let width = self.tabBar.frame.width / 5
-        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 80))
         
         menuButton.frame.origin.y = tabBar.bounds.height - menuButton.frame.height
         menuButton.frame.origin.x = tabBar.bounds.width - self.view.frame.width
-        menuButton.backgroundColor = .clear
+        menuButton.backgroundColor = .red
         
         
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            menuButton.frame.origin.y = tabBar.bounds.height - menuButton.frame.height
+            menuButton.frame.origin.x = tabBar.bounds.width - self.view.frame.width
+            menuButton.backgroundColor = .clear
+        case .pad:
+            menuButton.frame.origin.y = tabBar.bounds.height - menuButton.frame.height
+            menuButton.frame.origin.x = 40
+            menuButton.frame = CGRect(x: menuButton.frame.origin.x , y: menuButton.frame.origin.y, width: 165, height: 80)
+            menuButton.backgroundColor = .clear
+        default:
+            print("")
+        }
         menuButton.addTarget(self, action: #selector(firstMenuButtonAction(sender:)), for: .touchUpInside)
         tabBar.addSubview(menuButton)
         
