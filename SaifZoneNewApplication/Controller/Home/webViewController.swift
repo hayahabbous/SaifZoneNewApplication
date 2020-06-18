@@ -238,6 +238,8 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
   */
             //https://devdp.saif-zone.com/*/
 
+        }else if clickedUrl == "https://devdpm.saif-zone.com/default.aspx" {
+            self.navigationController?.popViewController(animated: true)
         }
         /*
         if clickedUrl.contains("gis") {
@@ -314,6 +316,22 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
         {
             //UserDefaults.standard.set(selectedServiceURL, forKey: "URL")
             //self.getData()
+        }else if clickedUrl.contains("PageId=62")
+        {
+          
+            //self.payButton.isHidden = false
+            //Utilities().showAlert(message: "you need to proceed with apple pay ?", isRefresh : false,actionMessage : "Refresh", controller: self)
+            //let transactionString = clickedUrl.prefi
+            
+            if let range = clickedUrl.range(of: "ID=") {
+                let transID = clickedUrl[range.upperBound...]
+                self.transactionID = String(describing: transID)
+                print(transactionID) // prints "123.456.7891"
+            }
+
+            getPaymentInformation(transactionId: self.transactionID)
+            /*
+            */
         }
         /*
         

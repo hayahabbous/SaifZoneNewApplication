@@ -25,7 +25,7 @@ class AppConstants: NSObject {
     static let WEB_SERVER_SAIFZONE_TEST = "https://devdpa.saif-zone.com/api/"
     
     
-    static let WEB_SERVER_SAIFZONE_TEST_DOWNLOADLINK = "https://devdpm.saif-zone.com/"
+    static let WEB_SERVER_SAIFZONE_TEST_DOWNLOADLINK = "https://devdp.saif-zone.com/"
     static let WEB_SERVER_SAIFZONE_LIVE_DOWNLOADLINK = "https://mportal.saif-zone.com/"
     
     

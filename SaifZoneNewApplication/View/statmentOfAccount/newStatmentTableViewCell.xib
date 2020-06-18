@@ -97,18 +97,18 @@
                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TvX-Jl-FZ1">
-                        <rect key="frame" x="365" y="126.5" width="156" height="151.5"/>
+                        <rect key="frame" x="305" y="126.5" width="216" height="151.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8d-mq-0pq">
-                                <rect key="frame" x="0.0" y="66.5" width="70" height="18.5"/>
+                                <rect key="frame" x="0.0" y="66.5" width="100" height="18.5"/>
                                 <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3,136.40 Cr" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmO-MZ-V3K">
-                                <rect key="frame" x="86" y="60" width="70" height="32"/>
+                                <rect key="frame" x="116" y="68" width="100" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="OdN-jl-AKg"/>
+                                    <constraint firstAttribute="width" constant="100" id="OdN-jl-AKg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="12"/>
                                 <color key="textColor" red="0.85098039219999999" green="0.73725490199999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -116,6 +116,16 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEM-Ar-sgh">
+                        <rect key="frame" x="8" y="126.5" width="17" height="151.5"/>
+                        <color key="tintColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <state key="normal" image="arrow.down.to.line" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="regular"/>
+                        </state>
+                        <connections>
+                            <action selector="downloadAction:" destination="TLh-60-c4Y" eventType="touchUpInside" id="s1Y-XZ-1rU"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.96863657240000001" green="0.96861571069999997" blue="0.96861976390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
@@ -124,6 +134,9 @@
                     <constraint firstItem="cjC-hi-MtN" firstAttribute="leading" secondItem="JKv-Hp-T6f" secondAttribute="leading" id="VQP-lu-U8K"/>
                     <constraint firstItem="7Cd-7f-9aW" firstAttribute="leading" secondItem="DHc-p7-oTH" secondAttribute="leading" constant="8" id="c09-M5-UpP"/>
                     <constraint firstItem="JKv-Hp-T6f" firstAttribute="top" secondItem="7Cd-7f-9aW" secondAttribute="bottom" constant="16" id="dkD-tq-IcO"/>
+                    <constraint firstItem="qEM-Ar-sgh" firstAttribute="bottom" secondItem="TvX-Jl-FZ1" secondAttribute="bottom" id="h20-dw-83Y"/>
+                    <constraint firstItem="qEM-Ar-sgh" firstAttribute="top" secondItem="TvX-Jl-FZ1" secondAttribute="top" id="imn-Km-hVX"/>
+                    <constraint firstItem="qEM-Ar-sgh" firstAttribute="leading" secondItem="DHc-p7-oTH" secondAttribute="leading" constant="8" id="j9P-y4-mim"/>
                     <constraint firstItem="7Cd-7f-9aW" firstAttribute="top" secondItem="DHc-p7-oTH" secondAttribute="top" constant="16" id="mjs-dO-vBO"/>
                     <constraint firstItem="TvX-Jl-FZ1" firstAttribute="trailing" secondItem="cjC-hi-MtN" secondAttribute="trailing" id="n0R-pZ-laD"/>
                     <constraint firstAttribute="bottom" secondItem="TvX-Jl-FZ1" secondAttribute="bottom" constant="16" id="nJR-na-JIs"/>
@@ -144,6 +157,7 @@
                 <outlet property="creditLabel" destination="OhP-cI-Skb" id="FWX-I4-yOL"/>
                 <outlet property="dateLabel" destination="Ev9-DG-5nU" id="OWx-9K-66n"/>
                 <outlet property="debitLabel" destination="Gii-xQ-STY" id="SCi-Ga-7kh"/>
+                <outlet property="downloadButton" destination="qEM-Ar-sgh" id="PHz-hF-Fsb"/>
                 <outlet property="pdcLabel" destination="1e9-GE-UKX" id="3I5-8H-mC2"/>
                 <outlet property="statmentCaption" destination="arb-GU-cCs" id="B2i-dD-JNq"/>
                 <outlet property="statmentDescriptionLabel" destination="JKv-Hp-T6f" id="SfE-wI-o8R"/>
@@ -151,4 +165,7 @@
             <point key="canvasLocation" x="16.666666666666668" y="147.99107142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="arrow.down.to.line" catalog="system" width="64" height="64"/>
+    </resources>
 </document>

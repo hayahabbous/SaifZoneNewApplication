@@ -230,6 +230,55 @@ class newStatmentOfAccountViewController: UIViewController ,loadStatmentsForDate
     }
     
   
+    @IBAction func downloadStatmentAction(_ sender: Any) {
+        
+        guard Utilities().isInternetAvailable() == true else{
+            Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+            return
+        }
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.activityData)
+        
+        
+        WebService.getDownloadStatmentForAll(startDate: dateFromString ?? "", endDate: dateToString ?? "") { (json) in
+            
+            print(json)
+            
+            
+            DispatchQueue.main.async {
+            
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+            
+            guard let id = json["d"] as? String else {return}
+            
+            
+            DispatchQueue.main.async {
+                if let fileUrl = URL(string: "\(AppConstants.WEB_SERVER_DOWNLOAD_LINK_FILE_TEST)?FileID=\(id)&download=1") {
+                    
+                    print("the file to be downloaded is : \(fileUrl)")
+                    
+                    let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                    
+                    print("docdir" + String(describing: documentsDirectory))
+                    let dataPath = documentsDirectory.appendingPathComponent("SAIFZONE docs")
+                    
+                    //let fileExists = FileManager().fileExists(atPath: dataPath.path)
+                    
+                    let destination = documentsDirectory.appendingPathComponent( "\(id).PDF")
+                    //Downloader1.load(url: fileUrl, to: destination) {
+                        
+                  //  }
+                    Downloader.load(filePath: destination, viewController: self, url: fileUrl) { (data) in
+                        
+                        DispatchQueue.main.async {
+                            Utils.showAlertWith(title: "Success", message: "the file has been downloaded ,you can see it in files application", viewController: self)
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
     
     @objc func getDownloadId() {
         
@@ -343,9 +392,21 @@ extension newStatmentOfAccountViewController: UITableViewDelegate , UITableViewD
             let cell = cell as! newStatmentTableViewCell
             let item = statmentsArray[indexPath.section - 1]
             
+            cell.selectStatment = item
+            cell.statmentViewController = self
+            let isoDate = "2016-04-14T10:44:00"
+
+            let dateFormatter = DateFormatter()
             
-            cell.dateLabel.text = item.trDate == "<null>" ? "N/A" : item.trDate
-            cell.statmentCaption.text = item.TransactionRef == "<null>" ? "N/A" : item.TransactionRef
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            let date = dateFormatter.date(from:item.trDate)
+            if date != nil {
+                cell.statmentCaption.text = date?.stringFromFormat("yyyy-MM-dd")
+            }else{
+                cell.statmentCaption.text = item.trDate == "<null>" ? "N/A" : item.trDate.components(separatedBy: "T")[0]
+            }
+            
+            cell.dateLabel.text = item.TransactionRef == "<null>" ? "N/A" : item.TransactionRef
             cell.statmentDescriptionLabel.text = item.descriptionStat == "<null>" ? "N/A" : item.descriptionStat
             cell.debitLabel.text = item.Debit == "<null>" ? "N/A" : item.Debit
             cell.creditLabel.text = item.Credit == "<null>" ? "N/A" : item.Credit

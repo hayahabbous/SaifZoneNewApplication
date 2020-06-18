@@ -52,7 +52,7 @@ class loginView: UIView {
         
         userProfileView.layer.masksToBounds = true
         
-        userProfileView.layer.borderColor = UIColor(red: 187/255, green: 156/255, blue: 98/255, alpha: 1.0).cgColor
+        userProfileView.layer.borderColor = UIColor(red: 205/255, green: 175/255, blue: 116/255, alpha: 1.0).cgColor
         
         
         userProfileView.layer.borderWidth = 5
@@ -143,7 +143,11 @@ class loginView: UIView {
                         DispatchQueue.main.async {
                             self.SaveLoginInfo()
                          
-                            self.loginDelegate.changeLoginView()
+                            //self.loginDelegate.changeLoginView()
+                           
+                            let loggedInTabController =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SFTabbarController") as! newTabbarController
+                            self.window!.rootViewController = loggedInTabController
+                            
                             //self.loadDelegate.loadTabbar()
                         }
                         print(data)

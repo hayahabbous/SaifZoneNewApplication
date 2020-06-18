@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "financial-statement-1.png",
+      "filename" : "icons8-purchase-order-30-3.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "financial-statement-2.png",
+      "filename" : "icons8-purchase-order-60-3.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "rsz_financial-statement-3.png",
+      "filename" : "icons8-purchase-order-75-3.png",
       "scale" : "3x"
     }
   ],

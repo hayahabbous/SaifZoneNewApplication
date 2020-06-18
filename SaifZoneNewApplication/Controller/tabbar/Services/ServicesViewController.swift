@@ -38,9 +38,40 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("Text did change, what i'm suppose to do ?")
+        if searchText.count > 0 {
+            isSearchActive = true
+            
+            
+            var suggestionListFiltredTmp = Array<SAIFZONEService>()
+            DispatchQueue.global(qos: .background).async {
+                for item in self.allServicesArray {
+                    if (self.researchCaracters(stringSearched: searchText, stringQueried: item.Caption)){
+                        suggestionListFiltredTmp.append(item)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.filteredServicesArray.removeAll()
+                    self.filteredServicesArray.append(contentsOf: suggestionListFiltredTmp)
+                    self.servicesCollectionView.reloadData()
+                }
+            }
+            
+        }else{
+            isSearchActive = false
+            
+            self.servicesCollectionView.reloadData()
+            
+        }
+        
+        
+        
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print("Text did end")
+    }
+    
+    private func researchCaracters(stringSearched: String, stringQueried: String) -> Bool {
+        return ((stringQueried.range(of: stringSearched, options: String.CompareOptions.caseInsensitive, range: nil, locale: nil)) != nil)
     }
     func loadTable(selectedService: SAIFZONEMainService) {
         
@@ -78,6 +109,15 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         
         ///Set datas to search bar
         self.modernSearchBar.setDatas(datas: suggestionList)
+        
+        
+        
+        self.searchView.layer.cornerRadius = 10
+        self.searchView.layer.masksToBounds = true
+        
+        self.modernSearchBar.layer.cornerRadius = 10
+        self.modernSearchBar.layer.masksToBounds = true
+        
         
         ///Custom design with all paramaters if you want to
         //self.customDesign()
@@ -202,11 +242,13 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
     
     
     
-    
+    var isSearchActive: Bool = false
     var firstSelectedItem: SAIFZONEService?
     var secondSelectedItem: SAIFZONEService?
     var thirdSelectedItem: SAIFZONEService?
     
+    
+    var filteredServicesArray: [SAIFZONEService] = []
     var mainServicesArray: [SAIFZONEMainService] = []
     var allServicesArray: [SAIFZONEService] = []
     
@@ -254,6 +296,12 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.tintColor = AppConstants.purpleColor
+        
+        // in your viewDidLoad or viewWillAppear
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
     }
     func setupView() {
@@ -335,6 +383,17 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         searchController.searchBar.frame = frame
         */
         //self.searchController.searchBar.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
+        self.modernSearchBar.setImage(UIImage(named: "search_white"), for: .search, state: .normal)
+            let textFieldInsideSearchBar = modernSearchBar.value(forKey: "searchField") as? UITextField
+            textFieldInsideSearchBar?.textColor = .white
+        
+            
+        textFieldInsideSearchBar?.backgroundColor = UIColor(red: 205/256, green: 175/256, blue: 116/256, alpha: 1.0)
+            textFieldInsideSearchBar?.attributedPlaceholder = NSAttributedString(string: "Search for service", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        
+        self.modernSearchBar.barTintColor = .clear
     }
     /// A final search has been triggered either by tapping search, tapping
     /// a trending term or tapping a suggestion.
@@ -593,13 +652,23 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         ///Adding delegate
         self.modernSearchBar.delegateModernSearchBar = self
         
+        
+        
+        
         ///Set datas to search bar
         self.modernSearchBar.setDatasWithUrl(datas: suggestionListWithUrl)
         
         ///Increase size of suggestionsView icon
         self.modernSearchBar.suggestionsView_searchIcon_height = 40
         self.modernSearchBar.suggestionsView_searchIcon_width = 40
+        self.modernSearchBar.searchLabel_backgroundColor = .clear
+        self.searchView.layer.cornerRadius = 10
+        self.searchView.layer.masksToBounds = true
         
+        self.modernSearchBar.layer.cornerRadius = 10
+        self.modernSearchBar.layer.masksToBounds = true
+        
+        self.modernSearchBar.setImage(UIImage(named: "search_white"), for: .search, state: .normal)
         ///Custom design with all paramaters
         //self.customDesign()
         
@@ -716,6 +785,9 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
         
         self.firstButton.setTitle(self.selectedMainService.Caption, for: .normal)
         firstButtonAction(self)
+        
+        isSearchActive = false
+        modernSearchBar.searchTextField.text = ""
         self.servicesCollectionView.reloadData()
         self.tableView.reloadData()
         
@@ -791,7 +863,9 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-       
+        if isSearchActive {
+            return filteredServicesArray.count
+        }
         
         if isMainServiceSelected {
             return selectedMainService.relatedServicesArray.count
@@ -817,7 +891,20 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
         
         if collectionView == self.servicesCollectionView  {
             
-            
+            if isSearchActive {
+                cellIdentifier = "serviceMainCollectionViewCell"
+                       
+                       
+                let cell = servicesCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! serviceMainCollectionViewCell
+                
+                var item: SAIFZONEService!
+                item = filteredServicesArray[indexPath.row]
+                cell.serviceImageView.image = UIImage(named: "support")
+                cell.serviceCaptionLabel.text = item.Caption
+                cell.layoutIfNeeded()
+                
+                return cell
+            }
             if !isMainServiceSelected {
                 if selectedService.relatedServicesArray.count == 0 {
                     cellIdentifier = "applyServiceCollectionViewCell"
@@ -870,6 +957,104 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
+        if isSearchActive == true {
+            isSearchActive = false
+            modernSearchBar.searchTextField.text = ""
+            self.selectedService = filteredServicesArray[indexPath.row]
+            self.isMainServiceSelected = false
+            
+            var seqArray = [SAIFZONEService]()
+                
+                
+               
+            while selectedService.Parent != "0" {
+            
+                seqArray.append(selectedService)
+                
+                print(selectedService.Caption)
+                
+                selectedService = allServicesArray.filter({ (parent) -> Bool in
+                
+                    parent.SID == selectedService.Parent
+                    
+                }).first!
+                    
+               
+            }
+                
+                seqArray.append(selectedService)
+                 
+                print(selectedService.Caption)
+                
+                //sort this array according to id
+                
+                seqArray.sort { (s1, s2) -> Bool in
+                    s1.SID < s2.SID
+                }
+                
+                
+                selectedMainService = mainServicesArray.filter({ (mainItem) -> Bool in
+                    mainItem.SCID == seqArray[0].Category
+                    }).first!
+                
+                self.tableView.reloadData()
+            
+                
+                //check count of this array
+                /*
+                
+                if seqArray.count == 1 {
+                    isMainServiceSelected = true
+                    selectedService = seqArray[0]
+                    
+                    
+                    self.firstButton.setTitle(self.selectedMainService.Caption, for: .normal)
+                    firstButtonAction(self)
+                    
+                    
+                }else */
+                
+                if seqArray.count == 1 {
+                    isMainServiceSelected = false
+                    selectedService = seqArray[0]
+                    firstSelectedItem = selectedService
+                    self.firstButton.setTitle(self.selectedMainService.Caption, for: .normal)
+                    self.secondButton.setTitle(self.selectedService.Caption, for: .normal)
+                    secondButtonAction(self)
+                    
+                }else if seqArray.count == 2 {
+                    isMainServiceSelected = false
+                    selectedService = seqArray[0]
+                    firstSelectedItem = seqArray[1]
+                    secondSelectedItem = seqArray[0]
+                    
+                    
+                    self.firstButton.setTitle(self.selectedMainService.Caption, for: .normal)
+                    self.secondButton.setTitle(self.firstSelectedItem?.Caption, for: .normal)
+                    self.thirdButton.setTitle(self.selectedService.Caption, for: .normal)
+                    thirdButtonAction(self)
+                    
+                }
+                else if seqArray.count == 3 {
+                    isMainServiceSelected = false
+                    selectedService = seqArray[2]
+                    firstSelectedItem = seqArray[0]
+                    secondSelectedItem = seqArray[1]
+                    thirdSelectedItem = seqArray[2]
+                    
+                    self.firstButton.setTitle(self.selectedMainService.Caption, for: .normal)
+                    self.secondButton.setTitle(self.firstSelectedItem?.Caption, for: .normal)
+                    self.thirdButton.setTitle(self.secondSelectedItem?.Caption, for: .normal)
+                    self.fourthButton.setTitle(self.selectedService.Caption, for: .normal)
+                    fourthButtonAction(self)
+                    
+                }
+                
+            self.servicesCollectionView.reloadData()
+            
+            return
+            
+        }
         
         if isMainServiceSelected {
             self.selectedService = selectedMainService.relatedServicesArray[indexPath.row]
@@ -935,6 +1120,11 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
         
         if collectionView == self.servicesCollectionView  {
             
+            
+            if isSearchActive
+            {
+                return CGSize(width: (collectionView.frame.width) / 2 - 30  , height: (collectionView.frame.width) / 2 - 30)
+            }
             
             if !isMainServiceSelected {
                            
@@ -1026,7 +1216,7 @@ extension ServicesViewController: EmptyDataSetSource , EmptyDataSetDelegate {
             
             return NSAttributedString(string: "")
         }else{
-            return NSAttributedString(string: "signin")
+            return NSAttributedString(string: "")
         }
     }
     

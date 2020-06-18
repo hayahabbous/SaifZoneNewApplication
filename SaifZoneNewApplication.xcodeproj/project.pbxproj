@@ -48,6 +48,16 @@
 		524EC6F0240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524EC6EE240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib */; };
 		524EC6F1240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EC6EF240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift */; };
 		526479032421FD4F002D6AD9 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526479022421FD4F002D6AD9 /* profileViewController.swift */; };
+		5266F8F1248CB09B000A7D5F /* aboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F8F0248CB09B000A7D5F /* aboutUsView.swift */; };
+		5266F8F3248CB0A5000A7D5F /* aboutUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5266F8F2248CB0A5000A7D5F /* aboutUsView.xib */; };
+		5266F8F5248CB1C3000A7D5F /* aboutUsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5266F8F4248CB1C3000A7D5F /* aboutUsCollectionCell.xib */; };
+		5266F8F7248CB1DC000A7D5F /* aboutUsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F8F6248CB1DC000A7D5F /* aboutUsCollectionCell.swift */; };
+		5266F8FA248CB74F000A7D5F /* ourServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F8F9248CB74F000A7D5F /* ourServicesView.swift */; };
+		5266F8FC248CB758000A7D5F /* ourServicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5266F8FB248CB758000A7D5F /* ourServicesView.xib */; };
+		5266F8FE248CB76A000A7D5F /* ourServiceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F8FD248CB76A000A7D5F /* ourServiceCollectionCell.swift */; };
+		5266F900248CB773000A7D5F /* ourServiceCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5266F8FF248CB773000A7D5F /* ourServiceCollectionCell.xib */; };
+		5266F903248CC054000A7D5F /* ourFacilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266F902248CC054000A7D5F /* ourFacilitiesView.swift */; };
+		5266F905248CC05E000A7D5F /* ourFacilitiesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5266F904248CC05E000A7D5F /* ourFacilitiesView.xib */; };
 		52671AFF2421D52D006A6218 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671AFE2421D52D006A6218 /* LicenseViewController.swift */; };
 		52671B012421D53E006A6218 /* OTPVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671B002421D53E006A6218 /* OTPVerifyViewController.swift */; };
 		52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52671B022421D54C006A6218 /* RegisterViewController.swift */; };
@@ -203,6 +213,16 @@
 		524EC6EE240FA21600C8C0C5 /* childNotificationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = childNotificationCollectionViewCell.xib; sourceTree = "<group>"; };
 		524EC6EF240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = childNotificationCollectionViewCell.swift; sourceTree = "<group>"; };
 		526479022421FD4F002D6AD9 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		5266F8F0248CB09B000A7D5F /* aboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutUsView.swift; sourceTree = "<group>"; };
+		5266F8F2248CB0A5000A7D5F /* aboutUsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = aboutUsView.xib; sourceTree = "<group>"; };
+		5266F8F4248CB1C3000A7D5F /* aboutUsCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = aboutUsCollectionCell.xib; sourceTree = "<group>"; };
+		5266F8F6248CB1DC000A7D5F /* aboutUsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutUsCollectionCell.swift; sourceTree = "<group>"; };
+		5266F8F9248CB74F000A7D5F /* ourServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ourServicesView.swift; sourceTree = "<group>"; };
+		5266F8FB248CB758000A7D5F /* ourServicesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ourServicesView.xib; sourceTree = "<group>"; };
+		5266F8FD248CB76A000A7D5F /* ourServiceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ourServiceCollectionCell.swift; sourceTree = "<group>"; };
+		5266F8FF248CB773000A7D5F /* ourServiceCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ourServiceCollectionCell.xib; sourceTree = "<group>"; };
+		5266F902248CC054000A7D5F /* ourFacilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ourFacilitiesView.swift; sourceTree = "<group>"; };
+		5266F904248CC05E000A7D5F /* ourFacilitiesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ourFacilitiesView.xib; sourceTree = "<group>"; };
 		52671AFE2421D52D006A6218 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		52671B002421D53E006A6218 /* OTPVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyViewController.swift; sourceTree = "<group>"; };
 		52671B022421D54C006A6218 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -436,6 +456,37 @@
 			path = profile;
 			sourceTree = "<group>";
 		};
+		5266F8EF248CB082000A7D5F /* aboutUsView */ = {
+			isa = PBXGroup;
+			children = (
+				5266F8F0248CB09B000A7D5F /* aboutUsView.swift */,
+				5266F8F2248CB0A5000A7D5F /* aboutUsView.xib */,
+				5266F8F4248CB1C3000A7D5F /* aboutUsCollectionCell.xib */,
+				5266F8F6248CB1DC000A7D5F /* aboutUsCollectionCell.swift */,
+			);
+			path = aboutUsView;
+			sourceTree = "<group>";
+		};
+		5266F8F8248CB73D000A7D5F /* ourServicesView */ = {
+			isa = PBXGroup;
+			children = (
+				5266F8F9248CB74F000A7D5F /* ourServicesView.swift */,
+				5266F8FB248CB758000A7D5F /* ourServicesView.xib */,
+				5266F8FD248CB76A000A7D5F /* ourServiceCollectionCell.swift */,
+				5266F8FF248CB773000A7D5F /* ourServiceCollectionCell.xib */,
+			);
+			path = ourServicesView;
+			sourceTree = "<group>";
+		};
+		5266F901248CC03B000A7D5F /* ourFacilitiesView */ = {
+			isa = PBXGroup;
+			children = (
+				5266F902248CC054000A7D5F /* ourFacilitiesView.swift */,
+				5266F904248CC05E000A7D5F /* ourFacilitiesView.xib */,
+			);
+			path = ourFacilitiesView;
+			sourceTree = "<group>";
+		};
 		52671B042421D58A006A6218 /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +571,9 @@
 		5294C8C6240CEC19008CC363 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5266F901248CC03B000A7D5F /* ourFacilitiesView */,
+				5266F8F8248CB73D000A7D5F /* ourServicesView */,
+				5266F8EF248CB082000A7D5F /* aboutUsView */,
 				520D585D2469478100F12E1F /* RequestsView */,
 				521689C7245E4F02008DA1D4 /* payInvoiceCell */,
 				521689C2245E4E6A008DA1D4 /* invoiceView */,
@@ -946,14 +1000,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				52742352246DA8730082D749 /* newLicenseView.xib in Resources */,
+				5266F8F5248CB1C3000A7D5F /* aboutUsCollectionCell.xib in Resources */,
 				528455212435BED6003339DB /* licenseCollectionViewCell.xib in Resources */,
 				52C049FF24164026001461C7 /* serviceMainCollectionViewCell.xib in Resources */,
 				529E0B4324574DE20053A575 /* statmentCollectionViewCell.xib in Resources */,
 				521CEA262446D88300A86175 /* informativeCollectionViewCell.xib in Resources */,
+				5266F905248CC05E000A7D5F /* ourFacilitiesView.xib in Resources */,
+				5266F8FC248CB758000A7D5F /* ourServicesView.xib in Resources */,
 				52A9F0E4240CCE0A00034389 /* LaunchScreen.storyboard in Resources */,
+				5266F900248CB773000A7D5F /* ourServiceCollectionCell.xib in Resources */,
 				52BB2EC4242748910015C63B /* terms.json in Resources */,
 				521689C6245E4EAC008DA1D4 /* payInvoiceView.xib in Resources */,
 				528455172435B60C003339DB /* requestCollectionViewCell.xib in Resources */,
+				5266F8F3248CB0A5000A7D5F /* aboutUsView.xib in Resources */,
 				52742354246DC5310082D749 /* statmentHeaderView.xib in Resources */,
 				524C6C97245DE5AB009262CF /* reqDocumentsView.xib in Resources */,
 				529E0B4024573FC60053A575 /* WWCalendarTimeSelector.storyboard in Resources */,
@@ -1103,12 +1162,14 @@
 				5294C8D6240E655C008CC363 /* HomePageViewController.swift in Sources */,
 				529E0B2F2456ECEC0053A575 /* filterPageViewwController.swift in Sources */,
 				5274234A246B42C60082D749 /* ModernSearchBar.swift in Sources */,
+				5266F8F1248CB09B000A7D5F /* aboutUsView.swift in Sources */,
 				52DF5E92241E069B0063C792 /* Utils.swift in Sources */,
 				52D1DAB72417913F0079E20E /* SettingsViewController.swift in Sources */,
 				52BB2EA6242745EC0015C63B /* SuggestedTermTableViewCell.swift in Sources */,
 				523D0998243C7D530015A039 /* SAIFZONELicense.swift in Sources */,
 				520981E3245028C0004303E3 /* licenseDetailsView.swift in Sources */,
 				5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				5266F8F7248CB1DC000A7D5F /* aboutUsCollectionCell.swift in Sources */,
 				52BB2EBC242748150015C63B /* Term.swift in Sources */,
 				52DF5E8B241DFB850063C792 /* RequestResponseWebServices.swift in Sources */,
 				52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */,
@@ -1127,6 +1188,8 @@
 				5294C8D0240CEC55008CC363 /* TPKeyboardAvoidingTableView.m in Sources */,
 				52BB2ECD242749080015C63B /* ContentStateViewController.swift in Sources */,
 				529E0B4724574F660053A575 /* SAIFZONEStatment.swift in Sources */,
+				5266F903248CC054000A7D5F /* ourFacilitiesView.swift in Sources */,
+				5266F8FE248CB76A000A7D5F /* ourServiceCollectionCell.swift in Sources */,
 				5284551F2435BEA8003339DB /* licenseCollectionViewCell.swift in Sources */,
 				526479032421FD4F002D6AD9 /* profileViewController.swift in Sources */,
 				520D58652469560C00F12E1F /* customeSearchController.swift in Sources */,
@@ -1136,6 +1199,7 @@
 				52CD4323246A01FE0095889B /* newStatmentOfAccountViewController.swift in Sources */,
 				524EC6F1240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift in Sources */,
 				52C049F024163079001461C7 /* PayfortSdkToken.swift in Sources */,
+				5266F8FA248CB74F000A7D5F /* ourServicesView.swift in Sources */,
 				52BB2EBE242748150015C63B /* App.swift in Sources */,
 				52323FCD2431ED080017697E /* aboutUsDetailsViewController.swift in Sources */,
 				529E0B3B2456EE620053A575 /* WWCalendarTimeSelector.swift in Sources */,
@@ -1358,7 +1422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = BZSB59QTTY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1386,7 +1450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = BZSB59QTTY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

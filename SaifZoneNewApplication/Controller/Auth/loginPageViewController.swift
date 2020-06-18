@@ -72,6 +72,10 @@ class loginPageViewController: UIViewController , changeViewProtocol {
     var loadDelegate: loadTabbar!
     var requestsViewCustome: requestsView!
     var newLicenseCustomeView: newLicenseView!
+    var aboutUsCustome: aboutUsView!
+    var ourServiceCustome: ourServicesView!
+    var ourFacilitiesCustome: ourFacilitiesView!
+    
     var superView: UIView!
     let activityData = ActivityData()
     var username: String!
@@ -86,6 +90,9 @@ class loginPageViewController: UIViewController , changeViewProtocol {
         invoiceViewCustome = .fromNib()
         requestsViewCustome = .fromNib()
         newLicenseCustomeView = .fromNib()
+        aboutUsCustome = .fromNib()
+        ourServiceCustome = .fromNib()
+        ourFacilitiesCustome = .fromNib()
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back(sender:)))
         newBackButton.tintColor = AppConstants.purpleColor
@@ -421,7 +428,14 @@ class loginPageViewController: UIViewController , changeViewProtocol {
             
             self.changableView.addSubview(self.loginViewCustom)
             
+            
+            
             self.tableView.reloadData()
+            
+            let loggedInTabController =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SFTabbarController") as! newTabbarController
+            self.view.window!.rootViewController = loggedInTabController
+            
+       
             
         })
         
@@ -461,7 +475,7 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
         if user?.DToken != nil {
             return 7
         }
-        return 0
+        return 4
         
         
     }
@@ -483,61 +497,87 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
             
             imageView.image = UIImage(named: "license")
             descLabel.text = "License Details"
-            switch indexPath.row {
-                
-                
-            case 0:
-                
             
-                imageView.image = UIImage(named: "dashboard")
+            if user?.DToken != nil {
+                switch indexPath.row {
+                    
+                    
+                case 0:
                     
                 
-                descLabel.text = "Dashboard"
+                    imageView.image = UIImage(named: "dashboard")
+                        
                     
-            case 1:
-            
-                imageView.image = UIImage(named: "user_profile")
+                    descLabel.text = "Dashboard"
+                        
+                case 1:
                 
-                descLabel.text = "Account Details"
-                
-            case 2:
-                       
-            
-                imageView.image = UIImage(named: "license")
-                
-                descLabel.text = "License Details"
-            case 3:
+                    imageView.image = UIImage(named: "user_profile")
+                    
+                    descLabel.text = "Account Details"
+                    
+                case 2:
                            
                 
-                    imageView.image = UIImage(named: "documents")
+                    imageView.image = UIImage(named: "license")
                     
-                    descLabel.text = "Requiered Documents"
-            case 4:
-                           
-                
-                    imageView.image = UIImage(named: "invoice")
+                    descLabel.text = "License Details"
+                case 3:
+                               
                     
-                    descLabel.text = "Pay Invoices"
-               
-            case 5:
-                           
-                
-                    imageView.image = UIImage(named: "ask")
+                        imageView.image = UIImage(named: "documents")
+                        
+                        descLabel.text = "Requiered Documents"
+                case 4:
+                               
                     
-                    descLabel.text = "Requests"
+                        imageView.image = UIImage(named: "invoice")
+                        
+                        descLabel.text = "Outstanding Balance"
+                   
+                case 5:
+                               
+                    
+                        imageView.image = UIImage(named: "ask")
+                        
+                        descLabel.text = "Requests"
+                    
+                case 6:
+                              
                 
-            case 6:
-                          
-            
-                imageView.image = UIImage(named: "cancel")
+                    imageView.image = UIImage(named: "cancel")
+                    
+                    descLabel.text = "Logout"
+                    
+                default:
                 
-                descLabel.text = "Logout"
-                
-            default:
-            
-                print("")
-                
+                    print("")
+                    
+                }
+            }else{
+                switch indexPath.row {
+                case 0:
+                    imageView.image = UIImage(named: "login")
+                    descLabel.text = "Login"
+                    
+                case 1:
+                    imageView.image = UIImage(named: "about")
+                    descLabel.text = "about us"
+                    
+                    
+                case 2:
+                    imageView.image = UIImage(named: "facility")
+                    descLabel.text = "Facilities"
+                    
+                case 3:
+                    imageView.image = UIImage(named: "time")
+                    descLabel.text = "Our Services"
+                    
+                default:
+                    print("")
+                }
             }
+            
         }
             /*
             switch indexPath.row {
@@ -671,6 +711,42 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 print("defualt")
             }
             
+        }else{
+            switch indexPath.row {
+            case 0:
+                self.loginViewCustom.loginDelegate = self
+                
+                self.loginViewCustom.resizeView(baseView: self.changableView)
+                
+                self.loginViewCustom.viewController = self
+                
+                self.changableView.addSubview(self.loginViewCustom)
+                
+            case 1:
+                self.aboutUsCustome.resizeView(baseView: self.changableView)
+                
+                self.aboutUsCustome.viewController = self
+                
+                self.changableView.addSubview(self.aboutUsCustome)
+                
+                
+                
+            case 2:
+                self.ourFacilitiesCustome.resizeView(baseView: self.changableView)
+                
+                self.ourFacilitiesCustome.viewController = self
+                
+                self.changableView.addSubview(self.ourFacilitiesCustome)
+                
+            case 3:
+                self.ourServiceCustome.resizeView(baseView: self.changableView)
+                
+                self.ourServiceCustome.viewController = self
+                
+                self.changableView.addSubview(self.ourServiceCustome)
+            default:
+                print("")
+            }
         }
         
        

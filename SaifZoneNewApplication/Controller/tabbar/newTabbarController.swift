@@ -12,7 +12,7 @@ import UIKit
 
 class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
     
-    
+     let user = SAIFZONEUser.getSAIFZONEUser()
     var globalItem: UITabBarItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +22,44 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
        // self.delegate = self
        setupLastButton()
         setupFirstButton()
+        
+        
+        
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
     
+       
+        if user?.DToken == nil {
+            
+            
+            if let tabBarItem = self.tabBar.items?[2] {
+                tabBarItem.tag = 2
+            }
+            if let tabBarItem = self.tabBar.items?[3] {
+                tabBarItem.isEnabled = false
+                
+                
+                var viewControllers = self.viewControllers
+                viewControllers?.remove(at: 3)
+                self.viewControllers = viewControllers
+            }
+            
+            
+            if let tabBarItem = self.tabBar.items?[1] {
+                tabBarItem.isEnabled = false
+                
+                
+                var viewControllers = self.viewControllers
+                viewControllers?.remove(at: 1)
+                self.viewControllers = viewControllers
+            }
+            
+            
+        }
+        
+    }
     
     func setupLastButton() {
         
@@ -91,6 +127,11 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
     @objc private func menuButtonAction(sender: UIButton) {
         
         
+        if user?.DToken == nil {
+            firstMenuButtonAction(sender: sender)
+            return
+        }
+        
         let ServicesPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ServicesViewController2") as! ServicesViewController
         
         
@@ -99,12 +140,17 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
         
         
         let tb1 = viewController.tabBar
-        if let tb = viewController.viewControllers?[globalItem.tag - 1] as? UINavigationController {
+        let index = user?.DToken == nil ? globalItem.tag - 2 : globalItem.tag - 1
+        if let tb = viewController.viewControllers?[index] as? UINavigationController {
             tb.pushViewController(ServicesPageVC, animated: true)
         }
+        
+        
+        
+        
     }
     
-    @objc private func firstMenuButtonAction(sender: UIButton) {
+    @objc func firstMenuButtonAction(sender: UIButton?) {
         
         
         let ServicesPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginPageViewController2") as! loginPageViewController
@@ -112,10 +158,13 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
         
         let viewController = UIApplication.shared.windows.first!.rootViewController as! newTabbarController
         
-        
+        print("tag is\(globalItem.tag)")
         
         let tb1 = viewController.tabBar
-        if let tb = viewController.viewControllers?[globalItem.tag - 1] as? UINavigationController {
+        
+        
+        let index = user?.DToken == nil ? globalItem.tag - 2 : globalItem.tag - 1
+        if let tb = viewController.viewControllers?[index] as? UINavigationController {
             tb.pushViewControllerFromLeft(controller: ServicesPageVC)
         }
     }
@@ -135,7 +184,7 @@ extension UINavigationController{
         transition.type = .push
         transition.subtype = .fromLeft
         transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        view.window!.layer.add(transition, forKey: kCATransition)
+        view.window?.layer.add(transition, forKey: kCATransition)
         pushViewController(controller, animated: false)
     }
     

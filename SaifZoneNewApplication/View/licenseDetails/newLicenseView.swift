@@ -182,7 +182,7 @@ class newLicenseView: UIView {
             
             //let fileExists = FileManager().fileExists(atPath: dataPath.path)
             
-            let destination = documentsDirectory.appendingPathComponent( "\(selectedLicense.license_name).PDF")
+            let destination = documentsDirectory.appendingPathComponent( "\(selectedLicense.license_no).PDF")
             //Downloader1.load(url: fileUrl, to: destination) {
                 
           //  }

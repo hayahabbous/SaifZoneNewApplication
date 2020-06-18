@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import JJFloatingActionButton
 
 class HomePageViewController: UIViewController {
     
@@ -29,7 +29,7 @@ class HomePageViewController: UIViewController {
         circularImageView.layer.cornerRadius = self.circularImageView.frame.height / 2
         
         circularImageView.layer.masksToBounds = true
-        backImageView.addCurvedView(imageview: backImageView ,backgroundColor: UIColor(red: 217/255, green: 188/255, blue: 136/255, alpha: 1.0), curveRadius: 30, shadowColor: .lightGray, shadowRadius: 4.0, heightOffset: 0.0)
+        backImageView.addCurvedView(imageview: backImageView ,backgroundColor: UIColor(red: 205/255, green: 175/255, blue: 116/255, alpha: 1.0), curveRadius: 30, shadowColor: .lightGray, shadowRadius: 4.0, heightOffset: 0.0)
         
         
         
@@ -59,6 +59,23 @@ class HomePageViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
+        
+        
+        let actionButton = JJFloatingActionButton()
+        actionButton.buttonColor = UIColor(red: 205/255, green: 175/255, blue: 116/255, alpha: 1.0)
+        actionButton.addItem(title: "item 1", image: UIImage(named: "user_profile_brown")?.withRenderingMode(.alwaysTemplate)) { item in
+          // do something
+            var tabbbar = self.tabBarController as! newTabbarController
+            if tabbbar != nil {
+                tabbbar.firstMenuButtonAction(sender: nil)
+            }
+            
+            
+        }
+        
+        actionButton.display(inViewController: self)
+
     }
     
     

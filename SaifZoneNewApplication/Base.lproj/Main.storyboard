@@ -39,11 +39,11 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="about us" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbl-dO-356">
-                                                    <rect key="frame" x="15" y="69" width="60" height="13.5"/>
+                                                    <rect key="frame" x="15" y="69" width="60" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="vZY-rN-zCI"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -358,8 +358,13 @@ Director</string>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.21566504240000001" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.96414403203558285" green="0.88009079727791395" blue="0.75398623838282219" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.96437531710000002" green="0.8747072816" blue="0.75683277849999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="mQf-I4-p0d" kind="relationship" relationship="viewControllers" id="SFE-zS-G2m"/>
@@ -498,17 +503,28 @@ Director</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJd-m3-TEP">
-                                <rect key="frame" x="0.0" y="88" width="324" height="50"/>
+                                <rect key="frame" x="8" y="96" width="308" height="70"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wv-Qz-c9b" customClass="ModernSearchBar" customModule="SaifZoneNewApplication" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="3" width="324" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for service" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wv-Qz-c9b" customClass="ModernSearchBar" customModule="SaifZoneNewApplication" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="308" height="70"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </searchBar>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.80344492199999995" green="0.68660300969999999" blue="0.45484274629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="FRR-cB-vkl"/>
+                                    <constraint firstAttribute="height" constant="70" id="FRR-cB-vkl"/>
+                                    <constraint firstItem="6wv-Qz-c9b" firstAttribute="top" secondItem="fJd-m3-TEP" secondAttribute="top" id="GF7-0F-YY8"/>
+                                    <constraint firstItem="6wv-Qz-c9b" firstAttribute="centerY" secondItem="fJd-m3-TEP" secondAttribute="centerY" id="I25-NC-CEI"/>
+                                    <constraint firstItem="6wv-Qz-c9b" firstAttribute="leading" secondItem="fJd-m3-TEP" secondAttribute="leading" symbolic="YES" id="gzD-AA-s4a"/>
+                                    <constraint firstAttribute="trailing" secondItem="6wv-Qz-c9b" secondAttribute="trailing" id="olx-G6-OFO"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZRU-QI-x3u">
@@ -539,7 +555,7 @@ Director</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.73333333329999995" green="0.61176470589999998" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.80344492199999995" green="0.68660300969999999" blue="0.45484274629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="ZL9-fn-hUl" secondAttribute="trailing" constant="8" id="1Lw-FR-ek6"/>
                                                 <constraint firstItem="ZL9-fn-hUl" firstAttribute="centerX" secondItem="P35-nl-mei" secondAttribute="centerX" id="34B-PT-GKu"/>
@@ -558,7 +574,7 @@ Director</string>
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="doq-6n-RzU">
-                                <rect key="frame" x="0.0" y="188" width="324" height="625"/>
+                                <rect key="frame" x="0.0" y="244" width="324" height="569"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CWn-iX-L2M">
                                     <size key="itemSize" width="50" height="50"/>
@@ -578,13 +594,14 @@ Director</string>
                                 </cells>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-f8-I22">
-                                <rect key="frame" x="0.0" y="138" width="324" height="50"/>
+                                <rect key="frame" x="0.0" y="174" width="324" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Xr4-sK-bfn">
-                                        <rect key="frame" x="0.0" y="0.0" width="324" height="50"/>
+                                        <rect key="frame" x="8" y="0.0" width="324" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJs-fZ-6z2">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="34" height="70"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="first">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -593,12 +610,12 @@ Director</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-hV-cpp">
-                                                <rect key="frame" x="51" y="2" width="12.5" height="46.5"/>
+                                                <rect key="frame" x="50" y="2" width="12.5" height="66.5"/>
                                                 <color key="tintColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zla-zv-ura">
-                                                <rect key="frame" x="84" y="0.0" width="54" height="50"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <rect key="frame" x="78.5" y="0.0" width="60" height="70"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="second">
                                                     <color key="titleColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
@@ -607,11 +624,12 @@ Director</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vri-R6-ADN">
-                                                <rect key="frame" x="159" y="2" width="12.5" height="46.5"/>
+                                                <rect key="frame" x="155" y="2" width="12.5" height="66.5"/>
                                                 <color key="tintColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chc-Bq-wC1">
-                                                <rect key="frame" x="192" y="0.0" width="32" height="50"/>
+                                                <rect key="frame" x="183.5" y="0.0" width="40" height="70"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="third">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -620,11 +638,12 @@ Director</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="52q-Rz-hJv">
-                                                <rect key="frame" x="245" y="2" width="12.5" height="46.5"/>
+                                                <rect key="frame" x="239.5" y="2" width="12.5" height="66.5"/>
                                                 <color key="tintColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9a2-hn-ty7">
-                                                <rect key="frame" x="278" y="0.0" width="46" height="50"/>
+                                                <rect key="frame" x="268" y="0.0" width="56" height="70"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="fourth ">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -634,13 +653,13 @@ Director</string>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="ict-7V-Mtp"/>
+                                            <constraint firstAttribute="height" constant="70" id="ict-7V-Mtp"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Xr4-sK-bfn" firstAttribute="height" secondItem="ldx-f8-I22" secondAttribute="height" id="3as-ID-y21"/>
-                                    <constraint firstItem="Xr4-sK-bfn" firstAttribute="leading" secondItem="ldx-f8-I22" secondAttribute="leading" id="3l2-zO-szi"/>
+                                    <constraint firstItem="Xr4-sK-bfn" firstAttribute="leading" secondItem="ldx-f8-I22" secondAttribute="leading" constant="8" id="3l2-zO-szi"/>
                                     <constraint firstItem="Xr4-sK-bfn" firstAttribute="width" secondItem="ldx-f8-I22" secondAttribute="width" priority="250" id="EkY-ha-heb"/>
                                     <constraint firstAttribute="trailing" secondItem="Xr4-sK-bfn" secondAttribute="trailing" id="MLj-Fl-Z1F"/>
                                     <constraint firstItem="Xr4-sK-bfn" firstAttribute="top" secondItem="ldx-f8-I22" secondAttribute="top" id="tsT-5W-ocy"/>
@@ -650,16 +669,16 @@ Director</string>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ldx-f8-I22" firstAttribute="top" secondItem="fJd-m3-TEP" secondAttribute="bottom" id="3vX-C5-gBt"/>
+                            <constraint firstItem="ldx-f8-I22" firstAttribute="top" secondItem="fJd-m3-TEP" secondAttribute="bottom" constant="8" id="3vX-C5-gBt"/>
                             <constraint firstItem="ZRU-QI-x3u" firstAttribute="bottom" secondItem="g9N-eC-Ugl" secondAttribute="bottom" id="7XH-ye-0VM"/>
                             <constraint firstItem="KDr-Xy-NNv" firstAttribute="leading" secondItem="ldx-f8-I22" secondAttribute="leading" id="8Hz-if-8KG"/>
-                            <constraint firstItem="ZRU-QI-x3u" firstAttribute="leading" secondItem="fJd-m3-TEP" secondAttribute="trailing" id="B5n-Ky-RzB"/>
+                            <constraint firstItem="ZRU-QI-x3u" firstAttribute="leading" secondItem="fJd-m3-TEP" secondAttribute="trailing" constant="8" id="B5n-Ky-RzB"/>
                             <constraint firstAttribute="top" secondItem="ZRU-QI-x3u" secondAttribute="top" id="DNf-oh-bgj"/>
                             <constraint firstItem="doq-6n-RzU" firstAttribute="leading" secondItem="KDr-Xy-NNv" secondAttribute="leading" id="HPs-H1-sIH"/>
                             <constraint firstItem="doq-6n-RzU" firstAttribute="top" secondItem="ldx-f8-I22" secondAttribute="bottom" id="I7w-YI-kYw"/>
-                            <constraint firstItem="fJd-m3-TEP" firstAttribute="leading" secondItem="KDr-Xy-NNv" secondAttribute="leading" id="I8C-2A-Rnt"/>
+                            <constraint firstItem="fJd-m3-TEP" firstAttribute="leading" secondItem="KDr-Xy-NNv" secondAttribute="leading" constant="8" id="I8C-2A-Rnt"/>
                             <constraint firstItem="doq-6n-RzU" firstAttribute="bottom" secondItem="KDr-Xy-NNv" secondAttribute="bottom" id="IcA-83-Nrj"/>
-                            <constraint firstItem="fJd-m3-TEP" firstAttribute="top" secondItem="KDr-Xy-NNv" secondAttribute="top" id="Vc3-u7-GSL"/>
+                            <constraint firstItem="fJd-m3-TEP" firstAttribute="top" secondItem="KDr-Xy-NNv" secondAttribute="top" constant="8" id="Vc3-u7-GSL"/>
                             <constraint firstItem="KDr-Xy-NNv" firstAttribute="trailing" secondItem="ZRU-QI-x3u" secondAttribute="trailing" id="dNP-vI-mVK"/>
                             <constraint firstItem="ZRU-QI-x3u" firstAttribute="leading" secondItem="doq-6n-RzU" secondAttribute="trailing" id="oE0-GG-60Y"/>
                             <constraint firstItem="ZRU-QI-x3u" firstAttribute="leading" secondItem="ldx-f8-I22" secondAttribute="trailing" id="z8e-te-2Ba"/>
@@ -934,7 +953,7 @@ Director</string>
         <scene sceneID="coJ-W2-WnY">
             <objects>
                 <navigationController storyboardIdentifier="HomePageViewController" automaticallyAdjustsScrollViewInsets="NO" id="dc6-67-yaR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="Home" image="home" selectedImage="home" id="2LJ-Zs-cBf"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Home" image="home" selectedImage="selected_home" id="2LJ-Zs-cBf"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="yio-5c-VHS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7FX-CC-t21">
@@ -1034,6 +1053,9 @@ Director</string>
                                 <state key="normal" title="DOWNLOAD STATMENT ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="downloadStatmentAction:" destination="j52-KX-oBu" eventType="touchUpInside" id="yTM-JL-DWr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMt-h4-8Iz">
                                 <rect key="frame" x="307" y="100" width="91" height="30"/>
@@ -1484,7 +1506,7 @@ Director</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AxU-A4-h7w" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="202.5" width="390" height="34"/>
+                                <rect key="frame" x="8" y="202.5" width="390" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1516,7 +1538,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-dV-N63">
-                                <rect key="frame" x="8" y="268.5" width="80" height="30"/>
+                                <rect key="frame" x="8" y="273.5" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.21566504240000001" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="dPJ-5G-tzC"/>
@@ -1641,7 +1663,7 @@ Director</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNT-xu-nb6" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="477" width="398" height="34"/>
+                                <rect key="frame" x="8" y="477" width="398" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1673,7 +1695,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTF-PX-AeS">
-                                <rect key="frame" x="8" y="527" width="80" height="30"/>
+                                <rect key="frame" x="8" y="532" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.21566504240000001" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="6DN-tF-xa8"/>
@@ -1774,7 +1796,7 @@ Director</string>
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tT6-4W-9uM" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="160" width="398" height="34"/>
+                                <rect key="frame" x="8" y="160" width="398" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1806,7 +1828,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MiT-N8-6nv" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="226" width="398" height="34"/>
+                                <rect key="frame" x="8" y="231" width="398" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -1838,7 +1860,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRV-Ta-qlh" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="292" width="398" height="34"/>
+                                <rect key="frame" x="8" y="302.5" width="398" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -1870,7 +1892,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-gA-IqO">
-                                <rect key="frame" x="8" y="358" width="80" height="30"/>
+                                <rect key="frame" x="8" y="373.5" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.21566504240000001" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="dHb-na-1Bu"/>
@@ -1962,10 +1984,10 @@ Director</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_term_icon" translatesAutoresizingMaskIntoConstraints="NO" id="M3a-8N-4Qy">
-                                            <rect key="frame" x="20" y="10.5" width="28" height="28"/>
+                                            <rect key="frame" x="20" y="17.5" width="14" height="14"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-M5-yuh">
-                                            <rect key="frame" x="56" y="11.5" width="54" height="26.5"/>
+                                            <rect key="frame" x="42" y="11.5" width="54" height="26.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                             <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2080,7 +2102,7 @@ Director</string>
         <scene sceneID="TMO-P2-Qxe">
             <objects>
                 <navigationController storyboardIdentifier="requestsViewController" automaticallyAdjustsScrollViewInsets="NO" id="5at-pO-bAY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="Requests" image="request-2" selectedImage="request-2" id="Cb0-sF-Okk"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="Requests" image="request-2" selectedImage="selected_request" id="Cb0-sF-Okk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="4ep-Lp-6oW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -2404,7 +2426,7 @@ Director</string>
         <scene sceneID="FIL-wy-iD4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="byY-Yg-xHd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="Statment" image="financial-statement-2" id="E4g-Ho-zas"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Statment" image="financial-statement-2" selectedImage="selected_statement" id="E4g-Ho-zas"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbs-5g-19M">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -2572,7 +2594,7 @@ Director</string>
     <resources>
         <image name="business-and-finance" width="19" height="14.5"/>
         <image name="chevron.right" catalog="system" width="48" height="64"/>
-        <image name="financial-statement-2" width="32" height="32"/>
+        <image name="financial-statement-2" width="30" height="30"/>
         <image name="home" width="30" height="30"/>
         <image name="icons8-filter-30" width="30" height="30"/>
         <image name="logo-sh2" width="480" height="105"/>
@@ -2580,8 +2602,11 @@ Director</string>
         <image name="menu-7" width="32" height="32"/>
         <image name="notification_tabbar" width="32" height="32"/>
         <image name="password" width="32" height="32"/>
-        <image name="request-2" width="32" height="32"/>
+        <image name="request-2" width="30" height="30"/>
         <image name="search_term_icon" width="14" height="14"/>
+        <image name="selected_home" width="30" height="30"/>
+        <image name="selected_request" width="30" height="30"/>
+        <image name="selected_statement" width="30" height="30"/>
         <image name="uaepass" width="584" height="604"/>
         <image name="user_dark" width="32" height="32"/>
         <image name="user_profile" width="512" height="512"/>
