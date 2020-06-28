@@ -70,6 +70,11 @@
 		52742352246DA8730082D749 /* newLicenseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52742351246DA8730082D749 /* newLicenseView.xib */; };
 		52742354246DC5310082D749 /* statmentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52742353246DC5310082D749 /* statmentHeaderView.xib */; };
 		52742356246DC7480082D749 /* statmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52742355246DC7480082D749 /* statmentHeaderView.swift */; };
+		527A7D74249E62E500819CB4 /* auditReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A7D73249E62E500819CB4 /* auditReportView.swift */; };
+		527A7D76249E62EF00819CB4 /* auditReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527A7D75249E62EF00819CB4 /* auditReportView.xib */; };
+		527A7D78249E641F00819CB4 /* SAIFZONEAudit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A7D77249E641F00819CB4 /* SAIFZONEAudit.swift */; };
+		527A7D7A249E657600819CB4 /* auditTableviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527A7D79249E657600819CB4 /* auditTableviewCell.xib */; };
+		527A7D7C249E658200819CB4 /* auditTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A7D7B249E658200819CB4 /* auditTableviewCell.swift */; };
 		528455142435B14A003339DB /* requestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528455132435B14A003339DB /* requestsViewController.swift */; };
 		528455172435B60C003339DB /* requestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528455162435B60C003339DB /* requestCollectionViewCell.xib */; };
 		528455192435B621003339DB /* requestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528455182435B621003339DB /* requestCollectionViewCell.swift */; };
@@ -235,6 +240,11 @@
 		52742351246DA8730082D749 /* newLicenseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = newLicenseView.xib; sourceTree = "<group>"; };
 		52742353246DC5310082D749 /* statmentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = statmentHeaderView.xib; sourceTree = "<group>"; };
 		52742355246DC7480082D749 /* statmentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statmentHeaderView.swift; sourceTree = "<group>"; };
+		527A7D73249E62E500819CB4 /* auditReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = auditReportView.swift; sourceTree = "<group>"; };
+		527A7D75249E62EF00819CB4 /* auditReportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = auditReportView.xib; sourceTree = "<group>"; };
+		527A7D77249E641F00819CB4 /* SAIFZONEAudit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONEAudit.swift; sourceTree = "<group>"; };
+		527A7D79249E657600819CB4 /* auditTableviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = auditTableviewCell.xib; sourceTree = "<group>"; };
+		527A7D7B249E658200819CB4 /* auditTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = auditTableviewCell.swift; sourceTree = "<group>"; };
 		528455132435B14A003339DB /* requestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestsViewController.swift; sourceTree = "<group>"; };
 		528455162435B60C003339DB /* requestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = requestCollectionViewCell.xib; sourceTree = "<group>"; };
 		528455182435B621003339DB /* requestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -506,6 +516,17 @@
 			path = newSearch;
 			sourceTree = "<group>";
 		};
+		527A7D72249E62BF00819CB4 /* auditReportView */ = {
+			isa = PBXGroup;
+			children = (
+				527A7D73249E62E500819CB4 /* auditReportView.swift */,
+				527A7D75249E62EF00819CB4 /* auditReportView.xib */,
+				527A7D79249E657600819CB4 /* auditTableviewCell.xib */,
+				527A7D7B249E658200819CB4 /* auditTableviewCell.swift */,
+			);
+			path = auditReportView;
+			sourceTree = "<group>";
+		};
 		528455122435B0EF003339DB /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +592,7 @@
 		5294C8C6240CEC19008CC363 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				527A7D72249E62BF00819CB4 /* auditReportView */,
 				5266F901248CC03B000A7D5F /* ourFacilitiesView */,
 				5266F8F8248CB73D000A7D5F /* ourServicesView */,
 				5266F8EF248CB082000A7D5F /* aboutUsView */,
@@ -863,6 +885,7 @@
 				524C6C98245DE6DD009262CF /* SAIFZONEDocuments.swift */,
 				521689C0245E4DDD008DA1D4 /* SAIFZONEInvoice.swift */,
 				52CE2AA02461DA5E008D2ED8 /* SAIFZONEUserInformation.swift */,
+				527A7D77249E641F00819CB4 /* SAIFZONEAudit.swift */,
 			);
 			path = SAIFZONE_user;
 			sourceTree = "<group>";
@@ -1009,6 +1032,7 @@
 				5266F8FC248CB758000A7D5F /* ourServicesView.xib in Resources */,
 				52A9F0E4240CCE0A00034389 /* LaunchScreen.storyboard in Resources */,
 				5266F900248CB773000A7D5F /* ourServiceCollectionCell.xib in Resources */,
+				527A7D7A249E657600819CB4 /* auditTableviewCell.xib in Resources */,
 				52BB2EC4242748910015C63B /* terms.json in Resources */,
 				521689C6245E4EAC008DA1D4 /* payInvoiceView.xib in Resources */,
 				528455172435B60C003339DB /* requestCollectionViewCell.xib in Resources */,
@@ -1017,6 +1041,7 @@
 				524C6C97245DE5AB009262CF /* reqDocumentsView.xib in Resources */,
 				529E0B4024573FC60053A575 /* WWCalendarTimeSelector.storyboard in Resources */,
 				520981E124502857004303E3 /* licenseDetailsView.xib in Resources */,
+				527A7D76249E62EF00819CB4 /* auditReportView.xib in Resources */,
 				52A9F0E1240CCE0A00034389 /* Assets.xcassets in Resources */,
 				523C3EE82451A6E10061E026 /* loginView.xib in Resources */,
 				521689CB245E4F3B008DA1D4 /* payInvoiceCell.xib in Resources */,
@@ -1170,6 +1195,7 @@
 				520981E3245028C0004303E3 /* licenseDetailsView.swift in Sources */,
 				5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				5266F8F7248CB1DC000A7D5F /* aboutUsCollectionCell.swift in Sources */,
+				527A7D74249E62E500819CB4 /* auditReportView.swift in Sources */,
 				52BB2EBC242748150015C63B /* Term.swift in Sources */,
 				52DF5E8B241DFB850063C792 /* RequestResponseWebServices.swift in Sources */,
 				52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */,
@@ -1187,6 +1213,7 @@
 				52031EA02429D88E00FBCECA /* SuggestedServiceTableViewCell.swift in Sources */,
 				5294C8D0240CEC55008CC363 /* TPKeyboardAvoidingTableView.m in Sources */,
 				52BB2ECD242749080015C63B /* ContentStateViewController.swift in Sources */,
+				527A7D78249E641F00819CB4 /* SAIFZONEAudit.swift in Sources */,
 				529E0B4724574F660053A575 /* SAIFZONEStatment.swift in Sources */,
 				5266F903248CC054000A7D5F /* ourFacilitiesView.swift in Sources */,
 				5266F8FE248CB76A000A7D5F /* ourServiceCollectionCell.swift in Sources */,
@@ -1239,6 +1266,7 @@
 				52ABC82E2414FE0900402709 /* ServiceCollectionViewCell.swift in Sources */,
 				52BB2EA5242745EC0015C63B /* SuggestedTermsTableViewController.swift in Sources */,
 				520D5863246952C700F12E1F /* customeSearchBar.swift in Sources */,
+				527A7D7C249E658200819CB4 /* auditTableviewCell.swift in Sources */,
 				529E0B2D2456E4CB0053A575 /* statmentOfAccountViewController.swift in Sources */,
 				521F2C3324235E100055B74F /* applyServiceCollectionViewCell.swift in Sources */,
 				52BB2EB0242746FD0015C63B /* Array + SafeIndex.swift in Sources */,
@@ -1422,7 +1450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = BZSB59QTTY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1450,7 +1478,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = BZSB59QTTY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

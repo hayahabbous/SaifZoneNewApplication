@@ -240,6 +240,20 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
     @IBOutlet var secondArrowImageView: UIImageView!
     @IBOutlet var thirdArrowImageView: UIImageView!
     
+    @IBOutlet var echannelHeight: NSLayoutConstraint!
+    @IBOutlet var eChannelView: UIView!
+    @IBOutlet var echannelLabel: UILabel!
+    @IBOutlet var echannelButton: UIButton!
+    @IBAction func echannelButton(_ sender: Any) {
+        
+  
+            
+        selectedServiceURL = "\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)/AppRecordMP.aspx?bo=1123&EditMode=New&HideNavigation=1&hidelist=1"
+        
+        
+        
+        self.performSegue(withIdentifier: "toWebView", sender: self)
+    }
     
     
     var isSearchActive: Bool = false
@@ -286,6 +300,18 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         //tableView.emptyDataSetDelegate = self
         //self.configureSearchBarWithUrl()
         self.configureSearchBar()
+        
+        
+        echannelButton.layer.cornerRadius = 5
+        echannelButton.layer.masksToBounds = true
+        
+        
+        eChannelView.layer.cornerRadius = 5
+        eChannelView.layer.masksToBounds = true
+        
+        echannelHeight.constant = 0
+        
+        getEchannellMessage()
         
     }
     
@@ -454,6 +480,53 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
             }
             
         }
+        
+    }
+    
+    func getEchannellMessage() {
+        
+        
+        guard Utilities().isInternetAvailable() == true else{
+            Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+            return
+        }
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.activityData)
+        
+        
+        let stat = UserDefaults.standard.object(forKey: "companyCode") as? String  ?? ""
+        WebService.getEchannelMessage(company_code: stat) { (json) in
+            
+            print(json)
+            DispatchQueue.main.async {
+                   
+                    
+            guard Utilities().isInternetAvailable() == true else{
+            
+                //Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+                
+                return
+                
+            }
+                      
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+            
+            
+            guard let userList = json["Data"] as? [[String:Any]] else {return}
+            
+            if userList.count > 0 {
+                DispatchQueue.main.async {
+                    //self.echannelMessageLabel.isHidden = false
+                    //self.applyLinkButton.isHidden = false
+                    self.echannelHeight.constant = 50
+                }
+            }
+            
+            
+           
+        }
+        
+        
         
     }
     func getAllServices() {

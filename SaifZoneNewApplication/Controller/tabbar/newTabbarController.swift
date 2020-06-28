@@ -25,17 +25,36 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
         
         
         
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-    
-       
+    /*
+       if let tabBarItem = self.tabBar.items?[3] {
+           tabBarItem.tag = 2
+           
+           let viewTabBar = tabBarItem.value(forKey: "view") as? UIView
+           let imageView = viewTabBar?.subviews[0] as? UIImageView
+           let label = viewTabBar?.subviews[1] as? UILabel
+        label?.numberOfLines = 0
+        label?.lineBreakMode = .byWordWrapping
+        label?.textAlignment = .center
+        //label?.textColor  = .black
+        label?.sizeToFit()
+        label?.frame = CGRect(x: label?.frame.maxX ?? 0  , y: label?.frame.maxY ?? 0 - 10, width: 60.0, height:  40.0)
+       }*/
         if user?.DToken == nil {
             
             
             if let tabBarItem = self.tabBar.items?[2] {
                 tabBarItem.tag = 2
+                
+                let viewTabBar = tabBarItem.value(forKey: "view") as? UIView
+                let imageView = viewTabBar?.subviews[0] as? UIImageView
+                let label = viewTabBar?.subviews[1] as? UILabel
+                
+                //label?.textColor = .green
             }
             if let tabBarItem = self.tabBar.items?[3] {
                 tabBarItem.isEnabled = false

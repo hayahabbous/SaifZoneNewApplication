@@ -70,26 +70,44 @@
                     <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Channel is not Registered, Please Register Company for E-Channel. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQt-jz-UXa">
+                    <rect key="frame" x="32" y="593" width="350" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te4-ON-GWG">
+                    <rect key="frame" x="171" y="645" width="72" height="30"/>
+                    <state key="normal" title="Apply Link"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="te4-ON-GWG" firstAttribute="top" secondItem="fQt-jz-UXa" secondAttribute="bottom" constant="16" id="4MI-EC-qIQ"/>
                 <constraint firstItem="USX-15-9yS" firstAttribute="centerX" secondItem="aUv-Y4-6zZ" secondAttribute="centerX" id="6UO-8W-sSF"/>
                 <constraint firstItem="QSS-O3-DOX" firstAttribute="centerX" secondItem="dGO-q9-LDc" secondAttribute="centerX" id="7cD-32-0cT"/>
+                <constraint firstItem="fQt-jz-UXa" firstAttribute="leading" secondItem="dGO-q9-LDc" secondAttribute="leading" constant="32" id="Ebg-c6-dVo"/>
                 <constraint firstItem="QSS-O3-DOX" firstAttribute="top" secondItem="dGO-q9-LDc" secondAttribute="top" constant="60" id="KQi-m3-5qv"/>
                 <constraint firstItem="aUv-Y4-6zZ" firstAttribute="centerX" secondItem="BvG-Ct-SFT" secondAttribute="centerX" id="L69-a1-3h5"/>
                 <constraint firstItem="PXo-dM-FTH" firstAttribute="centerX" secondItem="USX-15-9yS" secondAttribute="centerX" id="LpR-qO-ALz"/>
+                <constraint firstItem="kiv-y1-dRb" firstAttribute="top" secondItem="i1M-na-6Pg" secondAttribute="bottom" constant="32" id="Ma4-VB-RrG"/>
+                <constraint firstItem="dGO-q9-LDc" firstAttribute="trailing" secondItem="fQt-jz-UXa" secondAttribute="trailing" constant="32" id="N0w-ur-c0D"/>
                 <constraint firstItem="aUv-Y4-6zZ" firstAttribute="top" secondItem="BvG-Ct-SFT" secondAttribute="bottom" constant="32" id="QYz-XQ-cEV"/>
                 <constraint firstItem="USX-15-9yS" firstAttribute="top" secondItem="aUv-Y4-6zZ" secondAttribute="bottom" constant="32" id="SFg-F7-rCX"/>
                 <constraint firstItem="BvG-Ct-SFT" firstAttribute="top" secondItem="kiv-y1-dRb" secondAttribute="bottom" constant="32" id="SVL-Cs-eBF"/>
                 <constraint firstItem="kiv-y1-dRb" firstAttribute="centerX" secondItem="i1M-na-6Pg" secondAttribute="centerX" id="Sa7-eC-l9z"/>
                 <constraint firstItem="i1M-na-6Pg" firstAttribute="centerX" secondItem="QSS-O3-DOX" secondAttribute="centerX" id="XB2-uj-zAP"/>
+                <constraint firstItem="fQt-jz-UXa" firstAttribute="top" secondItem="PXo-dM-FTH" secondAttribute="bottom" constant="32" id="Zlg-Ky-N9U"/>
+                <constraint firstItem="te4-ON-GWG" firstAttribute="centerX" secondItem="fQt-jz-UXa" secondAttribute="centerX" id="dam-yS-XDI"/>
+                <constraint firstItem="fQt-jz-UXa" firstAttribute="centerX" secondItem="i1M-na-6Pg" secondAttribute="centerX" id="enL-NY-U1H"/>
                 <constraint firstItem="i1M-na-6Pg" firstAttribute="top" secondItem="QSS-O3-DOX" secondAttribute="bottom" constant="47" id="lhR-sp-yE3"/>
-                <constraint firstItem="kiv-y1-dRb" firstAttribute="top" secondItem="i1M-na-6Pg" secondAttribute="bottom" constant="32" id="tJS-cm-cJm"/>
                 <constraint firstItem="BvG-Ct-SFT" firstAttribute="centerX" secondItem="kiv-y1-dRb" secondAttribute="centerX" id="xuC-b4-6I5"/>
                 <constraint firstItem="PXo-dM-FTH" firstAttribute="top" secondItem="USX-15-9yS" secondAttribute="bottom" constant="32" id="zcc-3H-hMn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="dGO-q9-LDc"/>
             <connections>
+                <outlet property="applyLinkButton" destination="te4-ON-GWG" id="zdQ-ld-a61"/>
+                <outlet property="echannelMessageLabel" destination="fQt-jz-UXa" id="tRZ-w7-djn"/>
                 <outlet property="emailLabel" destination="BvG-Ct-SFT" id="GD7-fW-t4n"/>
                 <outlet property="faxLabel" destination="USX-15-9yS" id="DXb-pE-ZhR"/>
                 <outlet property="mobileLabel" destination="aUv-Y4-6zZ" id="OtF-t5-t0A"/>

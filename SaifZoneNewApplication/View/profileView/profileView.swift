@@ -23,6 +23,8 @@ class profileView: UIView {
     @IBOutlet var usernameArabicLabel: UILabel!
     @IBOutlet var faxLabel: UILabel!
     @IBOutlet var websiteLabel: UILabel!
+    @IBOutlet var echannelMessageLabel: UILabel!
+    @IBOutlet var applyLinkButton: UIButton!
     var userInfo: SAIFZONEUserInformation = SAIFZONEUserInformation()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,10 +40,13 @@ class profileView: UIView {
         
         userProfileView.layer.borderWidth = 5
         
+        echannelMessageLabel.isHidden = true
+        applyLinkButton.isHidden = true
     }
     
     func loadUserInfo() {
         getUserInformation()
+        getEchannellMessage()
     }
     func getUserInformation() {
         
@@ -114,6 +119,53 @@ class profileView: UIView {
                 }
 
             }
+        }
+        
+        
+        
+        
+    }
+    
+    func getEchannellMessage() {
+        
+        
+        guard Utilities().isInternetAvailable() == true else{
+            Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self.viewController)
+            return
+        }
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.viewController.activityData)
+        
+        
+        let stat = UserDefaults.standard.object(forKey: "companyCode") as? String  ?? ""
+        WebService.getEchannelMessage(company_code: stat) { (json) in
+            
+            print(json)
+            DispatchQueue.main.async {
+                   
+                    
+            guard Utilities().isInternetAvailable() == true else{
+            
+                //Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+                
+                return
+                
+            }
+                      
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+            
+            
+            guard let userList = json["Data"] as? [[String:Any]] else {return}
+            
+            if userList.count > 0 {
+                DispatchQueue.main.async {
+                    //self.echannelMessageLabel.isHidden = false
+                    //self.applyLinkButton.isHidden = false
+                }
+            }
+            
+            
+           
         }
         
         

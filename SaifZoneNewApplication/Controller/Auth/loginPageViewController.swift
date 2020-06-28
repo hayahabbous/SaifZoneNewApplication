@@ -75,6 +75,8 @@ class loginPageViewController: UIViewController , changeViewProtocol {
     var aboutUsCustome: aboutUsView!
     var ourServiceCustome: ourServicesView!
     var ourFacilitiesCustome: ourFacilitiesView!
+    var auditReportCustome: auditReportView!
+    
     
     var superView: UIView!
     let activityData = ActivityData()
@@ -93,6 +95,7 @@ class loginPageViewController: UIViewController , changeViewProtocol {
         aboutUsCustome = .fromNib()
         ourServiceCustome = .fromNib()
         ourFacilitiesCustome = .fromNib()
+        auditReportCustome = .fromNib()
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back(sender:)))
         newBackButton.tintColor = AppConstants.purpleColor
@@ -473,7 +476,7 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if user?.DToken != nil {
-            return 7
+            return 6
         }
         return 4
         
@@ -505,16 +508,16 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 case 0:
                     
                 
-                    imageView.image = UIImage(named: "dashboard")
+                    imageView.image = UIImage(named: "user_profile")
                         
                     
-                    descLabel.text = "Dashboard"
+                    descLabel.text = "Account Details"
                         
                 case 1:
                 
-                    imageView.image = UIImage(named: "user_profile")
+                    imageView.image = UIImage(named: "report")
                     
-                    descLabel.text = "Account Details"
+                    descLabel.text = "Audit Report"
                     
                 case 2:
                            
@@ -528,21 +531,22 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                         imageView.image = UIImage(named: "documents")
                         
                         descLabel.text = "Requiered Documents"
+                    /*
                 case 4:
                                
                     
                         imageView.image = UIImage(named: "invoice")
                         
                         descLabel.text = "Outstanding Balance"
-                   
-                case 5:
+                   */
+                case 4:
                                
                     
                         imageView.image = UIImage(named: "ask")
                         
                         descLabel.text = "Requests"
                     
-                case 6:
+                case 5:
                               
                 
                     imageView.image = UIImage(named: "cancel")
@@ -642,12 +646,12 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 self.changableView.removeView(view: loginViewCustom)
                 */
                 
-                self.profileViewCustom.resizeView(baseView: self.changableView)
+                self.auditReportCustome.resizeView(baseView: self.changableView)
                 
-                self.profileViewCustom.viewController = self
+                self.auditReportCustome.viewController = self
                 
-                self.profileViewCustom.loadUserInfo()
-                self.changableView.addSubview(self.profileViewCustom)
+                self.auditReportCustome.getDraftRequests()
+                self.changableView.addSubview(self.auditReportCustome)
             case 2:
                 /*
                 self.changableView.removeView(view: profileViewCustom)
@@ -677,6 +681,7 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 self.reqDocViewCustom.loadReqDocuments()
                 self.reqDocViewCustom.delegate = self
                 self.changableView.addSubview(self.reqDocViewCustom)
+                /*
             case 4:
                 print("case 3")
                 
@@ -691,8 +696,8 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 
                 self.changableView.addSubview(self.invoiceViewCustome)
                 
-               
-            case 5:
+               */
+            case 4:
                  print("case 3")
                  
                 
@@ -705,7 +710,7 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                  self.requestsViewCustome.loadRequests()
                  
                  self.changableView.addSubview(self.requestsViewCustome)
-            case 6:
+            case 5:
                 logout()
             default:
                 print("defualt")

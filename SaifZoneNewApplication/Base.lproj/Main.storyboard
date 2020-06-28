@@ -574,7 +574,7 @@ Director</string>
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="doq-6n-RzU">
-                                <rect key="frame" x="0.0" y="244" width="324" height="569"/>
+                                <rect key="frame" x="0.0" y="302" width="324" height="511"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CWn-iX-L2M">
                                     <size key="itemSize" width="50" height="50"/>
@@ -594,7 +594,7 @@ Director</string>
                                 </cells>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldx-f8-I22">
-                                <rect key="frame" x="0.0" y="174" width="324" height="70"/>
+                                <rect key="frame" x="0.0" y="232" width="324" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Xr4-sK-bfn">
                                         <rect key="frame" x="8" y="0.0" width="324" height="70"/>
@@ -666,10 +666,45 @@ Director</string>
                                     <constraint firstAttribute="bottom" secondItem="Xr4-sK-bfn" secondAttribute="bottom" id="wn9-30-1Im"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySl-Cu-iKH">
+                                <rect key="frame" x="8" y="174" width="308" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Channel is not Registered, Please Register Company for E-Channel. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR4-KV-2BA">
+                                        <rect key="frame" x="8" y="6" width="238" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4e-6U-kIa">
+                                        <rect key="frame" x="254" y="10" width="40" height="30"/>
+                                        <color key="backgroundColor" red="0.73333333329999995" green="0.61176470589999998" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Xmj-ee-2f6"/>
+                                            <constraint firstAttribute="width" constant="40" id="YsO-HI-zw5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <state key="normal" title="Apply">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="echannelButton:" destination="E0g-LZ-pL3" eventType="touchUpInside" id="T5f-Fw-dXj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="MR4-KV-2BA" firstAttribute="top" secondItem="ySl-Cu-iKH" secondAttribute="top" constant="6" id="46q-cr-7Rq"/>
+                                    <constraint firstAttribute="bottom" secondItem="MR4-KV-2BA" secondAttribute="bottom" constant="8" id="DJp-LN-veC"/>
+                                    <constraint firstItem="Q4e-6U-kIa" firstAttribute="leading" secondItem="MR4-KV-2BA" secondAttribute="trailing" constant="8" id="F5i-KA-QHT"/>
+                                    <constraint firstItem="MR4-KV-2BA" firstAttribute="leading" secondItem="ySl-Cu-iKH" secondAttribute="leading" constant="8" id="WSc-ht-5NW"/>
+                                    <constraint firstItem="Q4e-6U-kIa" firstAttribute="leading" secondItem="ySl-Cu-iKH" secondAttribute="leading" constant="254" id="l5l-lJ-cnt"/>
+                                    <constraint firstAttribute="height" constant="50" id="laR-zT-xtF"/>
+                                    <constraint firstItem="Q4e-6U-kIa" firstAttribute="centerY" secondItem="ySl-Cu-iKH" secondAttribute="centerY" id="mfa-7F-VZ8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ldx-f8-I22" firstAttribute="top" secondItem="fJd-m3-TEP" secondAttribute="bottom" constant="8" id="3vX-C5-gBt"/>
                             <constraint firstItem="ZRU-QI-x3u" firstAttribute="bottom" secondItem="g9N-eC-Ugl" secondAttribute="bottom" id="7XH-ye-0VM"/>
                             <constraint firstItem="KDr-Xy-NNv" firstAttribute="leading" secondItem="ldx-f8-I22" secondAttribute="leading" id="8Hz-if-8KG"/>
                             <constraint firstItem="ZRU-QI-x3u" firstAttribute="leading" secondItem="fJd-m3-TEP" secondAttribute="trailing" constant="8" id="B5n-Ky-RzB"/>
@@ -678,8 +713,12 @@ Director</string>
                             <constraint firstItem="doq-6n-RzU" firstAttribute="top" secondItem="ldx-f8-I22" secondAttribute="bottom" id="I7w-YI-kYw"/>
                             <constraint firstItem="fJd-m3-TEP" firstAttribute="leading" secondItem="KDr-Xy-NNv" secondAttribute="leading" constant="8" id="I8C-2A-Rnt"/>
                             <constraint firstItem="doq-6n-RzU" firstAttribute="bottom" secondItem="KDr-Xy-NNv" secondAttribute="bottom" id="IcA-83-Nrj"/>
+                            <constraint firstItem="ldx-f8-I22" firstAttribute="top" secondItem="ySl-Cu-iKH" secondAttribute="bottom" constant="8" id="SX4-1i-Zb8"/>
                             <constraint firstItem="fJd-m3-TEP" firstAttribute="top" secondItem="KDr-Xy-NNv" secondAttribute="top" constant="8" id="Vc3-u7-GSL"/>
                             <constraint firstItem="KDr-Xy-NNv" firstAttribute="trailing" secondItem="ZRU-QI-x3u" secondAttribute="trailing" id="dNP-vI-mVK"/>
+                            <constraint firstItem="ySl-Cu-iKH" firstAttribute="leading" secondItem="6wv-Qz-c9b" secondAttribute="leading" id="jbs-r7-2in"/>
+                            <constraint firstItem="ySl-Cu-iKH" firstAttribute="top" secondItem="6wv-Qz-c9b" secondAttribute="bottom" constant="8" id="jrQ-lI-ZoU"/>
+                            <constraint firstItem="ySl-Cu-iKH" firstAttribute="trailing" secondItem="6wv-Qz-c9b" secondAttribute="trailing" id="mfB-xj-7NO"/>
                             <constraint firstItem="ZRU-QI-x3u" firstAttribute="leading" secondItem="doq-6n-RzU" secondAttribute="trailing" id="oE0-GG-60Y"/>
                             <constraint firstItem="ZRU-QI-x3u" firstAttribute="leading" secondItem="ldx-f8-I22" secondAttribute="trailing" id="z8e-te-2Ba"/>
                         </constraints>
@@ -687,6 +726,10 @@ Director</string>
                     </view>
                     <navigationItem key="navigationItem" id="Bgi-2H-6Vh"/>
                     <connections>
+                        <outlet property="eChannelView" destination="ySl-Cu-iKH" id="ceK-Bo-ocs"/>
+                        <outlet property="echannelButton" destination="Q4e-6U-kIa" id="4y5-YK-ACB"/>
+                        <outlet property="echannelHeight" destination="laR-zT-xtF" id="v66-Fl-E8R"/>
+                        <outlet property="echannelLabel" destination="MR4-KV-2BA" id="e5s-JA-eiu"/>
                         <outlet property="firstArrowImageView" destination="JmY-hV-cpp" id="1RX-qO-ews"/>
                         <outlet property="firstButton" destination="pJs-fZ-6z2" id="xwH-jm-P73"/>
                         <outlet property="fourthButton" destination="9a2-hn-ty7" id="sbJ-G9-F5E"/>
@@ -1506,7 +1549,7 @@ Director</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AxU-A4-h7w" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="202.5" width="390" height="39"/>
+                                <rect key="frame" x="8" y="202.5" width="390" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1538,7 +1581,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-dV-N63">
-                                <rect key="frame" x="8" y="273.5" width="80" height="30"/>
+                                <rect key="frame" x="8" y="268.5" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.21566504240000001" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="dPJ-5G-tzC"/>
@@ -1663,7 +1706,7 @@ Director</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNT-xu-nb6" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="477" width="398" height="39"/>
+                                <rect key="frame" x="8" y="477" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1695,7 +1738,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTF-PX-AeS">
-                                <rect key="frame" x="8" y="532" width="80" height="30"/>
+                                <rect key="frame" x="8" y="527" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.21566504240000001" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="6DN-tF-xa8"/>
@@ -1796,7 +1839,7 @@ Director</string>
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tT6-4W-9uM" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="160" width="398" height="39"/>
+                                <rect key="frame" x="8" y="160" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1828,7 +1871,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MiT-N8-6nv" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="231" width="398" height="39.5"/>
+                                <rect key="frame" x="8" y="226" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -1860,7 +1903,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRV-Ta-qlh" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="302.5" width="398" height="39"/>
+                                <rect key="frame" x="8" y="292" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -1892,7 +1935,7 @@ Director</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-gA-IqO">
-                                <rect key="frame" x="8" y="373.5" width="80" height="30"/>
+                                <rect key="frame" x="8" y="358" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.21566504240000001" green="0.11754591020000001" blue="0.2039276958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="dHb-na-1Bu"/>
@@ -1984,10 +2027,10 @@ Director</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_term_icon" translatesAutoresizingMaskIntoConstraints="NO" id="M3a-8N-4Qy">
-                                            <rect key="frame" x="20" y="17.5" width="14" height="14"/>
+                                            <rect key="frame" x="20" y="10.5" width="28" height="28"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-M5-yuh">
-                                            <rect key="frame" x="42" y="11.5" width="54" height="26.5"/>
+                                            <rect key="frame" x="56" y="11.5" width="54" height="26.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                             <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2045,10 +2088,10 @@ Director</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_term_icon" translatesAutoresizingMaskIntoConstraints="NO" id="lfZ-Cr-RWM">
-                                            <rect key="frame" x="20" y="10.5" width="28" height="28"/>
+                                            <rect key="frame" x="20" y="17.5" width="14" height="14"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alX-2m-YnG">
-                                            <rect key="frame" x="56" y="11.5" width="54" height="26.5"/>
+                                            <rect key="frame" x="42" y="11.5" width="54" height="26.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                             <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
