@@ -163,7 +163,7 @@ extension reqDocumentsView: UICollectionViewDelegate,UICollectionViewDataSource 
             cell.serviceDescriptionLabel.text = item.AttachmentTypeDescription
             
             
-            cell.viewController = self.viewController
+            //cell.viewController = self.viewController
             cell.changedelegate = self.delegate
             cell.docItem = item
         }

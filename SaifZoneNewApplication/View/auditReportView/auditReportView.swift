@@ -75,7 +75,7 @@ class auditReportView: UIView {
             
             guard let data = json["Data"] as? [[String:Any]] else {return}
             
-            
+            self.auditArray = []
             for d in data {
                 
                 let rItem = SAIFZONEAudit()

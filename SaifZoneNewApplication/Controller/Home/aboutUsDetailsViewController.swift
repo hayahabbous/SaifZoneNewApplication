@@ -15,7 +15,7 @@ class aboutUsDetailsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     var index = 0
-    
+    var newsItem: SAIFZONENews!
     var vibArray:[String] = ["WELCOME TO A NEW WAY OF DOING BUSINESS" ,
                                 "Chairman’s Message" ,
                                 "Director’s Message"]
@@ -61,6 +61,8 @@ Thank you.
     func setupView() {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "director-mob")
+        let url = URL(string: "https://devdp.saif-zone.com/download.aspx?FileID=\(newsItem.NewsImage)")
+        imageView.kf.setImage(with: url)
         imageView.contentMode = .scaleAspectFill
                 
         //setup blur vibrant view
@@ -79,7 +81,7 @@ Thank you.
                 
         // Label for vibrant text
         let vibrantLabel = UILabel()
-        vibrantLabel.text = vibArray[index]
+        vibrantLabel.text = ""//vibArray[index]
         vibrantLabel.font = UIFont.systemFont(ofSize: 40.0)
         vibrantLabel.sizeToFit()
         vibrantLabel.textAlignment = .center
@@ -121,10 +123,10 @@ extension aboutUsDetailsViewController: UITableViewDelegate , UITableViewDataSou
         let label = cell.viewWithTag(1) as! UILabel
         switch indexPath.row {
         case 0:
-            label.text = titlesArray[index]
+            label.text = newsItem.News
             
         case 1:
-            label.text = descriptionsArray[index]
+            label.text = newsItem.NewsDetail
         default:
             label.text = ""
         }

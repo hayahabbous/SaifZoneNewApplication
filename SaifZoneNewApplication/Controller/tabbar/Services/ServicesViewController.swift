@@ -244,6 +244,15 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
     @IBOutlet var eChannelView: UIView!
     @IBOutlet var echannelLabel: UILabel!
     @IBOutlet var echannelButton: UIButton!
+    
+    
+    @IBOutlet var requestHeight: NSLayoutConstraint!
+
+    
+    
+    
+    @IBOutlet var paymentCollectionView: UICollectionView!
+    
     @IBAction func echannelButton(_ sender: Any) {
         
   
@@ -255,6 +264,15 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         self.performSegue(withIdentifier: "toWebView", sender: self)
     }
     
+    @IBAction func requestPayemntAction(_ sender: Any) {
+        selectedServiceURL = "\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)/default.aspx?PageId=31&tID=3336"
+        
+        
+        
+        self.performSegue(withIdentifier: "toWeb2", sender: self)
+        
+        
+    }
     
     var isSearchActive: Bool = false
     var firstSelectedItem: SAIFZONEService?
@@ -266,6 +284,9 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
     var mainServicesArray: [SAIFZONEMainService] = []
     var allServicesArray: [SAIFZONEService] = []
     
+    
+    var paymentsArray: [SAIFZONEPaymentRequest] = []
+    
     var selectedMainService: SAIFZONEMainService = SAIFZONEMainService()
     var selectedService: SAIFZONEService = SAIFZONEService()
     let activityData = ActivityData()
@@ -275,7 +296,7 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
     
     @IBOutlet var searchView: UIView!
     var isMainServiceSelected = true
-    
+    var webUrlString: String = ""
     
      var searchController: UISearchController!
      let resultsContainerViewController =
@@ -309,9 +330,24 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         eChannelView.layer.cornerRadius = 5
         eChannelView.layer.masksToBounds = true
         
+        
+        /*
+        
+        requestButton.layer.cornerRadius = 5
+        requestButton.layer.masksToBounds = true
+        
+        
+        requestView.layer.cornerRadius = 5
+        requestView.layer.masksToBounds = true
+        
+        */
+        
         echannelHeight.constant = 0
+        requestHeight.constant = 0
         
         getEchannellMessage()
+        
+        getRequests()
         
     }
     
@@ -518,7 +554,7 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
                 DispatchQueue.main.async {
                     //self.echannelMessageLabel.isHidden = false
                     //self.applyLinkButton.isHidden = false
-                    self.echannelHeight.constant = 50
+                    //self.echannelHeight.constant = 50
                 }
             }
             
@@ -528,6 +564,76 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         
         
         
+    }
+    
+    func getRequests() {
+        
+        
+        DispatchQueue.main.async {
+                   
+            NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.activityData)
+                       
+            //self.view.isUserInteractionEnabled = false
+            
+        }
+        
+        
+        WebService.getPaymentRequest { (json) in
+            print(json)
+            self.paymentsArray = []
+            DispatchQueue.main.async {
+                                  
+                                   
+                          
+                guard Utilities().isInternetAvailable() == true else{
+                           
+             
+                    Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+                    return
+                    
+                }
+                
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                
+            }
+            
+            
+            print(json)
+            
+            //guard let errorCode = json["ErrorCode"] as? Int else {return}
+            //guard let message = json["Message"] as? String else {return}
+            
+            guard let data = json["Payments"] as? [[String:Any]] else {return}
+            
+            
+            for d in data {
+                
+                let rItem = SAIFZONEPaymentRequest()
+               
+                rItem.ID = String(describing: d["RequestID"] ?? "" )
+                rItem.PaymentCaption = String(describing: d["Caption"] ?? "" )
+                rItem.AmountValue = String(describing: d["TotalAmount"] ?? "" )
+                rItem.Status = String(describing: d["Status"] ?? "" )
+        
+             
+            
+             
+                
+                self.paymentsArray.append(rItem)
+                
+            }
+            
+            DispatchQueue.main.async {
+                
+                
+                if self.paymentsArray.count > 0 {
+                    //self.requestHeight.constant = 60
+                    //self.requestLabel.text = self.paymentsArray[0].PaymentCaption + " Amount : \(self.paymentsArray[0].AmountValue)"
+                    //self.paymentCollectionView.reloadData()
+                }
+                
+            }
+        }
     }
     func getAllServices() {
         DispatchQueue.main.async {
@@ -654,6 +760,30 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         servicesCollectionView.isPagingEnabled = true
         servicesCollectionView.reloadData()
         servicesCollectionView.setNeedsLayout()
+        
+        
+        
+        paymentCollectionView.delegate = self
+             
+        paymentCollectionView.dataSource = self
+              
+              paymentCollectionView.showsVerticalScrollIndicator = false
+              
+              //paymentCollectionView.register(UINib(nibName: "childNotificationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "notiCell")
+              //paymentCollectionView.frame = CGRect(x: 0, y: 0, width: paymentCollectionView.frame.width - 20, height: 170)
+        
+              
+              
+              //notificationsCollectionView.register(UINib(nibName: "cn1", bundle: nil), forCellWithReuseIdentifier: "notiCell11")
+              
+              
+              
+              if let layout = paymentCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                  layout.scrollDirection = .horizontal  // .horizontal
+              }
+              paymentCollectionView.isPagingEnabled = true
+              paymentCollectionView.reloadData()
+              paymentCollectionView.setNeedsLayout()
     }
     @IBAction func firstButtonAction(_ sender: Any) {
         
@@ -812,7 +942,21 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
         self.performSegue(withIdentifier: "toWebView", sender: self)
     }
     
-    
+    @objc func pressApplyButton(sender: UIButton) {
+        guard let cell = sender.superview?.superview?.superview as? UICollectionViewCell else {
+            return // or fatalError() or whatever
+        }
+
+        guard let indexPath = paymentCollectionView.indexPath(for: cell) else {return}
+        
+        let paymentItem = paymentsArray[indexPath.row]
+        
+        self.webUrlString = "/default.aspx?PageId=31&tID=\(paymentItem.ID)"
+        
+        
+        self.performSegue(withIdentifier: "toWeb2", sender: self)
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toWebView"  {
             
@@ -827,6 +971,10 @@ class ServicesViewController: UIViewController ,endSearch,loadTableDelegate , Mo
             backItem.title = selectedService.Caption
             navigationItem.backBarButtonItem = backItem
             navigationItem.backBarButtonItem?.tintColor = AppConstants.purpleColor
+        }else if segue.identifier == "toWeb2"  {
+            let dest = segue.destination as! newWebPageViewController
+            dest.webUrlString = self.webUrlString
+           
         }
     }
 }
@@ -860,7 +1008,11 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
         firstButtonAction(self)
         
         isSearchActive = false
-        modernSearchBar.searchTextField.text = ""
+        
+        if #available(iOS 13.0, *) {
+            modernSearchBar.searchTextField.text = ""
+        }
+        
         self.servicesCollectionView.reloadData()
         self.tableView.reloadData()
         
@@ -936,6 +1088,10 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
+        
+        if collectionView == paymentCollectionView {
+            return paymentsArray.count
+        }
         if isSearchActive {
             return filteredServicesArray.count
         }
@@ -1013,6 +1169,25 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
             cell.layoutIfNeeded()
             
             return cell
+            
+        }else if collectionView == self.paymentCollectionView  {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "requestCell", for: indexPath)
+            
+            
+            let paymentLabel = cell.viewWithTag(1) as! UILabel
+            let applyButton = cell.viewWithTag(2) as! UIButton
+          
+            cell.layer.cornerRadius = 5
+            cell.layer.masksToBounds = true
+            
+            
+            let payemntItem = paymentsArray[indexPath.row]
+            
+            paymentLabel.text = payemntItem.PaymentCaption + " Amount : \(payemntItem.AmountValue)"
+            applyButton.addTarget(self, action: #selector(pressApplyButton), for: .touchUpInside)
+
+            return cell
         }
         
         
@@ -1030,9 +1205,16 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
+        if collectionView == self.paymentCollectionView  {
+            return
+        }
+        
         if isSearchActive == true {
             isSearchActive = false
-            modernSearchBar.searchTextField.text = ""
+            if #available(iOS 13.0, *) {
+                modernSearchBar.searchTextField.text = ""
+            }
+            
             self.selectedService = filteredServicesArray[indexPath.row]
             self.isMainServiceSelected = false
             
@@ -1207,6 +1389,9 @@ extension ServicesViewController: UICollectionViewDelegate,UICollectionViewDataS
                 }
             }
             return CGSize(width: (collectionView.frame.width) / 2 - 30  , height: (collectionView.frame.width) / 2 - 30)
+            
+        }else if collectionView == self.paymentCollectionView  {
+             return CGSize(width: (collectionView.frame.width) - 10 , height: 70)
             
         }
         

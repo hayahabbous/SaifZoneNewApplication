@@ -34,38 +34,38 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="bp4-v4-eRL"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Saif Zone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1M-na-6Pg">
-                    <rect key="frame" x="112.5" y="271" width="189" height="21.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Saif Zone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1M-na-6Pg">
+                    <rect key="frame" x="16" y="271" width="382" height="21.5"/>
                     <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="16"/>
                     <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username in arabic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiv-y1-dRb">
-                    <rect key="frame" x="133.5" y="324.5" width="147" height="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username in arabic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiv-y1-dRb">
+                    <rect key="frame" x="16" y="324.5" width="382" height="22"/>
                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
                     <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email is " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-Ct-SFT">
-                    <rect key="frame" x="173.5" y="378.5" width="67" height="21.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email is " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-Ct-SFT">
+                    <rect key="frame" x="16" y="378.5" width="382" height="21.5"/>
                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
                     <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-Y4-6zZ">
-                    <rect key="frame" x="179" y="432" width="56" height="21.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-Y4-6zZ">
+                    <rect key="frame" x="16" y="432" width="382" height="21.5"/>
                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
                     <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fax " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USX-15-9yS">
-                    <rect key="frame" x="190.5" y="485.5" width="33" height="21.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fax " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USX-15-9yS">
+                    <rect key="frame" x="16" y="485.5" width="382" height="21.5"/>
                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
                     <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXo-dM-FTH">
-                    <rect key="frame" x="178" y="539" width="58" height="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXo-dM-FTH">
+                    <rect key="frame" x="16" y="539" width="382" height="22"/>
                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="16"/>
                     <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
@@ -86,7 +86,9 @@
                 <constraint firstItem="te4-ON-GWG" firstAttribute="top" secondItem="fQt-jz-UXa" secondAttribute="bottom" constant="16" id="4MI-EC-qIQ"/>
                 <constraint firstItem="USX-15-9yS" firstAttribute="centerX" secondItem="aUv-Y4-6zZ" secondAttribute="centerX" id="6UO-8W-sSF"/>
                 <constraint firstItem="QSS-O3-DOX" firstAttribute="centerX" secondItem="dGO-q9-LDc" secondAttribute="centerX" id="7cD-32-0cT"/>
+                <constraint firstItem="PXo-dM-FTH" firstAttribute="leading" secondItem="USX-15-9yS" secondAttribute="leading" id="AQq-FO-pko"/>
                 <constraint firstItem="fQt-jz-UXa" firstAttribute="leading" secondItem="dGO-q9-LDc" secondAttribute="leading" constant="32" id="Ebg-c6-dVo"/>
+                <constraint firstItem="kiv-y1-dRb" firstAttribute="leading" secondItem="i1M-na-6Pg" secondAttribute="leading" id="GQd-oA-4LY"/>
                 <constraint firstItem="QSS-O3-DOX" firstAttribute="top" secondItem="dGO-q9-LDc" secondAttribute="top" constant="60" id="KQi-m3-5qv"/>
                 <constraint firstItem="aUv-Y4-6zZ" firstAttribute="centerX" secondItem="BvG-Ct-SFT" secondAttribute="centerX" id="L69-a1-3h5"/>
                 <constraint firstItem="PXo-dM-FTH" firstAttribute="centerX" secondItem="USX-15-9yS" secondAttribute="centerX" id="LpR-qO-ALz"/>
@@ -96,11 +98,14 @@
                 <constraint firstItem="USX-15-9yS" firstAttribute="top" secondItem="aUv-Y4-6zZ" secondAttribute="bottom" constant="32" id="SFg-F7-rCX"/>
                 <constraint firstItem="BvG-Ct-SFT" firstAttribute="top" secondItem="kiv-y1-dRb" secondAttribute="bottom" constant="32" id="SVL-Cs-eBF"/>
                 <constraint firstItem="kiv-y1-dRb" firstAttribute="centerX" secondItem="i1M-na-6Pg" secondAttribute="centerX" id="Sa7-eC-l9z"/>
+                <constraint firstItem="BvG-Ct-SFT" firstAttribute="leading" secondItem="kiv-y1-dRb" secondAttribute="leading" id="VgS-CT-Gp9"/>
                 <constraint firstItem="i1M-na-6Pg" firstAttribute="centerX" secondItem="QSS-O3-DOX" secondAttribute="centerX" id="XB2-uj-zAP"/>
                 <constraint firstItem="fQt-jz-UXa" firstAttribute="top" secondItem="PXo-dM-FTH" secondAttribute="bottom" constant="32" id="Zlg-Ky-N9U"/>
                 <constraint firstItem="te4-ON-GWG" firstAttribute="centerX" secondItem="fQt-jz-UXa" secondAttribute="centerX" id="dam-yS-XDI"/>
-                <constraint firstItem="fQt-jz-UXa" firstAttribute="centerX" secondItem="i1M-na-6Pg" secondAttribute="centerX" id="enL-NY-U1H"/>
+                <constraint firstItem="i1M-na-6Pg" firstAttribute="leading" secondItem="dGO-q9-LDc" secondAttribute="leading" constant="16" id="gLN-Sq-AB0"/>
+                <constraint firstItem="USX-15-9yS" firstAttribute="leading" secondItem="aUv-Y4-6zZ" secondAttribute="leading" id="hSG-IW-2qn"/>
                 <constraint firstItem="i1M-na-6Pg" firstAttribute="top" secondItem="QSS-O3-DOX" secondAttribute="bottom" constant="47" id="lhR-sp-yE3"/>
+                <constraint firstItem="aUv-Y4-6zZ" firstAttribute="leading" secondItem="BvG-Ct-SFT" secondAttribute="leading" id="oCu-7P-HUV"/>
                 <constraint firstItem="BvG-Ct-SFT" firstAttribute="centerX" secondItem="kiv-y1-dRb" secondAttribute="centerX" id="xuC-b4-6I5"/>
                 <constraint firstItem="PXo-dM-FTH" firstAttribute="top" secondItem="USX-15-9yS" secondAttribute="bottom" constant="32" id="zcc-3H-hMn"/>
             </constraints>

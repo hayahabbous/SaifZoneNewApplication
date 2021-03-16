@@ -59,7 +59,7 @@ class profileView: UIView {
         
         WebService.getUserInformation { (json) in
             
-            
+            print(json)
             DispatchQueue.main.async {
                    
                     

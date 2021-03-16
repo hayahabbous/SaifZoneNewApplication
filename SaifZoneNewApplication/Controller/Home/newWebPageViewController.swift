@@ -44,6 +44,8 @@ class newWebPageViewController : UIViewController, WKNavigationDelegate , openUR
     
     
     
+    var webUrlString: String = ""
+    
     // var Url : String = "http://mportal.saif-zone.com/"
     @IBAction func onBackClick(_ sender: Any) {
         //gotoLoginPage()
@@ -437,7 +439,7 @@ extension newWebPageViewController {
         
         var user = SAIFZONEUser.getSAIFZONEUser()
         if user != nil {
-            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=https://devdpm.saif-zone.com/default.aspx?PageId=23" ,forKey: "URL")
+            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)\(webUrlString)" ,forKey: "URL")
             
             self.getData()
         }
@@ -495,7 +497,7 @@ extension newWebPageViewController {
                          
                    
                         
-                        UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=https://devdpm.saif-zone.com/default.aspx?PageId=23" ,forKey: "URL")
+                        UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=\(AppConstants.WEB_BASIC_URL_TEST_BASE_URL)\(self.webUrlString)" ,forKey: "URL")
                         
                         self.getData()
                         

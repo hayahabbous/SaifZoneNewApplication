@@ -9,20 +9,23 @@
 import Foundation
 import UIKit
 import JJFloatingActionButton
+import NVActivityIndicatorView
 
 class HomePageViewController: UIViewController {
     
     
     @IBOutlet var scrollView: UIScrollView!
     var infoCollectionView: UICollectionView!
+    var socialCollectionView: UICollectionView!
     @IBOutlet var circularImageView: UIImageView!
     @IBOutlet var backImageView: UIImageView!
 
-    
+    var newsItem: [SAIFZONENews] = []
+    var selectedNews: SAIFZONENews = SAIFZONENews()
     @IBOutlet var mainCollectionView: UICollectionView!
     @IBOutlet var parentProfileImageView: UIImageView!
     
-    
+    let activityData = ActivityData()
     var selectedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +79,8 @@ class HomePageViewController: UIViewController {
         
         actionButton.display(inViewController: self)
 
+        
+        getNews()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -141,7 +146,66 @@ class HomePageViewController: UIViewController {
         servicesCollectionView.reloadData()
         servicesCollectionView.setNeedsLayout()*/
     }
-    
+    func getNews() {
+        
+        
+        DispatchQueue.main.async {
+                   
+            NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.activityData)
+                       
+            //self.view.isUserInteractionEnabled = false
+            
+        }
+        
+        
+        WebService.getNews { (json) in
+            print(json)
+            
+            DispatchQueue.main.async {
+                                  
+                                   
+                          
+                guard Utilities().isInternetAvailable() == true else{
+                           
+             
+                    Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+                    return
+                    
+                }
+                
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                
+            }
+            
+            
+            print(json)
+            
+            //guard let errorCode = json["ErrorCode"] as? Int else {return}
+            //guard let message = json["Message"] as? String else {return}
+            
+            guard let data = json["visaDetails"] as? [[String:Any]] else {return}
+            
+            
+            for d in data {
+                
+                let rItem = SAIFZONENews()
+               
+                rItem.NID = String(describing: d["NID"] ?? "" )
+                rItem.News = String(describing: d["News"] ?? "" )
+                rItem.NewsDetail = String(describing: d["NewsDetail"] ?? "" )
+                rItem.NewsImage = String(describing: d["NewsImage"] ?? "" )
+               
+                
+                
+                self.newsItem.append(rItem)
+                
+            }
+            
+            DispatchQueue.main.async {
+                self.mainCollectionView.reloadData()
+            }
+        }
+    }
     func getServices() {
         
     }
@@ -154,6 +218,7 @@ class HomePageViewController: UIViewController {
         {
             let dest = segue.destination as! aboutUsDetailsViewController
             dest.index = selectedIndex
+            dest.newsItem = self.selectedNews
         }
     }
 }
@@ -161,7 +226,12 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
     
     //MARK: - CollectionView
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        
+        if collectionView == mainCollectionView
+        {
+            return 3
+        }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -173,12 +243,17 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
             
             if section == 0{
                 return 1
+            }else if section == 1{
+                return 1
             }else {
-                return 4
+                return newsItem.count
             }
         }
         if collectionView == infoCollectionView {
-            return 3
+            return 1
+        }
+        if collectionView == socialCollectionView {
+            return 4
         }
         
         return 0
@@ -224,6 +299,37 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
                 
                 return cell
                 
+            }else if indexPath.section == 1{
+                cellIdentifier = "infoCell"
+                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+                      
+                      
+                      self.socialCollectionView = cell.viewWithTag(1) as? UICollectionView
+                      
+                      socialCollectionView.delegate = self
+                      socialCollectionView.dataSource = self
+                      
+                      socialCollectionView.showsVerticalScrollIndicator = false
+                      
+                      socialCollectionView.register(UINib(nibName: "socialCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "socialCollectionViewCell")
+                      socialCollectionView.frame = CGRect(x: 0, y: 0, width: mainCollectionView.frame.width - 20, height: 100)
+                
+                      
+                      
+                      //notificationsCollectionView.register(UINib(nibName: "cn1", bundle: nil), forCellWithReuseIdentifier: "notiCell11")
+                      
+                      
+                      
+                      if let layout = socialCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                          layout.scrollDirection = .horizontal  // .horizontal
+                      }
+                      socialCollectionView.isPagingEnabled = true
+                      socialCollectionView.reloadData()
+                      socialCollectionView.setNeedsLayout()
+                      
+                
+                      
+                      return cell
             }else {
                 cellIdentifier = "informativeCollectionViewCell"
                        
@@ -245,7 +351,7 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
             let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! childNotificationCollectionViewCell
             
             
-            
+            /*
             switch indexPath.row {
             case 0:
                 cell.titleLabel.text = "NEW WAY OF DOING BUSINESS"
@@ -259,6 +365,7 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
             default:
                 cell.titleLabel.text = ""
             }
+ */
        
             
            /*
@@ -315,7 +422,24 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
             return cell
         }
         
-        
+        if collectionView == self.socialCollectionView  {
+                   
+                  
+            cellIdentifier = "socialCollectionViewCell"
+                   
+                   
+            
+            let cell = socialCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! socialCollectionViewCell
+                   
+                   
+            cell.layer.cornerRadius = 10
+            cell.layer.masksToBounds = true
+                   
+                   
+            
+            return cell
+            
+        }
         
         return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     }
@@ -325,6 +449,14 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
         if cell.reuseIdentifier == "informativeCollectionViewCell" {
             let cell = cell as! informativeCollectionViewCell
             
+            let item = newsItem[indexPath.row]
+            cell.imageView.image = UIImage(named: "info1")
+            let url = URL(string: "\(AppConstants.WEB_SERVER_SAIFZONE_TEST_DOWNLOADLINK)download.aspx?FileID=\(item.NewsImage)")
+            cell.imageView.kf.setImage(with: url)
+            cell.titleLabel.text = ""
+                          
+            cell.descLabel.text = item.News
+            /*
             switch indexPath.row {
             case 0:
                 cell.imageView.image = UIImage(named: "info1")
@@ -349,9 +481,28 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
                 
             default:
                 print("default")
+            }*/
+        }
+        if cell.reuseIdentifier == "socialCollectionViewCell" {
+            let cell = cell as! socialCollectionViewCell
+            
+            
+            switch indexPath.row {
+            case 0:
+                cell.imageView.image = UIImage(named: "linkedin")
+                
+            case 1:
+                cell.imageView.image = UIImage(named: "facebook")
+            
+            case 2:
+                cell.imageView.image = UIImage(named: "instagram-sketched")
+            
+            case 3:
+                cell.imageView.image = UIImage(named: "twitter")
+            default:
+                print("")
             }
         }
-        
         
     }
     
@@ -360,8 +511,81 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
         
         
         if collectionView == infoCollectionView {
-            selectedIndex = indexPath.item
-            self.performSegue(withIdentifier: "toAboutUs", sender: self)
+            //selectedIndex = indexPath.item
+            //self.performSegue(withIdentifier: "toAboutUs", sender: self)
+            
+            if let url = URL(string: "https://www.saif-zone.com") {
+                UIApplication.shared.open(url)
+            }
+        }else if collectionView == mainCollectionView {
+            
+            if indexPath.section == 1 {
+                
+                switch indexPath.row {
+                case 0:
+                    if let url = URL(string: "https://www.linkedin.com/company/saifzone") {
+                        UIApplication.shared.open(url)
+                    }
+                case 1:
+                    if let url = URL(string: "https://www.facebook.com/SAIFZA/") {
+                                          
+                        UIApplication.shared.open(url)
+                        
+                    }
+                    
+                    
+                case 2:
+                    if let url = URL(string: "https://www.instagram.com/saif_zone/?hl=en") {
+                                          
+                        UIApplication.shared.open(url)
+                        
+                    }
+                    
+                case 3:
+                    if let url = URL(string: "https://twitter.com/saif_zone?lang=en") {
+                                          
+                        UIApplication.shared.open(url)
+                        
+                    }
+                default:
+                    print("")
+                }
+            }
+            if indexPath.section == 2 {
+                selectedNews = newsItem[indexPath.row]
+                self.performSegue(withIdentifier: "toAboutUs", sender: self)
+            }
+        }
+        if collectionView == socialCollectionView {
+            switch indexPath.row {
+            case 0:
+                if let url = URL(string: "https://www.linkedin.com/company/saifzone") {
+                    UIApplication.shared.open(url)
+                }
+            case 1:
+                if let url = URL(string: "https://www.facebook.com/SAIFZA/") {
+                                      
+                    UIApplication.shared.open(url)
+                    
+                }
+                
+                
+            case 2:
+                if let url = URL(string: "https://www.instagram.com/saif_zone/?hl=en") {
+                                      
+                    UIApplication.shared.open(url)
+                    
+                }
+                
+            case 3:
+                if let url = URL(string: "https://twitter.com/saif_zone?lang=en") {
+                                      
+                    UIApplication.shared.open(url)
+                    
+                }
+            default:
+                print("")
+            }
         }
         
     }
@@ -375,6 +599,9 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
             if indexPath.section == 0 {
                 return CGSize(width: mainCollectionView.frame.width - 10  , height: 170)
             }
+            if indexPath.section == 1 {
+                return CGSize(width: mainCollectionView.frame.width , height: 80)
+            }
             return CGSize(width: (mainCollectionView.frame.width - 40) / 2, height: 300)
             
         }
@@ -383,7 +610,11 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
              return CGSize(width: infoCollectionView.frame.width - 15  , height: 135)
             
         }
-        
+        if collectionView == self.socialCollectionView  {
+            
+             return CGSize(width: (socialCollectionView.frame.width / 4) - 10  , height: 60)
+            
+        }
         
         
         return CGSize(width: 150, height: 150)
@@ -394,10 +625,15 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
           
             if section == 0 {
                 return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            }else if section == 1 {
+                return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             }
             return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         }
-        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        
+        if collectionView == socialCollectionView {
+        }
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
     
     
@@ -405,6 +641,10 @@ extension HomePageViewController: UICollectionViewDelegate,UICollectionViewDataS
         
         if collectionView == mainCollectionView {
             if section == 0{
+                return 0
+            }
+            
+            if section == 1{
                 return 0
             }
             return 10

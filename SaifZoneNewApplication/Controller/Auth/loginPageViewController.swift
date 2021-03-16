@@ -14,13 +14,13 @@ import NVActivityIndicatorView
 
 protocol changeViewProtocol {
     func changeLoginView()
-    func openWebView(fielURL: String)
+    func openWebView(fielURL: String , webType: String )
 }
 class loginPageViewController: UIViewController , changeViewProtocol {
-    func openWebView(fielURL: String ) {
+    func openWebView(fielURL: String , webType: String ) {
         
         self.selectedFileUrl = fielURL
-        
+        self.webType = webType
         self.performSegue(withIdentifier: "toWebView", sender: self)
     }
     
@@ -47,7 +47,7 @@ class loginPageViewController: UIViewController , changeViewProtocol {
         self.tableView.reloadData()
     }
     
-    
+    var webType = ""
     var selectedFileUrl = ""
     var isLoadFirstTime = false
     @IBOutlet var changableView: UIView!
@@ -76,6 +76,8 @@ class loginPageViewController: UIViewController , changeViewProtocol {
     var ourServiceCustome: ourServicesView!
     var ourFacilitiesCustome: ourFacilitiesView!
     var auditReportCustome: auditReportView!
+    var visaViewCustome: visaView!
+    var notificationViewCustome: NotificationView!
     
     
     var superView: UIView!
@@ -96,6 +98,8 @@ class loginPageViewController: UIViewController , changeViewProtocol {
         ourServiceCustome = .fromNib()
         ourFacilitiesCustome = .fromNib()
         auditReportCustome = .fromNib()
+        visaViewCustome = .fromNib()
+        notificationViewCustome = .fromNib()
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back(sender:)))
         newBackButton.tintColor = AppConstants.purpleColor
@@ -458,7 +462,8 @@ class loginPageViewController: UIViewController , changeViewProtocol {
             let dest = segue.destination as! UINavigationController
             let wv = dest.viewControllers[0] as! webViewController
             wv.selectedServiceURL = self.selectedFileUrl
-            
+            wv.webType = self.webType
+            wv.downloadDelegate = self.newLicenseCustomeView
             
         }
     }
@@ -478,7 +483,7 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
         if user?.DToken != nil {
             return 6
         }
-        return 4
+        return 1
         
         
     }
@@ -512,25 +517,28 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                         
                     
                     descLabel.text = "Account Details"
-                        
+                    
                 case 1:
+                               
+                    
+                        imageView.image = UIImage(named: "license")
+                        
+                        descLabel.text = "License Details"
+                        
+                case 2:
                 
                     imageView.image = UIImage(named: "report")
                     
                     descLabel.text = "Audit Report"
                     
-                case 2:
-                           
                 
-                    imageView.image = UIImage(named: "license")
-                    
-                    descLabel.text = "License Details"
+                    /*
                 case 3:
                                
                     
                         imageView.image = UIImage(named: "documents")
                         
-                        descLabel.text = "Requiered Documents"
+                        descLabel.text = "Requiered Documents"*/
                     /*
                 case 4:
                                
@@ -539,12 +547,19 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                         
                         descLabel.text = "Outstanding Balance"
                    */
+                case 3:
+                               
+                    
+                        imageView.image = UIImage(named: "visa")
+                        
+                        descLabel.text = "Visa Services"
+                   
                 case 4:
                                
                     
-                        imageView.image = UIImage(named: "ask")
+                        imageView.image = UIImage(named: "outline")
                         
-                        descLabel.text = "Requests"
+                        descLabel.text = "Notifications"
                     
                 case 5:
                               
@@ -639,7 +654,19 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 self.profileViewCustom.loadUserInfo()
                 self.changableView.addSubview(self.profileViewCustom)
                 
+              
             case 1:
+            
+                              
+                self.newLicenseCustomeView.resizeView(baseView: self.changableView)
+                               
+                
+                self.newLicenseCustomeView.viewController = self
+                
+                self.newLicenseCustomeView.loadLicense()
+                self.newLicenseCustomeView.changedelegate = self
+                self.changableView.addSubview(self.newLicenseCustomeView)
+            case 2:
                 
                 /*
                 self.changableView.removeView(view: licenseViewCustom)
@@ -652,18 +679,8 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 
                 self.auditReportCustome.getDraftRequests()
                 self.changableView.addSubview(self.auditReportCustome)
-            case 2:
-                /*
-                self.changableView.removeView(view: profileViewCustom)
-                self.changableView.removeView(view: loginViewCustom)
-                */
-                
-                
-                self.newLicenseCustomeView.resizeView(baseView: self.changableView)
-                
-                self.newLicenseCustomeView.viewController = self
-                self.newLicenseCustomeView.loadLicense()
-                self.changableView.addSubview(self.newLicenseCustomeView)
+           
+            /*
             case 3:
                 print("case 2")
                 /*
@@ -681,6 +698,8 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 self.reqDocViewCustom.loadReqDocuments()
                 self.reqDocViewCustom.delegate = self
                 self.changableView.addSubview(self.reqDocViewCustom)
+                
+                */
                 /*
             case 4:
                 print("case 3")
@@ -697,19 +716,33 @@ extension loginPageViewController: UITableViewDataSource,UITableViewDelegate {
                 self.changableView.addSubview(self.invoiceViewCustome)
                 
                */
+            case 3:
+                 print("case 3")
+                 
+                
+                 self.visaViewCustome.resizeView(baseView: self.changableView)
+                               
+                 
+                 self.visaViewCustome.viewController = self
+                 
+                 
+                 self.visaViewCustome.getVisa()
+                 
+                 self.changableView.addSubview(self.visaViewCustome)
+                
             case 4:
                  print("case 3")
                  
                 
-                 self.requestsViewCustome.resizeView(baseView: self.changableView)
+                 self.notificationViewCustome.resizeView(baseView: self.changableView)
                                
                  
-                 self.requestsViewCustome.viewController = self
+                 self.notificationViewCustome.viewController = self
                  
                  
-                 self.requestsViewCustome.loadRequests()
+                 self.notificationViewCustome.getNotifcation()
                  
-                 self.changableView.addSubview(self.requestsViewCustome)
+                 self.changableView.addSubview(self.notificationViewCustome)
             case 5:
                 logout()
             default:

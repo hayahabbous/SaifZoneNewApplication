@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationTableViewCell" rowHeight="276" id="yXk-gg-lbz" customClass="notificationTableViewCell" customModule="SaifZoneNewApplication" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yXk-gg-lbz" id="Muc-Ij-fRk">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23/7/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS5-Hm-W5L">
+                        <rect key="frame" x="8" y="8" width="78" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGA-fF-AUe">
+                        <rect key="frame" x="8" y="35.5" width="36.5" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.80392156859999997" green="0.68627450980000004" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1y-6v-eri">
+                        <rect key="frame" x="8" y="64" width="398" height="197"/>
+                        <mutableString key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</mutableString>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.2156862745" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.93726366758346558" green="0.93724346160888672" blue="0.93724745512008667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="gS5-Hm-W5L" firstAttribute="leading" secondItem="Muc-Ij-fRk" secondAttribute="leading" constant="8" id="BXu-vi-Zj5"/>
+                    <constraint firstAttribute="bottom" secondItem="j1y-6v-eri" secondAttribute="bottom" constant="15" id="KRX-yW-wjS"/>
+                    <constraint firstItem="gS5-Hm-W5L" firstAttribute="top" secondItem="Muc-Ij-fRk" secondAttribute="top" constant="8" id="Ng4-fs-RWq"/>
+                    <constraint firstItem="EGA-fF-AUe" firstAttribute="top" secondItem="gS5-Hm-W5L" secondAttribute="bottom" constant="8" id="U9L-5d-fbE"/>
+                    <constraint firstItem="j1y-6v-eri" firstAttribute="top" secondItem="EGA-fF-AUe" secondAttribute="bottom" constant="7.5" id="czj-tq-yR6"/>
+                    <constraint firstItem="EGA-fF-AUe" firstAttribute="leading" secondItem="gS5-Hm-W5L" secondAttribute="leading" id="pnb-0w-ub2"/>
+                    <constraint firstAttribute="trailing" secondItem="j1y-6v-eri" secondAttribute="trailing" constant="8" id="t7K-rj-2kF"/>
+                    <constraint firstItem="j1y-6v-eri" firstAttribute="leading" secondItem="EGA-fF-AUe" secondAttribute="leading" id="xbC-3e-Gt7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="gS5-Hm-W5L" id="lNr-MK-Tha"/>
+                <outlet property="descLabel" destination="j1y-6v-eri" id="ZPZ-RT-sqq"/>
+                <outlet property="titleLabel" destination="EGA-fF-AUe" id="siO-or-syX"/>
+            </connections>
+            <point key="canvasLocation" x="169.56521739130437" y="169.41964285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

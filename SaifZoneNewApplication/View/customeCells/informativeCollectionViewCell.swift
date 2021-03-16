@@ -20,8 +20,11 @@ class informativeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds  = true
     
+        imageView.layer.cornerRadius = 5
+        imageView.layer.masksToBounds  = true
         //self.contentView.dropShadow(color: .red, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
     
     }

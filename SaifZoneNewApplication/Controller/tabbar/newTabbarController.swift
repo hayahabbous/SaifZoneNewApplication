@@ -12,6 +12,11 @@ import UIKit
 
 class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
     
+    
+    
+    var eChannelArray: [[String:Any]] = [[:]]
+    var paymentsArray: [SAIFZONEPaymentRequest] = []
+    var documentsArray: [SAIFZONEDocuments] = []
      let user = SAIFZONEUser.getSAIFZONEUser()
     var globalItem: UITabBarItem!
     override func viewDidLoad() {
@@ -68,14 +73,14 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
             
             if let tabBarItem = self.tabBar.items?[1] {
                 tabBarItem.isEnabled = false
-                
-                
                 var viewControllers = self.viewControllers
                 viewControllers?.remove(at: 1)
                 self.viewControllers = viewControllers
             }
             
             
+        }else{
+            self.getRequiredFields()
         }
         
     }
@@ -83,10 +88,16 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
     func setupLastButton() {
         
         let width = self.tabBar.frame.width / 5
-        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+        var newWidth: CGFloat
+        if user?.DToken == nil {
+            newWidth = self.view.frame.width / 3.0 + 10.0
+        }else{
+            newWidth = self.view.frame.width / 5.0 + 10.0
+        }
+        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: newWidth, height: 80))
         
         menuButton.frame.origin.y = tabBar.bounds.height - menuButton.frame.height
-        menuButton.frame.origin.x = tabBar.bounds.width - (width)
+        menuButton.frame.origin.x = tabBar.bounds.width - (newWidth)
         menuButton.backgroundColor = .clear
         
         
@@ -100,16 +111,25 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
     func setupFirstButton() {
         
         let width = self.tabBar.frame.width / 5
-        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 80))
+        var newWidth: CGFloat
+        if user?.DToken == nil {
+            newWidth = self.view.frame.width / 3.0 + 10.0
+        }else{
+            newWidth = self.view.frame.width / 5.0 + 10.0
+        }
+        
+        var menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: newWidth, height: 80))
+        
         
         menuButton.frame.origin.y = tabBar.bounds.height - menuButton.frame.height
         menuButton.frame.origin.x = tabBar.bounds.width - self.view.frame.width
-        menuButton.backgroundColor = .red
+        menuButton.backgroundColor = .clear
         
         
         
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
+            
             menuButton.frame.origin.y = tabBar.bounds.height - menuButton.frame.height
             menuButton.frame.origin.x = tabBar.bounds.width - self.view.frame.width
             menuButton.backgroundColor = .clear
@@ -133,7 +153,7 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
         menuButtonFrame.origin.x = view.bounds.width/2 - menuButtonFrame.size.width/2
         menuButton.frame = menuButtonFrame
 
-        menuButton.backgroundColor = UIColor.red
+        menuButton.backgroundColor = UIColor.clear
         menuButton.layer.cornerRadius = menuButtonFrame.height/2
         view.addSubview(menuButton)
 
@@ -190,11 +210,103 @@ class newTabbarController: UITabBarController ,UITabBarControllerDelegate {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
        
         globalItem = item
+        
+        
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
     }
+    
+    func getRequiredFields() {
+        
+        
+       
+        let stat = UserDefaults.standard.object(forKey: "companyCode") as? String  ?? ""
+        WebService.getRequiredFields(company_code: stat) { (json) in
+            
+            print(json)
+            
+            DispatchQueue.main.async {
+                       
+                        
+                guard Utilities().isInternetAvailable() == true else{
+                
+                    //Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+                    
+                    return
+                    
+                }
+                
+              
+                //guard let message  = json["Message"] as? String else {return}
+                //guard let errorCode  = json["ErrorCode"] as? Int else {return}
+                guard let data  = json["requiredDocumentsList"] as? [[String:Any]] else {return}
+                
+                
+                guard let payments  = json["Payments"] as? [[String:Any]] else {return}
+                guard let eChannelList  = json["eChannelList"] as? [[String:Any]] else {return}
+                
+                self.documentsArray = []
+                self.paymentsArray = []
+                self.eChannelArray = eChannelList
+
+                for obj in data {
+                    let item = SAIFZONEDocuments()
+                    item.RequestAttachmentID = obj["RequestAttachmentID"] as? String ?? ""
+                    item.AttachmentTypeID = obj["AttachmentTypeID"] as? String ?? ""
+                    item.AttachmentTypeDescription = obj["AttachmentTypeDescription"] as? String ?? ""
+                    item.AttachmentName = obj["AttachmentName"] as? String ?? ""
+                    item.RequestID = obj["RequestID"] as? String ?? ""
+                    item.WebsiteRequestId = obj["WebsiteRequestId"] as? String ?? ""
+                    item.CompanyId = obj["CompanyId"] as? String ?? ""
+                    item.ServiceName = obj["ServiceName"] as? String ?? ""
+                    item.IsUploaded = obj["IsUploaded"] as? String ?? ""
+             
+                    
+                    item.fileURL = "https://devdp.saif-zone.com/AppRecordMP.aspx?bo=1055&EditMode=New&Hidenavigation=1&hidelist=1&HideDelete=1&returnpage=default&dvdocumentid=\(item.RequestAttachmentID)"
+                    self.documentsArray.append(item)
+                    
+                    
+                    
+                }
+                
+                
+                for d in payments {
+                        
+                        
+                    let rItem = SAIFZONEPaymentRequest()
+                       
+                    
+                    rItem.ID = String(describing: d["RequestID"] ?? "" )
+                    
+                    rItem.PaymentCaption = String(describing: d["Caption"] ?? "" )
+                    
+                    rItem.AmountValue = String(describing: d["TotalAmount"] ?? "" )
+                    
+                    rItem.Status = String(describing: d["Status"] ?? "" )
+                
+                    self.paymentsArray.append(rItem)
+                        
+                    
+                }
+                
+                DispatchQueue.main.async {
+                    AppConstants.badgeCount = self.documentsArray.count + self.eChannelArray.count + self.paymentsArray.count
+                    if let tabBarItem = self.tabBar.items?[3] {
+                        // In this case we want to modify the badge number of the third tab:
+                        
+                        
+                        if AppConstants.badgeCount > 0 {
+                            tabBarItem.badgeValue = String(describing: AppConstants.badgeCount)
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    
 }
 extension UINavigationController{
     func pushViewControllerFromLeft(controller: UIViewController) {

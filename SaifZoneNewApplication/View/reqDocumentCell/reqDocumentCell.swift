@@ -18,7 +18,7 @@ class reqDocumentCell: UICollectionViewCell {
     @IBOutlet var serviceDescriptionLabel: UILabel!
     @IBOutlet var uploadButton: UIButton!
     
-    var viewController: loginPageViewController!
+    var viewController: requestsViewController!
     var docItem: SAIFZONEDocuments!
    
     var changedelegate: changeViewProtocol!
@@ -30,6 +30,16 @@ class reqDocumentCell: UICollectionViewCell {
     }
     @IBAction func uploadAction(_ sender: Any) {
         
+        
+        if AppConstants.LIVE {
+            viewController.selectedServiceURL = "https://bmportal.saif-zone.com/AppRecordMP.aspx?bo=1055&EditMode=New&Hidenavigation=1&hidelist=1&HideDelete=1&returnpage=default&dvdocumentid=\(self.docItem.RequestAttachmentID)"
+        }else{
+            viewController.selectedServiceURL = "https://devdpm.saif-zone.com/AppRecordMP.aspx?bo=1055&EditMode=New&Hidenavigation=1&hidelist=1&HideDelete=1&returnpage=default&dvdocumentid=\(self.docItem.RequestAttachmentID)"
+        }
+        
+        
+        
+        viewController.performSegue(withIdentifier: "toWebView", sender: self)
         //changedelegate.openWebView(fielURL: docItem.fileURL)
     }
 }

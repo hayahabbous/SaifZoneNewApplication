@@ -49,7 +49,7 @@ struct Configuration {
     
     static func setPaymentUrl(transID: String) -> String {
         return "http://ws.saif-zone.com:7777/authenticate/GetPaymentDetail/\(transID)/Asdf1234!@"
-        //return "http://devdpa.saif-zone.com/authenticate/GetPaymentDetail/\(transID)/Asdf1234!@"
+        //return "http://devdpa.saif-zone.com/authenticate/GetPaymentDetail/\(transID)/Asdf1234!@
     }
 }
 

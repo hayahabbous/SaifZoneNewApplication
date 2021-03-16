@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 import NVActivityIndicatorView
 import SkyFloatingLabelTextField
-class newLicenseView: UIView {
+
+protocol downloadLicense {
+    func downloadLicence(url: String)
+}
+class newLicenseView: UIView ,downloadLicense{
     
     
     var toolBar = UIToolbar()
@@ -21,7 +25,7 @@ class newLicenseView: UIView {
     var selectedLicense: SAIFZONELicense!
     @IBOutlet var ownerNameLabel: UILabel!
     @IBOutlet weak var licensePickeView: UIPickerView!
-    
+    var changedelegate: changeViewProtocol!
     @IBOutlet var printLicenseButton: UIButton!
     @IBOutlet var activityLabel: UILabel!
     @IBOutlet var managerNameLabel: UILabel!
@@ -160,8 +164,111 @@ class newLicenseView: UIView {
         
         
     }
+    
+    func tryForLogin() {
+    
+   
+        var user = SAIFZONEUser.getSAIFZONEUser()
+    
+      
+    
+    
+    
+    
+        DispatchQueue.main.async {
+        
+            guard Utilities().isInternetAvailable() == true else{
+            
+                Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self.viewController)
+        
+                return
+        
+            }
+       
+            NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.activityData)
+       
+            //self.view.isUserInteractionEnabled = false
+  
+        }
+    
+        WebService.getDToken(username: UserDefaults.standard.object(forKey: "userName")  as? String ?? "", password: UserDefaults.standard.object(forKey: "password")  as? String ?? "") { (json) in
+        
+       
+            print(json)
+        
+            DispatchQueue.main.async {
+          
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            
+                //self.view.isUserInteractionEnabled = false
+            
+            
+                guard let errorCode = json["ErrorCode"] as? Int else {return}
+             
+            
+            
+                if errorCode == 0 {
+                
+                    guard let data = json["Data"] as? String else {
+                    
+                    
+                        DispatchQueue.main.async {
+                        
+                            Utils.showAlertWith(title: "Error", message: "Login faild", viewController: self.viewController)
+                    
+                        }
+                   
+                        return
+                    
+                    
+               
+                    }
+              
+                    if data == "" {
+                    
+                  
+                        DispatchQueue.main.async {
+                        
+                            Utils.showAlertWith(title: "Error", message: "Login faild", viewController: self.viewController)
+                   
+                        }
+                    
+                        return
+               
+                    }
+                var _: SAIFZONEUser = SAIFZONEUser(dict: json)
+                
+                var user = SAIFZONEUser.getSAIFZONEUser()
+              
+                print(data)
+          
+                }else {
+               
+                    guard let message = json["Message"] as? String else {return}
+                
+               
+                    DispatchQueue.main.async {
+                    
+                        Utils.showAlertWith(title: "Error", message: message, viewController: self.viewController)
+              
+                    }
+       
+                }
+            
+      
+            }
+        
+        
+       
+        }
+        
+    }
     @IBAction func printLicenseAction(_ sender: Any) {
         
+        //self.changedelegate.openWebView(fielURL: selectedLicense.license_no , webType: "download")
+    
+        self.tryForLogin()
+        //self.viewController.performSegue(withIdentifier: "toWeb", sender: self)
         DispatchQueue.main.async {
                    
             NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.viewController.activityData)
@@ -169,9 +276,11 @@ class newLicenseView: UIView {
             //self.view.isUserInteractionEnabled = false
             
         }
+        let user = SAIFZONEUser.getSAIFZONEUser()
         
-        
-        if let fileUrl = URL(string: "\(AppConstants.WEB_SERVER_DOWNLOAD_LICENSE_FILE)\(selectedLicense.license_no)") {
+        let urlString = "\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)LicenseFile.aspx?TokenID=\(user?.DToken ?? "")&LicenseNo=\(self.selectedLicense.license_no )"
+        //if let fileUrl = URL(string: "\(AppConstants.WEB_SERVER_DOWNLOAD_LICENSE_FILE)\(selectedLicense.license_no)") {
+        if let fileUrl = URL(string: urlString) {
             
             print("the file to be downloaded is : \(fileUrl)")
             
@@ -191,12 +300,51 @@ class newLicenseView: UIView {
                 DispatchQueue.main.async {
                     
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-                    Utils.showAlertWith(title: "Success", message: "the file has been downloaded ,you can see it in files application", viewController: self.viewController)
+                    Utils.showAlertWith(title: "Success", message: "the file has been downloaded ,you can find the file in Saifzone folder", viewController: self.viewController)
                 }
                 
             }
         }
     }
+    
+    func downloadLicence(url: String) {
+        
+        DispatchQueue.main.async {
+                   
+            NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.viewController.activityData)
+                       
+            //self.view.isUserInteractionEnabled = false
+            
+        }
+        
+        
+        if let fileUrl = URL(string: url) {
+            
+            print("the file to be downloaded is : \(fileUrl)")
+            
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            
+            print("docdir" + String(describing: documentsDirectory))
+            let dataPath = documentsDirectory.appendingPathComponent("SAIFZONE docs")
+            
+            //let fileExists = FileManager().fileExists(atPath: dataPath.path)
+            
+            let destination = documentsDirectory.appendingPathComponent( "\(selectedLicense.license_no).PDF")
+            //Downloader1.load(url: fileUrl, to: destination) {
+                
+          //  }
+            Downloader.load(filePath: destination, viewController: self.viewController, url: fileUrl) { (data) in
+                
+                DispatchQueue.main.async {
+                    
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                    Utils.showAlertWith(title: "Success", message: "the file has been downloaded ,you can find the file in Saifzone folder", viewController: self.viewController)
+                }
+                
+            }
+        }
+    }
+    
 }
 extension newLicenseView: UIPickerViewDelegate , UIPickerViewDataSource  {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

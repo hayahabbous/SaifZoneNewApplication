@@ -18,6 +18,8 @@
 		520D58652469560C00F12E1F /* customeSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D58642469560C00F12E1F /* customeSearchController.swift */; };
 		520D58682469C08100F12E1F /* PayFortSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 520D58662469C08000F12E1F /* PayFortSDK.bundle */; };
 		520D58692469C08100F12E1F /* PayFortSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520D58672469C08100F12E1F /* PayFortSDK.framework */; };
+		520E33C024BCEE8B008FFDD2 /* socialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E33BF24BCEE8B008FFDD2 /* socialCollectionViewCell.swift */; };
+		520E33C224BCEEB4008FFDD2 /* socialCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520E33C124BCEEB4008FFDD2 /* socialCollectionViewCell.xib */; };
 		521689C1245E4DDD008DA1D4 /* SAIFZONEInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521689C0245E4DDD008DA1D4 /* SAIFZONEInvoice.swift */; };
 		521689C4245E4E82008DA1D4 /* payInvoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521689C3245E4E82008DA1D4 /* payInvoiceView.swift */; };
 		521689C6245E4EAC008DA1D4 /* payInvoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521689C5245E4EAC008DA1D4 /* payInvoiceView.xib */; };
@@ -82,6 +84,18 @@
 		5284551F2435BEA8003339DB /* licenseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5284551E2435BEA8003339DB /* licenseCollectionViewCell.swift */; };
 		528455212435BED6003339DB /* licenseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528455202435BED6003339DB /* licenseCollectionViewCell.xib */; };
 		5284E9A1241E2D8C008B853E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5284E9A0241E2D8C008B853E /* File.swift */; };
+		528DDF3E24C9B5190056CADF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DDF3D24C9B5190056CADF /* NotificationView.swift */; };
+		528DDF4024C9B56E0056CADF /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528DDF3F24C9B56E0056CADF /* NotificationView.xib */; };
+		528DDF4224C9B7340056CADF /* notificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DDF4124C9B7340056CADF /* notificationTableViewCell.swift */; };
+		528DDF4424C9B7410056CADF /* notificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528DDF4324C9B7410056CADF /* notificationTableViewCell.xib */; };
+		529171E124BDBBE20061D893 /* visaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529171E024BDBBE20061D893 /* visaView.xib */; };
+		529171E324BDBBF40061D893 /* visaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529171E224BDBBF40061D893 /* visaView.swift */; };
+		529171E524BDBC6B0061D893 /* visaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529171E424BDBC6B0061D893 /* visaTableViewCell.swift */; };
+		529171E724BDBC740061D893 /* visaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529171E624BDBC740061D893 /* visaTableViewCell.xib */; };
+		529171E924BDBDB10061D893 /* visaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529171E824BDBDB10061D893 /* visaCollectionViewCell.xib */; };
+		529171EB24BDBDBA0061D893 /* visaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529171EA24BDBDBA0061D893 /* visaCollectionViewCell.swift */; };
+		529171ED24BDF6CE0061D893 /* SAIFZONEVisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529171EC24BDF6CE0061D893 /* SAIFZONEVisa.swift */; };
+		529171EF24BDFD430061D893 /* SAIFZONENews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529171EE24BDFD430061D893 /* SAIFZONENews.swift */; };
 		5294C8D0240CEC55008CC363 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8C8240CEC55008CC363 /* TPKeyboardAvoidingTableView.m */; };
 		5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8CB240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		5294C8D2240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294C8CC240CEC55008CC363 /* TPKeyboardAvoidingCollectionView.m */; };
@@ -188,6 +202,8 @@
 		520D58642469560C00F12E1F /* customeSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customeSearchController.swift; sourceTree = "<group>"; };
 		520D58662469C08000F12E1F /* PayFortSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PayFortSDK.bundle; sourceTree = "<group>"; };
 		520D58672469C08100F12E1F /* PayFortSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PayFortSDK.framework; sourceTree = "<group>"; };
+		520E33BF24BCEE8B008FFDD2 /* socialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socialCollectionViewCell.swift; sourceTree = "<group>"; };
+		520E33C124BCEEB4008FFDD2 /* socialCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = socialCollectionViewCell.xib; sourceTree = "<group>"; };
 		521689C0245E4DDD008DA1D4 /* SAIFZONEInvoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONEInvoice.swift; sourceTree = "<group>"; };
 		521689C3245E4E82008DA1D4 /* payInvoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = payInvoiceView.swift; sourceTree = "<group>"; };
 		521689C5245E4EAC008DA1D4 /* payInvoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = payInvoiceView.xib; sourceTree = "<group>"; };
@@ -252,6 +268,18 @@
 		5284551E2435BEA8003339DB /* licenseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = licenseCollectionViewCell.swift; sourceTree = "<group>"; };
 		528455202435BED6003339DB /* licenseCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = licenseCollectionViewCell.xib; sourceTree = "<group>"; };
 		5284E9A0241E2D8C008B853E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		528DDF3D24C9B5190056CADF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		528DDF3F24C9B56E0056CADF /* NotificationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
+		528DDF4124C9B7340056CADF /* notificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationTableViewCell.swift; sourceTree = "<group>"; };
+		528DDF4324C9B7410056CADF /* notificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = notificationTableViewCell.xib; sourceTree = "<group>"; };
+		529171E024BDBBE20061D893 /* visaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = visaView.xib; sourceTree = "<group>"; };
+		529171E224BDBBF40061D893 /* visaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visaView.swift; sourceTree = "<group>"; };
+		529171E424BDBC6B0061D893 /* visaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visaTableViewCell.swift; sourceTree = "<group>"; };
+		529171E624BDBC740061D893 /* visaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = visaTableViewCell.xib; sourceTree = "<group>"; };
+		529171E824BDBDB10061D893 /* visaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = visaCollectionViewCell.xib; sourceTree = "<group>"; };
+		529171EA24BDBDBA0061D893 /* visaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visaCollectionViewCell.swift; sourceTree = "<group>"; };
+		529171EC24BDF6CE0061D893 /* SAIFZONEVisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONEVisa.swift; sourceTree = "<group>"; };
+		529171EE24BDFD430061D893 /* SAIFZONENews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONENews.swift; sourceTree = "<group>"; };
 		5294C8C7240CEC54008CC363 /* SaifZoneNewApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaifZoneNewApplication-Bridging-Header.h"; sourceTree = "<group>"; };
 		5294C8C8240CEC55008CC363 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		5294C8C9240CEC55008CC363 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -275,7 +303,7 @@
 		529E0B4224574DE20053A575 /* statmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = statmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		529E0B4424574E380053A575 /* statmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		529E0B4624574F660053A575 /* SAIFZONEStatment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAIFZONEStatment.swift; sourceTree = "<group>"; };
-		52A9F0D4240CCE0800034389 /* SaifZoneNewApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaifZoneNewApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52A9F0D4240CCE0800034389 /* SAIF ZONE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SAIF ZONE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A9F0D7240CCE0800034389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52A9F0D9240CCE0800034389 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		52A9F0DB240CCE0800034389 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -561,6 +589,30 @@
 			path = license;
 			sourceTree = "<group>";
 		};
+		528DDF3C24C9B4D80056CADF /* notificationView */ = {
+			isa = PBXGroup;
+			children = (
+				528DDF3D24C9B5190056CADF /* NotificationView.swift */,
+				528DDF3F24C9B56E0056CADF /* NotificationView.xib */,
+				528DDF4124C9B7340056CADF /* notificationTableViewCell.swift */,
+				528DDF4324C9B7410056CADF /* notificationTableViewCell.xib */,
+			);
+			path = notificationView;
+			sourceTree = "<group>";
+		};
+		529171DF24BDBB2C0061D893 /* visaView */ = {
+			isa = PBXGroup;
+			children = (
+				529171E024BDBBE20061D893 /* visaView.xib */,
+				529171E224BDBBF40061D893 /* visaView.swift */,
+				529171E424BDBC6B0061D893 /* visaTableViewCell.swift */,
+				529171E624BDBC740061D893 /* visaTableViewCell.xib */,
+				529171E824BDBDB10061D893 /* visaCollectionViewCell.xib */,
+				529171EA24BDBDBA0061D893 /* visaCollectionViewCell.swift */,
+			);
+			path = visaView;
+			sourceTree = "<group>";
+		};
 		5294C8C4240CEC06008CC363 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +644,8 @@
 		5294C8C6240CEC19008CC363 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				528DDF3C24C9B4D80056CADF /* notificationView */,
+				529171DF24BDBB2C0061D893 /* visaView */,
 				527A7D72249E62BF00819CB4 /* auditReportView */,
 				5266F901248CC03B000A7D5F /* ourFacilitiesView */,
 				5266F8F8248CB73D000A7D5F /* ourServicesView */,
@@ -687,7 +741,7 @@
 		52A9F0D5240CCE0800034389 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52A9F0D4240CCE0800034389 /* SaifZoneNewApplication.app */,
+				52A9F0D4240CCE0800034389 /* SAIF ZONE.app */,
 				52A9F0EA240CCE0A00034389 /* SaifZoneNewApplicationTests.xctest */,
 				52A9F0F5240CCE0A00034389 /* SaifZoneNewApplicationUITests.xctest */,
 			);
@@ -755,6 +809,8 @@
 				521F2C3424235E1E0055B74F /* applyServiceCollectionViewCell.xib */,
 				521CEA252446D88300A86175 /* informativeCollectionViewCell.xib */,
 				521CEA272446D88D00A86175 /* informativeCollectionViewCell.swift */,
+				520E33BF24BCEE8B008FFDD2 /* socialCollectionViewCell.swift */,
+				520E33C124BCEEB4008FFDD2 /* socialCollectionViewCell.xib */,
 			);
 			path = customeCells;
 			sourceTree = "<group>";
@@ -886,6 +942,8 @@
 				521689C0245E4DDD008DA1D4 /* SAIFZONEInvoice.swift */,
 				52CE2AA02461DA5E008D2ED8 /* SAIFZONEUserInformation.swift */,
 				527A7D77249E641F00819CB4 /* SAIFZONEAudit.swift */,
+				529171EC24BDF6CE0061D893 /* SAIFZONEVisa.swift */,
+				529171EE24BDFD430061D893 /* SAIFZONENews.swift */,
 			);
 			path = SAIFZONE_user;
 			sourceTree = "<group>";
@@ -932,7 +990,7 @@
 			);
 			name = SaifZoneNewApplication;
 			productName = SaifZoneNewApplication;
-			productReference = 52A9F0D4240CCE0800034389 /* SaifZoneNewApplication.app */;
+			productReference = 52A9F0D4240CCE0800034389 /* SAIF ZONE.app */;
 			productType = "com.apple.product-type.application";
 		};
 		52A9F0E9240CCE0A00034389 /* SaifZoneNewApplicationTests */ = {
@@ -1024,20 +1082,25 @@
 			files = (
 				52742352246DA8730082D749 /* newLicenseView.xib in Resources */,
 				5266F8F5248CB1C3000A7D5F /* aboutUsCollectionCell.xib in Resources */,
+				529171E924BDBDB10061D893 /* visaCollectionViewCell.xib in Resources */,
 				528455212435BED6003339DB /* licenseCollectionViewCell.xib in Resources */,
 				52C049FF24164026001461C7 /* serviceMainCollectionViewCell.xib in Resources */,
+				529171E724BDBC740061D893 /* visaTableViewCell.xib in Resources */,
 				529E0B4324574DE20053A575 /* statmentCollectionViewCell.xib in Resources */,
 				521CEA262446D88300A86175 /* informativeCollectionViewCell.xib in Resources */,
 				5266F905248CC05E000A7D5F /* ourFacilitiesView.xib in Resources */,
 				5266F8FC248CB758000A7D5F /* ourServicesView.xib in Resources */,
+				528DDF4424C9B7410056CADF /* notificationTableViewCell.xib in Resources */,
 				52A9F0E4240CCE0A00034389 /* LaunchScreen.storyboard in Resources */,
 				5266F900248CB773000A7D5F /* ourServiceCollectionCell.xib in Resources */,
 				527A7D7A249E657600819CB4 /* auditTableviewCell.xib in Resources */,
+				528DDF4024C9B56E0056CADF /* NotificationView.xib in Resources */,
 				52BB2EC4242748910015C63B /* terms.json in Resources */,
 				521689C6245E4EAC008DA1D4 /* payInvoiceView.xib in Resources */,
 				528455172435B60C003339DB /* requestCollectionViewCell.xib in Resources */,
 				5266F8F3248CB0A5000A7D5F /* aboutUsView.xib in Resources */,
 				52742354246DC5310082D749 /* statmentHeaderView.xib in Resources */,
+				529171E124BDBBE20061D893 /* visaView.xib in Resources */,
 				524C6C97245DE5AB009262CF /* reqDocumentsView.xib in Resources */,
 				529E0B4024573FC60053A575 /* WWCalendarTimeSelector.storyboard in Resources */,
 				520981E124502857004303E3 /* licenseDetailsView.xib in Resources */,
@@ -1053,6 +1116,7 @@
 				520D585F246947AD00F12E1F /* requestsView.xib in Resources */,
 				52BB2ECB242749080015C63B /* AppTableViewCell.xib in Resources */,
 				52A9F0DF240CCE0800034389 /* Main.storyboard in Resources */,
+				520E33C224BCEEB4008FFDD2 /* socialCollectionViewCell.xib in Resources */,
 				52ABC82C2414FDFB00402709 /* ServiceCollectionViewCell.xib in Resources */,
 				524C6C9E245DE990009262CF /* reqDocumentCell.xib in Resources */,
 			);
@@ -1165,6 +1229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528DDF4224C9B7340056CADF /* notificationTableViewCell.swift in Sources */,
 				52BB2EC1242748670015C63B /* ReusableCells.swift in Sources */,
 				529E0B3A2456EE620053A575 /* Int+Timepiece.swift in Sources */,
 				52A9F0DC240CCE0800034389 /* ViewController.swift in Sources */,
@@ -1188,6 +1253,7 @@
 				529E0B2F2456ECEC0053A575 /* filterPageViewwController.swift in Sources */,
 				5274234A246B42C60082D749 /* ModernSearchBar.swift in Sources */,
 				5266F8F1248CB09B000A7D5F /* aboutUsView.swift in Sources */,
+				529171E324BDBBF40061D893 /* visaView.swift in Sources */,
 				52DF5E92241E069B0063C792 /* Utils.swift in Sources */,
 				52D1DAB72417913F0079E20E /* SettingsViewController.swift in Sources */,
 				52BB2EA6242745EC0015C63B /* SuggestedTermTableViewCell.swift in Sources */,
@@ -1195,7 +1261,9 @@
 				520981E3245028C0004303E3 /* licenseDetailsView.swift in Sources */,
 				5294C8D1240CEC55008CC363 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				5266F8F7248CB1DC000A7D5F /* aboutUsCollectionCell.swift in Sources */,
+				529171E524BDBC6B0061D893 /* visaTableViewCell.swift in Sources */,
 				527A7D74249E62E500819CB4 /* auditReportView.swift in Sources */,
+				529171EF24BDFD430061D893 /* SAIFZONENews.swift in Sources */,
 				52BB2EBC242748150015C63B /* Term.swift in Sources */,
 				52DF5E8B241DFB850063C792 /* RequestResponseWebServices.swift in Sources */,
 				52671B032421D54C006A6218 /* RegisterViewController.swift in Sources */,
@@ -1206,6 +1274,7 @@
 				52DF5E90241DFF2E0063C792 /* SAIFZONEUser.swift in Sources */,
 				52742350246DA8420082D749 /* newLicenseView.swift in Sources */,
 				52671AFF2421D52D006A6218 /* LicenseViewController.swift in Sources */,
+				520E33C024BCEE8B008FFDD2 /* socialCollectionViewCell.swift in Sources */,
 				523C3EEF245208850061E026 /* profileView.swift in Sources */,
 				521CEA282446D88D00A86175 /* informativeCollectionViewCell.swift in Sources */,
 				52CD43212469FFA10095889B /* newStatmentTableViewCell.swift in Sources */,
@@ -1227,6 +1296,7 @@
 				524EC6F1240FA21600C8C0C5 /* childNotificationCollectionViewCell.swift in Sources */,
 				52C049F024163079001461C7 /* PayfortSdkToken.swift in Sources */,
 				5266F8FA248CB74F000A7D5F /* ourServicesView.swift in Sources */,
+				529171EB24BDBDBA0061D893 /* visaCollectionViewCell.swift in Sources */,
 				52BB2EBE242748150015C63B /* App.swift in Sources */,
 				52323FCD2431ED080017697E /* aboutUsDetailsViewController.swift in Sources */,
 				529E0B3B2456EE620053A575 /* WWCalendarTimeSelector.swift in Sources */,
@@ -1244,6 +1314,7 @@
 				52C04A0224164A78001461C7 /* TabbarController.swift in Sources */,
 				52A9F109240CD1D200034389 /* loginPageViewController.swift in Sources */,
 				52BB2EB3242746FD0015C63B /* AutoLayoutHelper.swift in Sources */,
+				529171ED24BDF6CE0061D893 /* SAIFZONEVisa.swift in Sources */,
 				52A9F0D8240CCE0800034389 /* AppDelegate.swift in Sources */,
 				52BB2EBD242748150015C63B /* SearchType.swift in Sources */,
 				529E0B382456EE610053A575 /* NSDateComponents+Timepiece.swift in Sources */,
@@ -1266,6 +1337,7 @@
 				52ABC82E2414FE0900402709 /* ServiceCollectionViewCell.swift in Sources */,
 				52BB2EA5242745EC0015C63B /* SuggestedTermsTableViewController.swift in Sources */,
 				520D5863246952C700F12E1F /* customeSearchBar.swift in Sources */,
+				528DDF3E24C9B5190056CADF /* NotificationView.swift in Sources */,
 				527A7D7C249E658200819CB4 /* auditTableviewCell.swift in Sources */,
 				529E0B2D2456E4CB0053A575 /* statmentOfAccountViewController.swift in Sources */,
 				521F2C3324235E100055B74F /* applyServiceCollectionViewCell.swift in Sources */,
@@ -1450,7 +1522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = BZSB59QTTY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1462,8 +1534,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.datacellme.SaifZoneNew;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SAIF ZONE";
 				SWIFT_OBJC_BRIDGING_HEADER = "SaifZoneNewApplication/View/SaifZoneNewApplication-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1478,7 +1551,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = BZSB59QTTY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1490,8 +1563,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.datacellme.SaifZoneNew;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SAIF ZONE";
 				SWIFT_OBJC_BRIDGING_HEADER = "SaifZoneNewApplication/View/SaifZoneNewApplication-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

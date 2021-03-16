@@ -54,7 +54,7 @@ class OTPVerifyViewController: UIViewController {
             //self.view.isUserInteractionEnabled = false
             
         }
-        WebService.sendOTP(mobile_no: "971568266100") { (json) in
+        WebService.sendOTP(mobile_no: company?.sms_mobile_no ?? "") { (json) in
             DispatchQueue.main.async {
             
                 guard Utilities().isInternetAvailable() == true else{

@@ -51,7 +51,8 @@ class SAIFZONEDraftRequest: NSObject {
     var application_caption: String = ""
     var app_description: String = ""
     var row_color: String = ""
-   
+    var EditLink: String = ""
+    
     
 }
 

@@ -51,6 +51,10 @@ class newStatmentOfAccountViewController: UIViewController ,loadStatmentsForDate
         downloadStatmentButton.layer.masksToBounds = true
         
         
+        payInvoiceButton.layer.cornerRadius = 20
+        payInvoiceButton.layer.masksToBounds = true
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -271,7 +275,7 @@ class newStatmentOfAccountViewController: UIViewController ,loadStatmentsForDate
                     Downloader.load(filePath: destination, viewController: self, url: fileUrl) { (data) in
                         
                         DispatchQueue.main.async {
-                            Utils.showAlertWith(title: "Success", message: "the file has been downloaded ,you can see it in files application", viewController: self)
+                            Utils.showAlertWith(title: "Success", message: "the file has been downloaded ,you can find the file in Saifzone folder", viewController: self)
                         }
                         
                     }
@@ -322,7 +326,7 @@ class newStatmentOfAccountViewController: UIViewController ,loadStatmentsForDate
                     Downloader.load(filePath: destination, viewController: self, url: fileUrl) { (data) in
                         
                         DispatchQueue.main.async {
-                            Utils.showAlertWith(title: "Success", message: "the file has been downloaded ,you can see it in files application", viewController: self)
+                            Utils.showAlertWith(title: "Success", message: "the file has been downloaded ,you can find the file in Saifzone folder", viewController: self)
                         }
                         
                     }
@@ -336,6 +340,9 @@ class newStatmentOfAccountViewController: UIViewController ,loadStatmentsForDate
             let dest = segue.destination as! filterPageViewwController
             dest.delegate = self
             
+        }else if segue.identifier == "toWeb2" {
+            let dest = segue.destination as! newWebPageViewController
+            dest.webUrlString = "/default.aspx?PageId=23"
         }
     }
 }

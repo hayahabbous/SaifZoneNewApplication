@@ -185,7 +185,67 @@ class loginView: UIView {
             UserDefaults.standard.set("true", forKey: "autoLogin")
             
             self.tryForLogin()
+            self.getUserInformation()
         }
+        
+        
+        
+    }
+    
+    func getUserInformation() {
+        
+        
+        guard Utilities().isInternetAvailable() == true else{
+            Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self.viewController)
+            return
+        }
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(self.viewController.activityData)
+        
+        WebService.getUserInformation { (json) in
+            
+            print(json)
+            DispatchQueue.main.async {
+                   
+                    
+            guard Utilities().isInternetAvailable() == true else{
+            
+                //Utilities().showAlert(message: "Please check internet connetion", isRefresh : false,actionMessage : "OK", controller: self)
+                
+                return
+                
+            }
+                      
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+            
+            
+            guard let userList = json["userList"] as? [[String:Any]] else {return}
+            guard let licenseDetails = json["licenseDetails"] as? [[String:Any]] else {return}
+            
+            
+            for obj in userList {
+                
+                var item = SAIFZONEUserInformation()
+                
+                
+              
+                
+                
+                for o in licenseDetails {
+                    item.companyCode = String(describing: o["ACC_CODE"] ?? "")
+                }
+                
+                AppConstants.CompanyCode = item.companyCode
+                
+                UserDefaults.standard.set(item.companyCode, forKey: "companyCode")
+                
+
+            }
+        }
+        
+        
+        
+        
     }
     
     

@@ -37,7 +37,7 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
     @IBAction func backButoonAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+    var downloadDelegate: downloadLicense!
     @IBOutlet var navViewHeight: NSLayoutConstraint!
     var hePay: Bool = false
     var delegate: loadTableDelegate!
@@ -55,7 +55,7 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
     var selectedMainService: SAIFZONEMainService = SAIFZONEMainService()
     //var popvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "progressPopUp") as! ProgressPopUp
     let payFort = PayFortController.init(enviroment: KPayFortEnviromentProduction)
-    
+    var webType: String = ""
     
     
     // var Url : String = "http://mportal.saif-zone.com/"
@@ -139,6 +139,8 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
         
         NotificationCenter.default.addObserver(self, selector: Selector(("reloadData:")), name: NSNotification.Name(rawValue: "reloadView"), object: nil)
       
+        
+        getData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -172,7 +174,7 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        getData()
+        
         
     }
     
@@ -238,7 +240,7 @@ class webViewController : UIViewController, WKNavigationDelegate , openURLDelega
   */
             //https://devdp.saif-zone.com/*/
 
-        }else if clickedUrl == "https://devdpm.saif-zone.com/default.aspx" {
+        }else if clickedUrl.uppercased().hasSuffix("/DEFAULT.ASPX") {
             self.navigationController?.popViewController(animated: true)
         }
         /*
@@ -649,11 +651,37 @@ extension webViewController {
                         UserDefaults.standard.set("true", forKey: "autoLogin")
                          
                    
+                        if (self.webType == "download"){
+                            
+                            
+                             UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)LicenseFile.aspx?TokenID=\(user?.DToken ?? "")&LicenseNo=\(self.selectedServiceURL ?? "")" ,forKey: "URL")
+                             
+                            var urlString = "\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)LicenseFile.aspx?TokenID=\(user?.DToken ?? "")&LicenseNo=\(self.selectedServiceURL ?? "")"
+                             
+                             //UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")" ,forKey: "URL")
+                             
+                             print("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)LicenseFile.aspx?TokenID=\(user?.DToken ?? "")&LicenseNo=\(self.selectedServiceURL ?? "")")
+                            
+                            
+                            self.dismiss(animated: true) {
+                                self.downloadDelegate.downloadLicence(url: urlString)
+                                
+                                return
+                            }
+                        }else{
+                            UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=\(String(describing: self.selectedServiceURL ?? ""))" ,forKey: "URL")
+                             
+                            
+                             
+                             //UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")" ,forKey: "URL")
+                             
+                             print("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=\(self.selectedServiceURL ?? "")")
+                            
+                            
+                            self.getData()
+                        }
                         
-                        UserDefaults.standard.set("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=\(String(describing: self.selectedServiceURL ?? ""))" ,forKey: "URL")
                         
-                        print("\(AppConstants.WEB_BASIC_URL_TEST_CONSUME_TOKEN)ConsumeToken.aspx?TokenID=\(user?.DToken ?? "")&ReturnURL=\(self.selectedServiceURL ?? "")")
-                        self.getData()
                         
                         /*
                         if self.selectedServiceURL != nil {
@@ -956,10 +984,13 @@ extension webViewController {
             }
             if (error != nil) {
                 
+                
+                //self.appleFunction(amount: "0", description: "PaymentDescription")
                 print(error?.localizedDescription as Any)
             } else {
                 do {
-                     let jsondata = try? JSON(data: responseData!)
+                     
+                    let jsondata = try? JSON(data: responseData!)
                     
                     print(jsondata ?? "")
                     let jsonArray = jsondata?.array
